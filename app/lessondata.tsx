@@ -1,13 +1,16 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-export default function Data({ length }: { length: number }) {
-  return (
+export default function Data() {
+  return;
+
+  <View>
+    <Text>My Lessons</Text>
     <View>
-      <Text>Number of Lesson: {length}</Text>
-      <Text>Number of different students:</Text>
-      <Text>Number of Hour worked: </Text>
-      <Text>Number of Hour worked: </Text>
+      <Text>Margot Feazel</Text>
+      <Text>Friday 13th</Text>
+      <Text>Feld Park</Text>
+      <Text>Lesson Note:</Text>
     </View>
-  );
+  </View>;
 }
