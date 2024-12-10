@@ -9,7 +9,6 @@ import {
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import Entypo from "@expo/vector-icons/Entypo";
-import FormFields from "./FormFields";
 import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 export default function subLesson() {

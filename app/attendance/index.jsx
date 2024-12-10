@@ -59,6 +59,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#f9f9f9",
     borderColor: "#ccc",
     aontSize: 16,
-    placeholderTextColor: "white",
   },
 });
