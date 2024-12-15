@@ -1,45 +1,29 @@
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Drawer } from "expo-router/drawer";
-import { useFonts } from "expo-font";
-import { useEffect } from "react";
-import { SplashScreen } from "expo-router";
+import { Stack } from "expo-router";
 import "../global.css";
+import { tokenCache } from "@/cache";
+
+import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
+import * as SecureStore from "expo-secure-store";
+
 export default function Layout() {
-  const [fontsLoaded, error] = useFonts({
-    Inter: require("../assets/fonts/intermilan.ttf"),
-  });
-  SplashScreen.preventAutoHideAsync();
-  useEffect(() => {
-    if (error) throw error;
-
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, error]);
-
-  if (!fontsLoaded) {
-    return null;
+  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
+  if (!publishableKey) {
+    throw new Error(
+      "Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env"
+    );
   }
 
-  if (!fontsLoaded && !error) {
-    return null;
-  }
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Drawer.Screen
-          name="index"
-          options={{
-            drawerLabel: "Home",
-            title: "overview",
+    <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
+      <ClerkLoaded>
+        <Stack
+          screenOptions={{
             headerShown: false,
           }}
-        />
-      </Drawer>
-    </GestureHandlerRootView>
+        >
+          <Stack.Screen name="(root)" />
+        </Stack>
+      </ClerkLoaded>
+    </ClerkProvider>
   );
 }

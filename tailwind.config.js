@@ -7,9 +7,9 @@ module.exports = {
     extend: {
       colors: {
         textColor: "#CFD5D3",
-        textColor1: "#227B94",
-        bgTest: "#F3F3E0",
         bgColor: "#10172A",
+        boxColor: "#1d293b",
+        borderColor: "#2d374b",
       },
     },
   },
