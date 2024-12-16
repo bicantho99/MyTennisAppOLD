@@ -22,6 +22,12 @@ export default function Layout() {
           }}
         >
           <Stack.Screen name="(root)" />
+          <Stack.Screen
+            name="(auth)/sign-up"
+            options={{
+              presentation: "modal",
+            }}
+          />
         </Stack>
       </ClerkLoaded>
     </ClerkProvider>
