@@ -93,6 +93,7 @@ export default function HomeScreen() {
               name="user-circle-o"
               size={24}
               color="gray"
+              
               className="mt-5"
             />
           </TouchableOpacity> */}
