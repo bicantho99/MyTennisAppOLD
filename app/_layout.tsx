@@ -28,6 +28,12 @@ export default function Layout() {
               presentation: "modal",
             }}
           />
+          <Stack.Screen
+            name="(sub)/warmup"
+            options={{
+              presentation: "modal",
+            }}
+          />
         </Stack>
       </ClerkLoaded>
     </ClerkProvider>
