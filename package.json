@@ -17,6 +17,8 @@
   "dependencies": {
     "@clerk/clerk-expo": "^2.6.1",
     "@clerk/types": "^4.39.4",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.3.0",
     "@expo/vector-icons": "^14.0.2",
     "@gorhom/bottom-sheet": "^5.0.6",
     "@react-native-community/checkbox": "^0.5.17",
@@ -38,6 +40,7 @@
     "expo-symbols": "~0.2.0",
     "expo-system-ui": "~4.0.4",
     "expo-web-browser": "~14.0.1",
+    "lottie-react-native": "^7.1.0",
     "nativewind": "^4.1.23",
     "react": "18.3.1",
     "react-dom": "18.3.1",

@@ -20,65 +20,31 @@ const Profile = () => {
         <ScrollView>
           <View className="mx-10 gap-6">
             <Text className="text-start text-textColor text-3xl font-medium p-2">
-              Plays
+              Fitness
             </Text>
             <View className="slide-group flex-row gap-2">
-              <View className="slide bg-white w-[33%] h-[120px] rounded-[18px]">
-                <Text className="text-center pt-2">Forehand</Text>
+              <View className="slide bg-pink-500 w-[33%] h-[120px] rounded-[18px]">
+                <Text className="text-center pt-2">Play Patterns</Text>
               </View>
               <View className="slide bg-white w-[33%] h-[120px] rounded-[18px]">
                 <Text className="text-center pt-2">Backhand</Text>
               </View>
-              <View className="slide bg-white w-[33%] h-[120px] rounded-[18px]">
+              <View className="slide bg-blue-400 w-[33%] h-[120px] rounded-[18px]">
                 <Text className="text-center pt-2">Serve</Text>
               </View>
             </View>
           </View>
-
-          <View className="secondsection mx-10">
-            <Text className="text-textColor">Massive angler</Text>
-            <Text className="text-textColor">The consistent</Text>
-            <Text className="text-textColor">Forehand Net Rules</Text>
-            <Text className="text-textColor">Heavy rallying without net</Text>
+          <View className="main_content">
+            <View className="text-group border-green-500 border">
+              <Text className="text-textColor">
+                Slice then look for a Forehand
+              </Text>
+              <Text className="text-textColor">
+                The idea is to hit a good slice then opponent pick it up and the
+                return ball in your strike range
+              </Text>
+            </View>
           </View>
-          <View className="secondsection mx-10">
-            <Text className="text-textColor">Massive angler</Text>
-            <Text className="text-textColor">The consistent</Text>
-            <Text className="text-textColor">Forehand Net Rules</Text>
-            <Text className="text-textColor">Heavy rallying without net</Text>
-          </View>
-          <View className="secondsection mx-10">
-            <Text className="text-textColor">Massive angler</Text>
-            <Text className="text-textColor">The consistent</Text>
-            <Text className="text-textColor">Forehand Net Rules</Text>
-            <Text className="text-textColor">Heavy rallying without net</Text>
-          </View>
-          <View className="secondsection mx-10">
-            <Text className="text-textColor">Massive angler</Text>
-            <Text className="text-textColor">The consistent</Text>
-          </View>
-          <View className="secondsection mx-10">
-            <Text className="text-textColor">Massive angler</Text>
-            <Text className="text-textColor">The consistent</Text>
-          </View>
-          <View className="secondsection mx-10">
-            <Text className="text-textColor">Massive angler</Text>
-            <Text className="text-textColor">The consistent</Text>
-          </View>
-          <View className="secondsection mx-10">
-            <Text className="text-textColor">Massive angler</Text>
-            <Text className="text-textColor">The consistent</Text>
-          </View>
-          <TextInput
-            placeholder="hey"
-            placeholderTextColor="white"
-            style={{
-              marginBottom: 20,
-              padding: 10,
-              backgroundColor: "#333",
-              color: "#fff",
-            }}
-          />
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>

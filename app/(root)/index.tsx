@@ -11,19 +11,19 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  FlatList,
 } from "react-native";
-
+import AntDesign from "@expo/vector-icons/AntDesign";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { ProgressBar, MD3Colors } from "react-native-paper";
+import { ProgressBar, MD3Colors, Checkbox } from "react-native-paper";
 import { SignedIn, useClerk, useUser, useOAuth } from "@clerk/clerk-expo";
 import Feather from "@expo/vector-icons/Feather";
 import * as Linking from "expo-linking";
 import * as WebBrowser from "expo-web-browser";
-import AntDesign from "@expo/vector-icons/AntDesign";
 
 export const useWarmUpBrowser = () => {
   React.useEffect(() => {
@@ -117,7 +117,7 @@ export default function HomeScreen() {
         <ScrollView>
           <View className="flex-col gap-8 mx-10 ">
             <StatusBar style="light" />
-            <View className="flex-row justify-between">
+            {/* <View className="HEADER_SECTION flex-row justify-between">
               {user ? (
                 <Text className="color-textColor text-lg font-medium mt-5">
                   <Text style={{ color: "#16bcfe" }}>Welcome</Text>,{" "}
@@ -135,134 +135,75 @@ export default function HomeScreen() {
                   <Text className="text-textColor mt-[20px]">Sign Out</Text>
                 </TouchableOpacity>
               </SignedIn>
-            </View>
-            <View className="flex-row gap-5">
-              {days.map((item, index) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => setActiveIndex(index)}
-                  className={`w-11 flex items-center p-1 h-16 justify-center rounded-md gap-[3px] ${
-                    activeIndex === index ? "bg-[#16bcfe]" : "bg-white"
-                  }`}
-                >
-                  <Text>{item.day}</Text>
-                  <Text>{item.label}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
+            </View> */}
 
-            <View className="flex-col gap-6">
-              <View className="activity-group flex-row  justify-between">
-                <Text className="text-[#3683f9] font-semibold text-lg">
-                  Today's Activity
+            <Text className="text-textColor font-extrabold text-[25px] mt-7">
+              Choose Your Training
+            </Text>
+            <View className="flex-row gap-5 justify-between ">
+              <View className="flex-col w-1/2 gap-3">
+                <View className="bg-blue-300   rounded-md">
+                  <Text className=" p-4 font-medium">Forehand</Text>
+                </View>
+                <View className="bg-blue-300  rounded-md ">
+                  <Text className=" p-4 font-medium">Backhand</Text>
+                </View>
+              </View>
+              <View className="flex-col w-1/2 gap-3">
+                <View className="bg-blue-300  rounded-md ">
+                  <Text className="p-4 font-medium">Serve</Text>
+                </View>
+                <View className="bg-blue-300 rounded-md flex-row justify-between">
+                  <Text className="p-4 font-medium text-[14px]">Fitness</Text>
+                  {/* <AntDesign
+                    name="rightcircle"
+                    size={19}
+                    color="black"
+                    className="p-4"
+                  /> */}
+                </View>
+              </View>
+            </View>
+            <Text className="text-textColor font-extrabold text-[25px] ">
+              Today's Training
+            </Text>
+            <View className="Edit_Group">
+              {/* <Text className="text-textColor  mb-5">
+                Configure your practice
+              </Text> */}
+              <View className="practice-box bg-[#1d293b] rounded-lg gap-3 pt-2 ">
+                <View className="p-3 header border-b-2 border-cyan-400 flex-row justify-between">
+                  <Text className=" text-textColor font-bold ml-2">
+                    Warm Up
+                  </Text>
+                  <Text className="text-textColor mr-3">Edit</Text>
+                </View>
+                <View className="p-3 flex-row gap-1">
+                  <Text className="text-pink-400">1.</Text>
+                  <Text className="text-textColor"> Mini Tennis</Text>
+                </View>
+              </View>
+            </View>
+            <View className="practice-box bg-[#1d293b] rounded-lg gap-3 pt-2 ">
+              <View className="p-3 header border-b-2 border-cyan-400 flex-row justify-between">
+                <Text className=" text-textColor font-bold ml-2">
+                  Main Drills
                 </Text>
+                <Text className="text-textColor mr-3">Edit</Text>
               </View>
-              <View className="drill-column">
-                <View className="headerRow flex-row justify-between items-center w-full">
-                  <View className="flex-row gap-4 items-center">
-                    <View className="bg-gray-600 p-[4px] px-[9px] rounded-md w-8 h-8 justify-center items-center">
-                      <Text className="text-textColor">1</Text>
-                    </View>
-                    <Text className="text-textColor font-medium text-[15px] ">
-                      Warm Up
-                    </Text>
-                  </View>
-                  <Feather
-                    name="edit"
-                    size={15}
-                    color="white"
-                    className="mb-2"
-                  />
-                </View>
-                <View className="flex-col mt-2 gap-3">
-                  <Text className="text-textColor ml-12  font-extralight">
-                    Mini tennis
-                  </Text>
-                  <Text className="text-textColor ml-12  font-extralight">
-                    25 balls middle/cross-court FH/BH
-                  </Text>
-                </View>
+              <View className="p-3 flex-row gap-1">
+                <Text className="text-pink-400">1.</Text>
+                <Text className="text-textColor"> Mini Tennis</Text>
               </View>
-              <View className="drill-column">
-                <View className="flex-row gap-4">
-                  <View className="bg-gray-600 p-[4px] px-[9px] rounded-md w-8 h-8 justify-center items-center">
-                    <Text className="text-textColor">2</Text>
-                  </View>
-                  <Text className="text-textColor pt-[2px] font-medium text-[15px] mt-1">
-                    Main Drills
-                  </Text>
-                </View>
-                <View>
-                  <Text className="text-textColor ml-12 mt-3.5 font-extralight">
-                    25 balls{" "}
-                    <Text className="text-white font-light">
-                      middle/cross-court{" "}
-                    </Text>
-                    FH/BH
-                  </Text>
-                </View>
+            </View>
+            <View className="practice-box bg-[#1d293b] rounded-lg gap-3 pt-2 ">
+              <View className="p-3 header border-b-2 border-cyan-400 flex-row justify-between">
+                <Text className=" text-textColor font-bold ml-2">Fitness</Text>
+                <Text className="text-textColor mr-3">Edit</Text>
               </View>
-              <View className="drill-column">
-                <View className="headerRow flex-row justify-between items-center w-full">
-                  <View className="flex-row gap-4 items-center">
-                    <View className="bg-gray-600 p-[r4px] px-[9px] rounded-md w-8 h-8 justify-center items-center">
-                      <Text className="text-textColor">1</Text>
-                    </View>
-                    <Text className="text-textColor font-medium text-[15px] ">
-                      Fitness
-                    </Text>
-                  </View>
-                  <TouchableOpacity onPress={() => toggleEdit("fitness")}>
-                    <Feather
-                      name="edit"
-                      size={15}
-                      color="white"
-                      className="mb-2"
-                    />
-                  </TouchableOpacity>
-                </View>
-                <View className="fitnessContent">
-                  {testDATA.map((item, index) => (
-                    <View className="flex-row justify-between" key={index}>
-                      <Text className="text-textColor ml-12 mt-3.5 font-extralight">
-                        {item}
-                      </Text>
-                      {editMode.fitness ? (
-                        <TouchableOpacity onPress={() => handleRemove(index)}>
-                          <AntDesign name="minus" size={20} color="gray" />
-                        </TouchableOpacity>
-                      ) : (
-                        ""
-                      )}
-                    </View>
-                  ))}
-
-                  {editMode.fitness ? (
-                    <View className="AddingSection flex-row mt-5 justify-between">
-                      <TextInput
-                        placeholder="Add workout"
-                        value={newWorkout}
-                        onChangeText={setNewWorkout}
-                        // keyboardType="default"
-                        className="border w-[65%] border-white ml-12 p-[5px] text-textColor rounded-md"
-                        placeholderTextColor={"white"}
-                      />
-                      <TouchableOpacity onPress={handleAddWorkout}>
-                        <Text className="text-textColor mt-1 font-medium">
-                          Add
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-                  ) : (
-                    ""
-                  )}
-                </View>
-              </View>
-              {/* end of first main */}
-              <View className="activity-group flex-row  justify-between">
-                <Text className="text-[#3683f9] font-semibold text-lg">
-                  Add Practice
-                </Text>
+              <View className="p-3 flex-row gap-1">
+                <Text className="text-pink-400">1.</Text>
+                <Text className="text-textColor"> Mini Tennis</Text>
               </View>
             </View>
           </View>
