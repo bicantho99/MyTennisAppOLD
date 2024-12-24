@@ -1,29 +1,23 @@
 import {
-  View,
-  Text,
-  TextInput,
-  Button,
   StyleSheet,
+  Text,
+  View,
   SafeAreaView,
-  TouchableOpacity,
-  Pressable,
-  Modal,
+  TextInput,
+  ScrollView,
   KeyboardAvoidingView,
   Platform,
-  ScrollView,
-  FlatList,
+  Button,
+  TouchableOpacity,
+  Image,
 } from "react-native";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import { LinearGradient } from "expo-linear-gradient";
-import Entypo from "@expo/vector-icons/Entypo";
+import React, { useEffect, useState } from "react";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import { Link } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { ProgressBar, MD3Colors, Checkbox } from "react-native-paper";
-import { SignedIn, useClerk, useUser, useOAuth } from "@clerk/clerk-expo";
 import Feather from "@expo/vector-icons/Feather";
-import * as Linking from "expo-linking";
+import { SignedIn, useOAuth, useUser, useClerk } from "@clerk/clerk-expo";
 import * as WebBrowser from "expo-web-browser";
+import * as Linking from "expo-linking";
 
 export const useWarmUpBrowser = () => {
   React.useEffect(() => {
@@ -36,20 +30,15 @@ export const useWarmUpBrowser = () => {
 
 WebBrowser.maybeCompleteAuthSession();
 
-export default function HomeScreen() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const days = [
-    { day: 16, label: "Thur" },
-    { day: 17, label: "Fri" },
-    { day: 18, label: "Sat" },
-    { day: 19, label: "Sun" },
-    { day: 20, label: "Mon" },
-    { day: 21, label: "Tue" },
-  ];
+const Profile = () => {
+  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
   useWarmUpBrowser();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [toggle, setToggle] = useState(true);
+
   const { user } = useUser();
   const { signOut } = useClerk();
+
   const handleSignOut = async () => {
     try {
       await signOut();
@@ -58,7 +47,14 @@ export default function HomeScreen() {
       console.error(JSON.stringify(err, null, 2));
     }
   };
-  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+  const days = [
+    { day: 16, label: "Thur" },
+    { day: 17, label: "Fri" },
+    { day: 18, label: "Sat" },
+    { day: 19, label: "Sun" },
+    { day: 20, label: "Mon" },
+    { day: 21, label: "Tue" },
+  ];
 
   const onPress = React.useCallback(async () => {
     try {
@@ -67,57 +63,23 @@ export default function HomeScreen() {
           redirectUrl: Linking.createURL("/(root)", { scheme: "myapp" }),
         });
 
-      // If sign in was successful, set the active session
       if (createdSessionId) {
         setActive!({ session: createdSessionId });
       } else {
-        // Use signIn or signUp returned from startOAuthFlow
-        // for next steps, such as MFA
       }
     } catch (err) {
-      // See https://clerk.com/docs/custom-flows/error-handling
-      // for more info on error handling
       console.error(JSON.stringify(err, null, 2));
     }
   }, []);
 
-  const [testDATA, setTestDATA] = useState([
-    "Mini Tennis",
-    "25 Balls middle/cross FH/BH",
-  ]);
-  const [newWorkout, setNewWorkout] = useState("");
-  const handleAddWorkout = () => {
-    if (newWorkout.trim()) {
-      setTestDATA([...testDATA, newWorkout]);
-      setNewWorkout(""); // Clear the input field
-    }
-  };
-  const handleRemove = (RIndex: number): void => {
-    setTestDATA(testDATA.filter((_, index) => index !== RIndex));
-  };
-
-  const [editMode, setEditMode] = useState({
-    warmup: false,
-    maindrill: false,
-    fitness: false,
-  });
-  type Section = "warmup" | "maindrill" | "fitness";
-  const toggleEdit = (section: Section): void => {
-    setEditMode((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
-  };
-
   return (
-    <SafeAreaView className="flex-1 bg-bgColor">
+    <SafeAreaView className="bg-bgColor flex-1 flex-col gap-8 ">
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <ScrollView>
-          <View className="flex-col gap-8 mx-10 ">
-            <StatusBar style="light" />
-            {/* <View className="HEADER_SECTION flex-row justify-between">
+          <View className="mx-10 gap-6 pb-9">
+            <View className="flex-row justify-between">
               {user ? (
                 <Text className="color-textColor text-lg font-medium mt-5">
                   <Text style={{ color: "#16bcfe" }}>Welcome</Text>,{" "}
@@ -135,80 +97,84 @@ export default function HomeScreen() {
                   <Text className="text-textColor mt-[20px]">Sign Out</Text>
                 </TouchableOpacity>
               </SignedIn>
-            </View> */}
+            </View>
+            <View className="mt-4 flex-row gap-5">
+              {days.map((item, index) => (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => setActiveIndex(index)}
+                  className={`w-11 flex items-center p-1 h-16 justify-center rounded-md gap-[3px] ${
+                    activeIndex === index ? "bg-[#16bcfe]" : "bg-white"
+                  }`}
+                >
+                  <Text>{item.day}</Text>
+                  <Text>{item.label}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            <View className="flex-row justify-between">
+              <Text className="text-start text-textColor text-3xl font-medium p-2">
+                Training
+              </Text>
+              <Link href="/(sub)/warmup" className="text-textColor" asChild>
+                <TouchableOpacity>
+                  <Text className="text-textColor mt-4">See More </Text>
+                </TouchableOpacity>
+              </Link>
+            </View>
+            {toggle ? (
+              <View className="gap-6">
+                <View className="practice-box bg-[#1d293b] rounded-lg gap-3 pt-2 ">
+                  <View className="p-3 header border-b-2 border-cyan-400 flex-row  justify-between">
+                    <Text className=" text-textColor font-bold ml-2">
+                      GroundStroke
+                    </Text>
+                    <Text className="text-textColor mr-3">35 Minutes</Text>
+                  </View>
+                  <View className="p-3 flex-col gap-1">
+                    <Text className="text-textColor">Mini tennis warm up</Text>
+                    <Text className="text-textColor">
+                      Forehand cross angle Deuce/Ads
+                    </Text>
+                    <Text className="text-textColor">Forehand Drop Shot</Text>
+                    <Text className="text-textColor">Forehand winner</Text>
+                  </View>
+                </View>
+              </View>
+            ) : (
+              <View className="NO justify-center flex items-center gap-2">
+                <Link href="/(sub)/warmup" className="text-textColor" asChild>
+                  <TouchableOpacity>
+                    <FontAwesome6
+                      name="notes-medical"
+                      size={26}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                </Link>
 
-            <Text className="text-textColor font-extrabold text-[25px] mt-7">
-              Choose Your Training
-            </Text>
-            <View className="flex-row gap-5 justify-between ">
-              <View className="flex-col w-1/2 gap-3">
-                <View className="bg-blue-300   rounded-md">
-                  <Text className=" p-4 font-medium">Forehand</Text>
-                </View>
-                <View className="bg-blue-300  rounded-md ">
-                  <Text className=" p-4 font-medium">Backhand</Text>
-                </View>
-              </View>
-              <View className="flex-col w-1/2 gap-3">
-                <View className="bg-blue-300  rounded-md ">
-                  <Text className="p-4 font-medium">Serve</Text>
-                </View>
-                <View className="bg-blue-300 rounded-md flex-row justify-between">
-                  <Text className="p-4 font-medium text-[14px]">Fitness</Text>
-                  {/* <AntDesign
-                    name="rightcircle"
-                    size={19}
-                    color="black"
-                    className="p-4"
-                  /> */}
-                </View>
-              </View>
-            </View>
-            <Text className="text-textColor font-extrabold text-[25px] ">
-              Today's Training
-            </Text>
-            <View className="Edit_Group">
-              {/* <Text className="text-textColor  mb-5">
-                Configure your practice
-              </Text> */}
-              <View className="practice-box bg-[#1d293b] rounded-lg gap-3 pt-2 ">
-                <View className="p-3 header border-b-2 border-cyan-400 flex-row justify-between">
-                  <Text className=" text-textColor font-bold ml-2">
-                    Warm Up
-                  </Text>
-                  <Text className="text-textColor mr-3">Edit</Text>
-                </View>
-                <View className="p-3 flex-row gap-1">
-                  <Text className="text-pink-400">1.</Text>
-                  <Text className="text-textColor"> Mini Tennis</Text>
-                </View>
-              </View>
-            </View>
-            <View className="practice-box bg-[#1d293b] rounded-lg gap-3 pt-2 ">
-              <View className="p-3 header border-b-2 border-cyan-400 flex-row justify-between">
-                <Text className=" text-textColor font-bold ml-2">
-                  Main Drills
+                <Text className="text-textColor mt-3">No trainings</Text>
+                <Text className="text-textColor">
+                  Start adding training to see your list
                 </Text>
-                <Text className="text-textColor mr-3">Edit</Text>
               </View>
-              <View className="p-3 flex-row gap-1">
-                <Text className="text-pink-400">1.</Text>
-                <Text className="text-textColor"> Mini Tennis</Text>
-              </View>
-            </View>
-            <View className="practice-box bg-[#1d293b] rounded-lg gap-3 pt-2 ">
-              <View className="p-3 header border-b-2 border-cyan-400 flex-row justify-between">
-                <Text className=" text-textColor font-bold ml-2">Fitness</Text>
-                <Text className="text-textColor mr-3">Edit</Text>
-              </View>
-              <View className="p-3 flex-row gap-1">
-                <Text className="text-pink-400">1.</Text>
-                <Text className="text-textColor"> Mini Tennis</Text>
-              </View>
+            )}
+            <Text className="text-start text-textColor text-3xl font-medium p-2">
+              Overall Stat
+            </Text>
+            <View>
+              {/* <View className="flex justify-center items-center w-full h-full"> */}
+                <Image
+                  source={require("../../assets/images/stat.png")}
+                  className="max-w-full max-h-full object-contain"
+                />
+              {/* </View> */}
             </View>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-}
+};
+
+export default Profile;

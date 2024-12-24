@@ -67,3 +67,30 @@
                 skills
               </Text>
             </View> */}
+
+
+              {/* <Text className="text-start text-textColor text-3xl font-medium p-2">
+              Today's Training
+            </Text>
+            <View className="slide-group flex-row gap-2">
+              <View className="slide bg-pink-500 w-[33%] h-[120px] rounded-[18px]">
+                <Text className="text-center pt-2">Play Patterns</Text>
+              </View>
+              <View className="slide bg-white w-[33%] h-[120px] rounded-[18px]">
+                <Text className="text-center pt-2">Backhand</Text>
+              </View>
+              <View className="slide bg-blue-400 w-[33%] h-[120px] rounded-[18px]">
+                <Text className="text-center pt-2">Serve</Text>
+              </View>
+            </View>
+          </View>
+          <View className="main_content">
+            <View className="text-group border-green-500 border">
+              <Text className="text-textColor">
+                Slice then look for a Forehand
+              </Text>
+              <Text className="text-textColor">
+                The idea is to hit a good slice then opponent pick it up and the
+                return ball in your strike range
+              </Text>
+            </View> */}
