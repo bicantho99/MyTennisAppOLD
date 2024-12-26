@@ -59,7 +59,7 @@ export default function HomeScreen() {
     }
   };
 
-  
+
   const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
 
   const onPress = React.useCallback(async () => {
@@ -140,7 +140,7 @@ export default function HomeScreen() {
             </View> */}
 
             <Text className="text-textColor font-extrabold text-[25px] mt-7">
-              Choose Your Training
+              Discover Training
             </Text>
             <View className="flex-row gap-5 justify-between ">
               <View className="flex-col w-1/2 gap-3">
