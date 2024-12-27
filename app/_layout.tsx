@@ -29,7 +29,7 @@ export default function Layout() {
             }}
           />
           <Stack.Screen
-            name="(sub)/warmup"
+            name="(sub)/todo"
             options={{
               presentation: "modal",
             }}

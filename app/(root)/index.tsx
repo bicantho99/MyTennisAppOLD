@@ -79,7 +79,7 @@ const Profile = () => {
   }, []);
   const { width, height } = Dimensions.get("window");
   const [currentSlide, SetCurrentSlide] = useState(0);
-  const updateCurrentSlideIndex = (e) => {
+  const updateCurrentSlideIndex = (e: any) => {
     const contentOffsetX = e.nativeEvent.contentOffset.x;
     const currentIndex = Math.round(contentOffsetX / width);
     SetCurrentSlide(currentIndex);
@@ -91,7 +91,7 @@ const Profile = () => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <StatusBar style="light" />
-        <View className="mx-10 gap-5 pb-9">
+        <View className="mx-10 gap-7 pb-9">
           <View className="flex-row justify-between">
             {user ? (
               <Text className="color-textColor text-lg font-medium mt-5">
@@ -113,7 +113,7 @@ const Profile = () => {
               </TouchableOpacity>
             </SignedIn>
           </View>
-          <View className="mt-4 flex-row gap-5">
+          <View className="mt-3 flex-row gap-5">
             {days.map((item, index) => (
               <TouchableOpacity
                 key={index}
@@ -128,13 +128,19 @@ const Profile = () => {
             ))}
           </View>
           <View className="flex-row justify-between">
-            <Text className="text-start text-textColor text-3xl font-medium p-2">
-              Training
+            <Text className="text-start text-textColor text-3xl font-medium">
+              Today's Training
             </Text>
-            <Link href="/(sub)/warmup" className="text-textColor" asChild>
-              <TouchableOpacity>
-                <Text className="font-medium text-textColor mt-4">Edit</Text>
-              </TouchableOpacity>
+            <Link href="/(sub)" className="text-textColor" asChild>
+              {toggle ? (
+                <TouchableOpacity>
+                  <Text className="font-[700] text-blue-800  mt-1 bg-blue-200 p-[9px] rounded-lg text-[12px]">
+                    Edit
+                  </Text>
+                </TouchableOpacity>
+              ) : (
+                ""
+              )}
             </Link>
           </View>
           {toggle ? (
@@ -162,25 +168,25 @@ const Profile = () => {
               </View>
             </View>
           ) : (
-            <View className="NO justify-center flex items-center gap-2">
-              <Link href="/(sub)/warmup" className="text-textColor" asChild>
+            <View className="NO justify-center flex items-center gap-2 p-14 relative border-dashed border border-gray-400 ">
+              <Link href="/(sub)/todo" className="" asChild>
                 <TouchableOpacity>
-                  <FontAwesome6 name="notes-medical" size={26} color="white" />
+                  <FontAwesome6 name="notes-medical" size={25} color="white" />
                 </TouchableOpacity>
               </Link>
 
-              <Text className="text-textColor mt-3">No trainings</Text>
-              <Text className="text-textColor">
-                Start adding training to see your list
+              <Text className="text-gray-600 mt-3 font-medium text-[20px] text-center w-[300px]">
+                Add Groundstroke Training
               </Text>
             </View>
           )}
-          <View className="gap-3">
-            <Text className="text-start text-textColor text-3xl font-medium p-2">
-              Daily Challenge
+          <View className="gap-4">
+            <Text className="text-start text-textColor text-3xl font-medium">
+              Daily Challenges
             </Text>
 
-            <View className="bg-pink-400 rounded-md p-3">
+            <View className="gap-3">
+            <View className="bg-blue-300 rounded-md p-3 ">
               <View className="flex-row justify-between">
                 <Text className="font-medium">
                   Make less than 10 net errors
@@ -188,6 +194,15 @@ const Profile = () => {
                 <Checkbox />
               </View>
             </View>
+            <View className="bg-blue-300 rounded-md p-3">
+              <View className="flex-row justify-between">
+                <Text className="font-medium">
+                  Hit 2 Aces
+                </Text>
+                <Checkbox />
+              </View>
+              </View>
+              </View>
 
             <Text className="text-textColor mt-2 font-medium">
               Plan Your Practice, complete skill challenges, imrpove your skills
@@ -205,16 +220,16 @@ const Content = ({ item }: any) => {
   return (
     <View
       key={item.title}
-      className="bg-[#1d293b] rounded-lg gap-3 w-[322.2px]"
+      className="bg-[#1d293b] rounded-lg gap-3 w-[322.2px] "
     >
       {/* Header */}
-      <View className="p-4 header border-b-2 border-cyan-400 flex-row justify-between">
+      <View className="p-5 header border-b-2 border-cyan-400 flex-row justify-between">
         <Text className="text-textColor font-bold ml-2 ">{item.title}</Text>
         <Text className="text-textColor mr-3">{item.duration}</Text>
       </View>
 
       {/* Tasks */}
-      <View className="pl-4 pt-2 pb-4 gap-3">
+      <View className="pl-5 pt-3 pb-5 gap-3">
         {item.tasks.map((task: any) => (
           <View key={task.label} className="flex-row justify-start gap-4">
             <Checkbox />
