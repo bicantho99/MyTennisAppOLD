@@ -3,7 +3,7 @@ import { Tabs } from "expo-router";
 import Entypo from "@expo/vector-icons/Entypo";
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: "blue", headerShown: false,  }}>
       <Tabs.Screen
         name="index"
         options={{
@@ -14,6 +14,7 @@ export default function TabLayout() {
           ),
           tabBarLabelStyle: {
             marginTop: 8, // Adjusts space between icon and title
+
           },
         }}
       />
