@@ -28,7 +28,12 @@ export default function Layout() {
               presentation: "modal",
             }}
           />
-
+          <Stack.Screen
+            name="(edit)/training-page"
+            options={{
+              presentation: "modal",
+            }}
+          />
         </Stack>
       </ClerkLoaded>
     </ClerkProvider>

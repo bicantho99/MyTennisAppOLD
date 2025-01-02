@@ -16,7 +16,7 @@ export default function index() {
     <SafeAreaView className="bg-bgColor flex-1">
       <StatusBar style="light" />
       <ScrollView>
-        <View className="mx-10 gap-5 pb-10 ">
+        <View className="mx-7 gap-5 pb-10" >
           <View className="flex-row justify-between items-center">
             <Text className="text-textColor text-4xl font-bold mt-5">
               Trainings
@@ -31,31 +31,31 @@ export default function index() {
             </TouchableOpacity>
           </View>
           <TextInput
-            className="bg-gray-700 rounded-md h-[35px]  pl-3"
-            placeholder="Search...."
+            className="bg-gray-800 rounded-md h-[35px]  pl-3 "
+            placeholder="Search by name"
             placeholderTextColor={"gray"}
           />
 
           {programData.map((item, index) => {
             return (
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("/(edit)/training-page") }>
                 <View key={index}>
-                  <View className="box-view box-border bg-gray-800 px-5 py-4 rounded-lg gap-[5px]">
+                  <View className="box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]   border-[0.4px] ">
                     <View className="text-view gap-2">
-                      <Text className="text-textColor font-bold">
+                      <Text className="text-blue-300 font-bold text-[17px] ">
                         {item.title}
                       </Text>
                       <View className="flex-row">
                         {item.focuses.map((focusItem, idx) => (
                           <Text
                             key={idx}
-                            className="mr-2 p-1 bg-yellow-100 rounded-md text-[12px]"
+                            className="mr-3 mt-[3.5px] px-2 py-1 bg-sky-200 rounded-md text-[12px] font-medium "
                           >
                             {focusItem.focus}
                           </Text>
                         ))}
                       </View>
-                      <Text className="text-gray-400">{item.description}</Text>
+                      <Text className="text-gray-400 font-semibold ">{item.description}</Text>
                     </View>
                   </View>
                 </View>

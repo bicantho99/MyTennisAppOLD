@@ -94,3 +94,17 @@
                 return ball in your strike range
               </Text>
             </View> */}
+
+
+
+  no task view:
+
+    <View className="NO justify-center flex items-center gap-2 p-16 mb-3 relative border-dashed border border-gray-400">
+              <Text className="text-gray-600 mt-3 font-medium text-[19px] text-center w-[200px] mb-2 transition ease-in duration-500">
+                Add {tabName} Below
+
+              </Text>
+              <View className="tasks-view ">
+                <Text className="">High knee side to side</Text>
+              </View>
+            </View>
