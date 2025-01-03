@@ -53,8 +53,19 @@ export default function Adding() {
     setDescription("");
     setDuration("");
   };
-  // const drill = {name, description, duration}
-  // const drills = [ {drill}, {drill}]
+
+  const Save = () => {
+    const newTraining = {
+      title: drillName,
+      description: description,
+      numDrills: drills["Main Drills"].length,
+      time: duration,
+      warmUp: drills["Warm Up"],
+      mainDrill: drills["Main Drills"],
+      fitness: drills.Fitness,
+      other: drills.Other,
+    };
+  };
   return (
     <KeyboardAwareScrollView
       style={{ flex: 1 }}
@@ -68,19 +79,26 @@ export default function Adding() {
             <Text className="text-textColor text-3xl font-bold mt-5">
               New Training
             </Text>
-            <Text className="mt-5 text-[15px] font-medium text-green-300">
-              Save
-            </Text>
+            <TouchableOpacity>
+              <Text className="mt-5 text-[15px] font-medium text-green-300">
+                Save
+              </Text>
+            </TouchableOpacity>
           </View>
           <View className="section-view gap-3">
-            <Text className="text-teal-50 ">Description</Text>
+            <Text className="text-teal-50">Description</Text>
             <TextInput
               className="bg-gray-800 p-3 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
               placeholder="Write Your Practice Name"
               placeholderTextColor={"gray"}
             />
             <TextInput
-              className="bg-gray-800 px-3 py-6 rounded-lg   border-teal-500 border-[0.4px]"
+              className="bg-gray-800 p-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
+              placeholder="Durration"
+              placeholderTextColor={"gray"}
+            />
+            <TextInput
+              className="bg-gray-800 px-3 py-6 rounded-lg   border-teal-500 border-[0.4px] text-white"
               placeholder="Write Your Practice Description"
               placeholderTextColor={"gray"}
               editable
@@ -119,11 +137,11 @@ export default function Adding() {
               ) : (
                 <View className="transition duration-700 ease-in-out">
                   {drills[tabName].map((items: any, index: any) => (
-                    <View className="tasks-view py-4 px-4 rounded-md  flex-row gap-2  mt-2 border border-dotted border-teal-300  bg-teal-900/20 transition duration-700 ease-in-out">
-                      <Text
-                        key={index}
-                        className="text-white font-medium text-[17px]"
-                      >
+                    <View
+                      className="tasks-view py-4 px-4 rounded-md  flex-row gap-2  mt-2 border border-dotted border-teal-300  bg-teal-900/20 transition duration-700 ease-in-out"
+                      key={index}
+                    >
+                      <Text className="text-white font-medium text-[17px]">
                         {`${index + 1}.`}
                       </Text>
                       <Text className="text-white text-[17px] font-medium">
@@ -168,11 +186,7 @@ export default function Adding() {
               placeholder="Description. Ex: high knee then butt kick"
               placeholderTextColor={"gray"}
             />
-            <TextInput
-              className="bg-gray-800 p-4 rounded-md   border-gray-500 border-[0.4px] text-textColor"
-              placeholder="Durration in minutes"
-              placeholderTextColor={"gray"}
-            />
+
             <TouchableOpacity
               onPress={() => {
                 handleSubmit();

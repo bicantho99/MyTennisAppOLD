@@ -1,69 +1,99 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import React from "react";
-import { programData } from "@/assets/constants/programs";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import { router } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-export default function index() {
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as Progress from "react-native-progress";
+import Checkbox from "expo-checkbox";
+export default function Home() {
   return (
-    <SafeAreaView className="bg-bgColor flex-1">
-      <StatusBar style="light" />
-      <ScrollView>
-        <View className="mx-7 gap-5 pb-10" >
-          <View className="flex-row justify-between items-center">
-            <Text className="text-textColor text-4xl font-bold mt-5">
-              Trainings
+    <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
+      <View className="mx-6 my-6">
+        <View className="Header mb-5 flex-row justify-between">
+          <Text className="text-textColor font-semibold text-[25px]">
+            Welcome
+          </Text>
+          <TouchableOpacity>
+            <Text className="text-green-400 font-[500] text-[15px] p-2">
+              Log In
             </Text>
-            <TouchableOpacity onPress={() => router.push("/(edit)/addprogram")}>
-              <AntDesign
-                name="pluscircle"
-                size={22}
-                color="white"
-                className="mt-2"
-              />
-            </TouchableOpacity>
-          </View>
-          <TextInput
-            className="bg-gray-800 rounded-md h-[35px]  pl-3 "
-            placeholder="Search by name"
-            placeholderTextColor={"gray"}
-          />
-
-          {programData.map((item, index) => {
-            return (
-              <TouchableOpacity onPress={() => router.push("/(edit)/training-page") }>
-                <View key={index}>
-                  <View className="box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]   border-[0.4px] ">
-                    <View className="text-view gap-2">
-                      <Text className="text-blue-300 font-bold text-[17px] ">
-                        {item.title}
-                      </Text>
-                      <View className="flex-row">
-                        {item.focuses.map((focusItem, idx) => (
-                          <Text
-                            key={idx}
-                            className="mr-3 mt-[3.5px] px-2 py-1 bg-sky-200 rounded-md text-[12px] font-medium "
-                          >
-                            {focusItem.focus}
-                          </Text>
-                        ))}
-                      </View>
-                      <Text className="text-gray-400 font-semibold ">{item.description}</Text>
-                    </View>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
+          </TouchableOpacity>
         </View>
-      </ScrollView>
+
+        <View className="box-view box-border bg-gray-800 pl-5 pr-3 pt-5  rounded-xl gap-[5px]   border-[0.4px]">
+          <View className="text-view gap-2">
+            <Text className="text-blue-300 font-bold text-[20px] mb-5">
+              Weekly's Challenge
+            </Text>
+            <Progress.Bar progress={0} width={300} />
+          </View>
+          <TouchableOpacity>
+            <View className="bg-blue-400 rounded-md gap-3 p-3 my-5">
+              <View className="flex-row justify-between">
+                <Text>Day 1</Text>
+                <Checkbox color={"black"} />
+              </View>
+              <Text className="text-[15px] font-semibold">
+                Approach the net 10 times
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View className="Header mt-5 flex-row justify-between mb-5">
+          <Text className="text-textColor font-semibold text-[25px]">
+            Welcome
+          </Text>
+          <TouchableOpacity>
+            <Text className="text-green-400 font-[500] text-[15px] p-2">
+              Log In
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View className="gap-2">
+          <TouchableOpacity>
+            <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3 ">
+              <View className="bg-blue-400 rounded-md gap-3 p-3 ">
+                <View className="flex-row justify-between">
+                  <Text className="text-lg font-semibold">Daily Challenge</Text>
+                  <Text>Check</Text>
+                </View>
+                <Text>Make less than 10 net errors</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3">
+              <View className="bg-blue-500 rounded-md gap-3 p-3 ">
+                <View className="flex-row justify-between">
+                  <Text className="text-lg font-semibold">Daily Challenge</Text>
+                  <Text>Check</Text>
+                </View>
+                <Text>Make less than 10 net errors</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3">
+              <View className="bg-blue-400 rounded-md gap-3 p-3 ">
+                <View className="flex-row justify-between">
+                  <Text className="text-lg font-semibold">Daily Challenge</Text>
+                  <Text>Check</Text>
+                </View>
+                <Text>Make less than 10 net errors</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/*
+        <View className="bg-blue-500 rounded-md gap-3 p-3 my-5">
+          <View className="flex-row justify-between">
+            <Text className="text-lg font-semibold">Forehand and Backhand</Text>
+            <Text>Check</Text>
+          </View>
+          <Text>Make less than 10 net errors</Text>
+        </View> */}
+      </View>
     </SafeAreaView>
   );
 }

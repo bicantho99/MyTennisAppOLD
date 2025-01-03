@@ -19,6 +19,7 @@ export default function Layout() {
         <Stack
           screenOptions={{
             headerShown: false,
+            headerShadowVisible: false,
           }}
         >
           <Stack.Screen name="(root)" />
