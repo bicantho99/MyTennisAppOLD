@@ -31,8 +31,12 @@ yarn-error.*
 
 # local env files
 .env*.local
+tennis-backend/.env
 
 # typescript
 *.tsbuildinfo
 
 app-example
+
+#certs
+tennis-backend/server-ca.pem
