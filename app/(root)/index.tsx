@@ -49,13 +49,13 @@ export default function index() {
                         {item.focuses.map((focusItem, idx) => (
                           <Text
                             key={idx}
-                            className="mr-3 mt-[3.5px] px-2 py-1 bg-sky-200 rounded-md text-[12px] font-medium "
+                            className="mr-3 mt-[3.5px] px-2 py-1 bg-blue-200 rounded-md text-[12px] font-medium "
                           >
                             {focusItem.focus}
                           </Text>
                         ))}
                       </View>
-                      <Text className="text-gray-400 font-semibold ">{item.description}</Text>
+                      <Text className="text-gray-400 font-semibold">{item.description}</Text>
                     </View>
                   </View>
                 </View>

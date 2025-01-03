@@ -19,10 +19,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="training"
+        name="home"
         options={{
           tabBarStyle: { backgroundColor: "#10172A" },
-          title: "Training",
+          title: "Home",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="cog" color={color} />
           ),
@@ -30,7 +30,8 @@ export default function TabLayout() {
             marginTop: 8, // Adjusts space between icon and title
           },
         }}
-      />{" "}
+      />
+      
       <Tabs.Screen
         name="map"
         options={{

@@ -10,7 +10,6 @@ export default function Page() {
       className="bg-bgColor"
       extraHeight={10}
     >
-      {/* <SafeAreaView> */}
       <View className="mx-6 gap-5 pb-10 pt-3 ">
         <View className="Header-Section divided-y-4">
           <View className="Header-Section flex-row justify-between items-center">
