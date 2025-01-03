@@ -23,13 +23,13 @@ export default function Layout() {
         >
           <Stack.Screen name="(root)" />
           <Stack.Screen
-            name="(auth)/sign-up"
+            name="(edit)/addprogram"
             options={{
               presentation: "modal",
             }}
           />
           <Stack.Screen
-            name="(sub)/todo"
+            name="(edit)/training-page"
             options={{
               presentation: "modal",
             }}
