@@ -40,11 +40,11 @@ export default function Home() {
 
         <View className="Header mt-5 flex-row justify-between mb-5">
           <Text className="text-textColor font-semibold text-[25px]">
-            Welcome
+            Train
           </Text>
           <TouchableOpacity>
             <Text className="text-green-400 font-[500] text-[15px] p-2">
-              Log In
+              See All
             </Text>
           </TouchableOpacity>
         </View>
@@ -54,10 +54,11 @@ export default function Home() {
             <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3 ">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
-                  <Text className="text-lg font-semibold">Daily Challenge</Text>
-                  <Text>Check</Text>
+                  <Text className="text-lg font-semibold">
+                    Improve Baseline
+                  </Text>
                 </View>
-                <Text>Make less than 10 net errors</Text>
+                <Text>Training focusing on being solid on the baseline</Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -65,21 +66,11 @@ export default function Home() {
             <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3">
               <View className="bg-blue-500 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
-                  <Text className="text-lg font-semibold">Daily Challenge</Text>
-                  <Text>Check</Text>
+                  <Text className="text-lg font-semibold">
+                    Improve Net Game
+                  </Text>
                 </View>
-                <Text>Make less than 10 net errors</Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3">
-              <View className="bg-blue-400 rounded-md gap-3 p-3 ">
-                <View className="flex-row justify-between">
-                  <Text className="text-lg font-semibold">Daily Challenge</Text>
-                  <Text>Check</Text>
-                </View>
-                <Text>Make less than 10 net errors</Text>
+                <Text>Training focusing on the upper part of the court</Text>
               </View>
             </View>
           </TouchableOpacity>
