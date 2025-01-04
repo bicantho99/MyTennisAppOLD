@@ -1,0 +1,5 @@
+DB_HOST=34.94.247.231
+DB_USER=root
+DB_PASS=tennisapp123
+DB_NAME=tennis_db
+DB_SSL_CA=server-ca.pem
