@@ -13,6 +13,20 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
+
     "nativewind-env.d.ts"
 , "app/(root)/resources.tsx", "app/attendance/index.jsx"  ]
+
+
+    "nativewind-env.d.ts",
+   "app/(root)/resources.tsx",
+    "app/attendance/index.jsx",
+
+    "nativewind-env.d.ts",
+    "app/(root)/training.tsx",
+    "app/attendance/index.jsx",
+    "tennis-backend/**/*.ts" // Include backend files
+  ]
+
+
 }
