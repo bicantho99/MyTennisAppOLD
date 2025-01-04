@@ -57,13 +57,18 @@ export default function index() {
           />
 
           {programData.map((item, index) => {
+            const borderColorClass =
+              index % 2 === 0 ? "border-blue-200" : "border-blue-600";
+
             return (
               <TouchableOpacity
                 key={item.title}
                 onPress={() => router.push("/(edit)/training-page")}
               >
                 <View key={index}>
-                  <View className="box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]   border-[0.4px] ">
+                  <View
+                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  ${borderColorClass} border-[0.4px] `}
+                  >
                     <View className="text-view gap-2">
                       <Text className="text-blue-300 font-bold text-[17px] ">
                         {item.title}
