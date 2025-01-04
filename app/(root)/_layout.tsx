@@ -1,6 +1,7 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 import Entypo from "@expo/vector-icons/Entypo";
+import Foundation from "@expo/vector-icons/Foundation";
 
 export default function TabLayout() {
   return (
@@ -9,6 +10,13 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: "#10172A",
+          borderTopWidth: 0,
+          paddingBottom: 0, // Fine-tune bottom padding
+          paddingTop: 0, // Fine-tune top padding
+          height: 75, // Enforce smaller height
+        },
+        tabBarLabelStyle: {
+          fontSize: 12, // Optional: Reduce label font size to fit smaller tab bar
         },
       }}
     >
@@ -17,33 +25,17 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <FontAwesome size={24} name="home" color={color} />
           ),
-          tabBarLabelStyle: {
-            marginTop: 8, // Adjusts space between icon and title
-          },
-          tabBarStyle: {
-            backgroundColor: "#10172A",
-            borderTopWidth: 0, // Set border width
-            borderTopColor: "red", // Set border color (e.g., red)
-          },
         }}
       />
       <Tabs.Screen
-        name="home"
+        name="training"
         options={{
-          title: "Home",
+          title: "Training",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <Foundation name="clipboard-notes" size={22} color={color} />
           ),
-          tabBarLabelStyle: {
-            marginTop: 8, // Adjusts space between icon and title
-          },
-          tabBarStyle: {
-            backgroundColor: "#10172A",
-            borderTopWidth: 0,
-            borderTopColor: "green", // Change border color
-          },
         }}
       />
       <Tabs.Screen
@@ -51,16 +43,8 @@ export default function TabLayout() {
         options={{
           title: "Map",
           tabBarIcon: ({ color }) => (
-            <Entypo name="rocket" size={24} color={color} />
+            <Entypo name="rocket" size={22} color={color} />
           ),
-          tabBarLabelStyle: {
-            marginTop: 8,
-          },
-          tabBarStyle: {
-            backgroundColor: "#10172A",
-            borderTopWidth: 0,
-            borderTopColor: "blue", // Change border color
-          },
         }}
       />
     </Tabs>
