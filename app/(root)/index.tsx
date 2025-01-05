@@ -49,8 +49,12 @@ export default function Home() {
           <TouchableOpacity>
             <View className="bg-blue-400 rounded-md gap-3 p-3 my-5">
               <View className="flex-row justify-between">
-                <Text>Day 1</Text>
-                <Checkbox color={"black"} />
+                <Text className="text-lg font-semibold"> Day 1</Text>
+                  <Checkbox
+                    value = {day1Checked}
+                    onValueChange = {setDay1Checked}
+                    color = {day1Checked ? "#4ADE80" : "black"}
+                  />
               </View>
               <Text className="text-[15px] font-semibold">
                 Approach the net 10 times
@@ -173,7 +177,7 @@ export default function Home() {
         <View className="bg-blue-500 rounded-md gap-3 p-3 my-5">
           <View className="flex-row justify-between">
             <Text className="text-lg font-semibold">Forehand and Backhand</Text>
-            <Text>Check</Text>
+              <Checkbox color={"black"} />
           </View>
           <Text>Make less than 10 net errors</Text>
         </View> */}
