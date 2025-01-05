@@ -65,7 +65,7 @@ export default function index() {
                 key={item.title}
                 onPress={() => router.push("/(edit)/training-page")}
               >
-                <View key={index}>
+               <View key={index}>
                   <View
                     className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  ${borderColorClass} border-[0.4px] `}
                   >
