@@ -93,7 +93,7 @@ export default function Home() {
           <Text className="text-textColor font-semibold text-[25px]">
             Train
           </Text>
-          <TouchableOpacity onPress={() => router.push("/training")}>
+          <TouchableOpacity onPress={() => router.navigate("/training")}>
             <Text className="text-green-400 font-[500] text-[15px] p-2">
               See All
             </Text>

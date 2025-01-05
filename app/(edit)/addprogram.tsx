@@ -17,27 +17,62 @@ import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import DrillForm from "@/hooks/drillForm";
-//
-import Animated from "react-native-reanimated";
-
+import { useProgramData } from "@/assets/constants/programs";
+import { router } from "expo-router";
+import { useTrainingData } from "@/assets/constants/dataContext";
 export default function Adding() {
+  const { programData, setProgramData } = useTrainingData();
+
   const [selected, setSelected] = useState<number>(0);
   const activeBackgroundColor = "#b5f36b";
   const inactiveBackgroundColor = "#3b4451";
 
+  const [title, setTitle] = useState<string>("");
+  const [TDur, setTDur] = useState<string>("");
+  const [TDef, setTDef] = useState<string>("");
+
+  // the lower part
   const items = ["Warm Up", "Main Drills", "Fitness", "Other"];
-  const [tabName, setTabName] = useState<string>("Warm Up");
-  const [warmUp, setWarmUp] = useState<string[]>([]);
+  const [tabName, setTabName] = useState<keyof Drills>("Warm Up");
   const [drillName, setDrillName] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
   const [error, setError] = useState(false);
-  const [drills, setDrills] = useState<any>({
+
+  interface Drills {
+    "Warm Up": string[];
+    "Main Drills": string[];
+    Fitness: string[];
+    Other: string[];
+  }
+
+  interface Program {
+    title: string;
+    description: string;
+    numDrills?: number;
+    time: string;
+    focuses?: { focus: string }[] | null;
+    warmUp?: string[];
+    mainDrills?: string[];
+    fitness?: string[];
+    other?: string[];
+  }
+
+  const [drills, setDrills] = useState<Drills>({
     "Warm Up": [],
     "Main Drills": [],
     Fitness: [],
     Other: [],
   });
+
+  const Saved = () => {
+    const newProgram = {
+      title: title,
+      description: TDef,
+      time: TDur,
+    };
+    setProgramData([newProgram, ...programData]);
+  };
 
   const handleSubmit = () => {
     if (!drillName) {
@@ -54,19 +89,6 @@ export default function Adding() {
     setDescription("");
     setDuration("");
     setError(false);
-  };
-
-  const Save = () => {
-    const newTraining = {
-      title: drillName,
-      description: description,
-      numDrills: drills["Main Drills"].length,
-      time: duration,
-      warmUp: drills["Warm Up"],
-      mainDrill: drills["Main Drills"],
-      fitness: drills.Fitness,
-      other: drills.Other,
-    };
   };
 
   const handleRemove = (index: number) => {
@@ -90,7 +112,13 @@ export default function Adding() {
             <Text className="text-textColor text-3xl font-bold mt-5">
               New Training
             </Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                Saved();
+                router.back();
+                // console.log(programData);
+              }}
+            >
               <Text className="mt-5 text-[15px] font-medium text-green-300">
                 Save
               </Text>
@@ -102,11 +130,15 @@ export default function Adding() {
               className="bg-gray-800 p-3 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
               placeholder="Write Your Practice Name"
               placeholderTextColor={"gray"}
+              onChangeText={(text) => setTitle(text)}
+              value={title}
             />
             <TextInput
               className="bg-gray-800 p-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
               placeholder="Training Durration"
               placeholderTextColor={"gray"}
+              onChangeText={(text) => setTDur(text)}
+              value={TDur}
             />
             <TextInput
               className="bg-gray-800 px-3 py-6 rounded-lg   border-teal-500 border-[0.4px] text-white"
@@ -114,6 +146,8 @@ export default function Adding() {
               placeholderTextColor={"gray"}
               editable
               multiline
+              onChangeText={(text) => setTDef(text)}
+              value={TDef}
             />
           </View>
           <View className="section-view gap-3">
@@ -123,7 +157,7 @@ export default function Adding() {
                   <Pressable
                     key={index}
                     onPress={() => {
-                      setSelected(index), setTabName(item);
+                      setSelected(index), setTabName(item as keyof Drills);
                     }}
                     className=""
                   >
@@ -166,7 +200,7 @@ export default function Adding() {
                           handleRemove(index);
                         }}
                       >
-                        <Ionicons name="remove" size={24} color="white" />
+                        <Ionicons name="remove" size={24} color="red" />
                       </TouchableOpacity>
                     </View>
                   ))}
