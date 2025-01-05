@@ -2,6 +2,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 import Entypo from "@expo/vector-icons/Entypo";
 import Foundation from "@expo/vector-icons/Foundation";
+import Animated from "react-native-reanimated";
 
 export default function TabLayout() {
   return (

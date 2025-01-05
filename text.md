@@ -108,3 +108,39 @@
                 <Text className="">High knee side to side</Text>
               </View>
             </View>
+
+
+
+
+indicator
+
+
+    <View
+            className="flex-row gap-2  justify-center items-center "
+            style={{ transform: [{ translateY: -10 }] }}
+          >
+            <View
+              className="h-[4px]  flex-row rounded-lg
+                     bg-blue-400 w-[10px] transition duration-250 ease-in delay-100"
+            />
+            <View
+              className="h-[4px]  flex-row rounded-lg
+                     bg-white w-[10px] transition duration-250 ease-in delay-100"
+            />
+            <View
+              className="h-[4px]  flex-row rounded-lg
+                     bg-blue-400 w-[10px] transition duration-250 ease-in delay-100"
+            />
+            <View
+              className="h-[4px]  flex-row rounded-lg
+                     bg-blue-400 w-[10px] transition duration-250 ease-in delay-100"
+            />
+            <View
+              className="h-[4px]  flex-row rounded-lg
+                     bg-blue-400 w-[10px] transition duration-250 ease-in delay-100"
+            />
+            <View
+              className="h-[4px]  flex-row rounded-lg
+                     bg-blue-400 w-[10px] transition duration-250 ease-in delay-100"
+            />
+          </View>
