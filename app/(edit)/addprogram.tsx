@@ -14,7 +14,7 @@ import {
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Link } from "expo-router";
 import React, { useState } from "react";
-//
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import DrillForm from "@/hooks/drillForm";
 //
@@ -31,7 +31,7 @@ export default function Adding() {
   const [drillName, setDrillName] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
-
+  const [error, setError] = useState(false);
   const [drills, setDrills] = useState<any>({
     "Warm Up": [],
     "Main Drills": [],
@@ -40,18 +40,20 @@ export default function Adding() {
   });
 
   const handleSubmit = () => {
-    if (!drillName && !duration) {
+    if (!drillName) {
+      setError(true);
       return;
-      // write your error here
     }
 
     setDrills((prev: any) => ({
       ...prev,
       [tabName]: [...prev[tabName], { name: drillName, description, duration }],
     }));
+
     setDrillName("");
     setDescription("");
     setDuration("");
+    setError(false);
   };
 
   const Save = () => {
@@ -65,6 +67,15 @@ export default function Adding() {
       fitness: drills.Fitness,
       other: drills.Other,
     };
+  };
+
+  const handleRemove = (index: number) => {
+    setDrills((prev: any) => {
+      prev[tabName].splice(index, 1);
+      return {
+        ...prev,
+      };
+    });
   };
   return (
     <KeyboardAwareScrollView
@@ -94,7 +105,7 @@ export default function Adding() {
             />
             <TextInput
               className="bg-gray-800 p-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
-              placeholder="Durration"
+              placeholder="Training Durration"
               placeholderTextColor={"gray"}
             />
             <TextInput
@@ -138,41 +149,30 @@ export default function Adding() {
                 <View className="transition duration-700 ease-in-out">
                   {drills[tabName].map((items: any, index: any) => (
                     <View
-                      className="tasks-view py-4 px-4 rounded-md  flex-row gap-2  mt-2 border border-dotted border-teal-300  bg-teal-900/20 transition duration-700 ease-in-out"
+                      className="tasks-view py-4 px-4 rounded-md  flex-row gap-2  mt-2 border border-dotted border-teal-300  bg-teal-900/20 transition duration-700 ease-in-out justify-between"
                       key={index}
                     >
-                      <Text className="text-white font-medium text-[17px]">
-                        {`${index + 1}.`}
-                      </Text>
-                      <Text className="text-white text-[17px] font-medium">
-                        {items.name}
-                      </Text>
-                      <Text></Text>
+                      <View className="flex-row gap-2 items-center">
+                        <Text className="text-pink-400 font-medium text-[17px]">
+                          {`${index + 1}.`}
+                        </Text>
+                        <Text className="text-white text-[17px] font-medium">
+                          {items.name}
+                        </Text>
+                      </View>
+                      <TouchableOpacity
+                        onPress={() => {
+                          console.log("hello");
+                          handleRemove(index);
+                        }}
+                      >
+                        <Ionicons name="remove" size={24} color="white" />
+                      </TouchableOpacity>
                     </View>
                   ))}
                 </View>
               )}
             </View>
-
-            {/* {drills[tabName]?.length === 0 ? (
-              <View className="NO justify-center flex items-center gap-2 p-16 mb-3 relative border-dashed border border-gray-400">
-                <Text className="text-gray-600 mt-3 font-medium text-[19px] text-center w-[200px] mb-2 transition ease-in duration-500">
-                  Add {tabName} Below
-                </Text>
-              </View>
-            ) : (
-              <View className="NO   pl-8 py-5 mb-3 relative border-dashed border border-gray-400 pr-6 gap-3">
-                {drills[tabName].map((items: any, index: any) => (
-                  <View className="tasks-view  p-3 pl-6 rounded-sm flex-row ">
-                    <Text key={index} className="text-fuchsia-300 font-bold">
-                      {index + 1}
-                    </Text>
-                    <Text className="text-white">{items.name}</Text>
-                    <Text></Text>
-                  </View>
-                ))}
-              </View>
-            )} */}
 
             <TextInput
               className="bg-gray-800 p-4 rounded-md text-white border-gray-400 border-[0.2px]"
@@ -186,6 +186,9 @@ export default function Adding() {
               placeholder="Description. Ex: high knee then butt kick"
               placeholderTextColor={"gray"}
             />
+            {error ? (
+              <Text className="text-slate-400 text-lg">Please drill name</Text>
+            ) : null}
 
             <TouchableOpacity
               onPress={() => {
