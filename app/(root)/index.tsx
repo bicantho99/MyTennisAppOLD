@@ -152,20 +152,16 @@ export default function Home() {
           </View>
         </View>
 
-
-
-        </View>
-
-          <View className="Header mt-5 flex-row justify-between mb-5">
-            <Text className="text-textColor font-semibold text-[25px]">
-              Train
+        <View className="Header mt-5 flex-row justify-between mb-5">
+          <Text className="text-textColor font-semibold text-[25px]">
+            Train
+          </Text>
+          <TouchableOpacity onPress={() => router.navigate("/training")}>
+            <Text className="text-green-400 font-[500] text-[15px] p-2">
+              See All
             </Text>
-            <TouchableOpacity onPress={() => router.push("/training")}>
-              <Text className="text-green-400 font-[500] text-[15px] p-2">
-                See All
-              </Text>
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
+        </View>
 
           <View className="flex-wrap flex-row gap-4">
             <View className="bg-cyan-400 rounded-md h-[90px]  flex-col gap-4 pl-3  pt-[12px]   min-w-[30%]">

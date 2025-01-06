@@ -6,26 +6,19 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useProgramData } from "@/assets/constants/programs";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import Animated, { FadeIn, SlideInDown } from "react-native-reanimated";
+import Adding from "../(edit)/addprogram";
 
-export default function index() {
-  const { programData, setProgramData } = useProgramData();
-  const newTraining = {
-    title: "ForeHand Mastery",
-    description:
-      "Amazing Amazing Amazing Amazing Amazing Amazing Amazing Amazing ",
-    numDrills: 4,
-    time: 2,
-    focuses: [],
-    warmUp: ["Forehand short", "Forehand short", "Forehand short"],
-    mainDrills: ["Forehand short", "Forehand short", "Forehand short"],
-    fitness: ["Forehand short", "Forehand short", "Forehand short"],
-    other: ["Forehand short", "Forehand short", "Forehand short"],
-  };
+import { useTrainingData } from "@/assets/constants/dataContext";
+
+export default function TrainingPage() {
+  const { programData, setProgramData } = useTrainingData();
+
   return (
     <SafeAreaView className="bg-bgColor flex-1">
       <StatusBar style="light" />
@@ -38,8 +31,6 @@ export default function index() {
             <TouchableOpacity
               onPress={() => {
                 router.push("/(edit)/addprogram");
-                programData.push(newTraining);
-                console.log(programData.length);
               }}
             >
               <AntDesign
@@ -62,10 +53,10 @@ export default function index() {
 
             return (
               <TouchableOpacity
-                key={item.title}
+                key={index}
                 onPress={() => router.push("/(edit)/training-page")}
               >
-               <View key={index}>
+                <View key={index}>
                   <View
                     className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  ${borderColorClass} border-[0.4px] `}
                   >
@@ -92,6 +83,7 @@ export default function index() {
               </TouchableOpacity>
             );
           })}
+          {/* <Adding programData={programData} setProgramData={setProgramData} /> */}
         </View>
       </ScrollView>
     </SafeAreaView>
