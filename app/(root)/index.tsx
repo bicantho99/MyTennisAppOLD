@@ -192,7 +192,7 @@ export default function Home() {
             <Text className="text-white font-bold text-[16px]">Net Game</Text>
           </View>
 
-          <View className="bg-pink-400 rounded-md h-[90px]  flex-col gap-4 pl-3 pt-[12px] pr-4 min-w-[30%]">
+          <View className="bg-pink-400 rounded-md h-[90px]  flex-col gap-4 pl-3 pt-[12px] pr-4 min-w-[30%]   border-[0.4px]">
             <FontAwesome5
               name="running"
               size={30}
@@ -215,7 +215,7 @@ export default function Home() {
         </View>
         <View className="gap-2">
           <TouchableOpacity>
-            <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3 ">
+            <View className="box-view   bg-gray-800  rounded-xl border-slate-600   border-[0.4px] p-3 ">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
                   <Text className="text-lg font-semibold">
@@ -228,7 +228,7 @@ export default function Home() {
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View className="box-view   bg-gray-800  rounded-xl    border-[0.4px] p-3">
+            <View className="box-view   bg-gray-800 border-slate-600 rounded-xl    border-[0.4px] p-3">
               <View className="bg-blue-500 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
                   <Text className="text-lg font-semibold">
