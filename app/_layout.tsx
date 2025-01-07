@@ -4,6 +4,7 @@ import { tokenCache } from "@/cache";
 
 import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
+import { TrainingDataProvider } from "@/assets/constants/dataContext";
 
 export default function Layout() {
   const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
@@ -15,28 +16,30 @@ export default function Layout() {
 
   return (
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
-      <ClerkLoaded>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            headerShadowVisible: false,
-          }}
-        >
-          <Stack.Screen name="(root)" />
-          <Stack.Screen
-            name="(edit)/addprogram"
-            options={{
-              presentation: "modal",
+      <TrainingDataProvider>
+        <ClerkLoaded>
+          <Stack
+            screenOptions={{
+              headerShown: false,
+              headerShadowVisible: false,
             }}
-          />
-          <Stack.Screen
-            name="(edit)/training-page"
-            options={{
-              presentation: "modal",
-            }}
-          />
-        </Stack>
-      </ClerkLoaded>
+          >
+            <Stack.Screen name="(root)" />
+            <Stack.Screen
+              name="(edit)/addprogram"
+              options={{
+                presentation: "modal",
+              }}
+            />
+            <Stack.Screen
+              name="(edit)/training-page"
+              options={{
+                presentation: "modal",
+              }}
+            />
+          </Stack>
+        </ClerkLoaded>
+      </TrainingDataProvider>
     </ClerkProvider>
   );
 }

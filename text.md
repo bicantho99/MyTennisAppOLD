@@ -144,3 +144,39 @@ indicator
                      bg-blue-400 w-[10px] transition duration-250 ease-in delay-100"
             />
           </View>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          IDK WHAT THIS IS
+
+
+            {/* {drills[tabName]?.length === 0 ? (
+              <View className="NO justify-center flex items-center gap-2 p-16 mb-3 relative border-dashed border border-gray-400">
+                <Text className="text-gray-600 mt-3 font-medium text-[19px] text-center w-[200px] mb-2 transition ease-in duration-500">
+                  Add {tabName} Below
+                </Text>
+              </View>
+            ) : (
+              <View className="NO   pl-8 py-5 mb-3 relative border-dashed border border-gray-400 pr-6 gap-3">
+                {drills[tabName].map((items: any, index: any) => (
+                  <View className="tasks-view  p-3 pl-6 rounded-sm flex-row ">
+                    <Text key={index} className="text-fuchsia-300 font-bold">
+                      {index + 1}
+                    </Text>
+                    <Text className="text-white">{items.name}</Text>
+                    <Text></Text>
+                  </View>
+                ))}
+              </View>
+            )}
