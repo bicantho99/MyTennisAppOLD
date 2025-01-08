@@ -21,11 +21,12 @@ export default function TrainingPage() {
 
   return (
     <SafeAreaView className="bg-bgColor flex-1">
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
+
       <ScrollView>
-        <View className="mx-7 gap-5 pb-10">
+        <View className="mx-6 gap-5 pb-10">
           <View className="flex-row justify-between items-center">
-            <Text className="text-textColor text-4xl font-bold mt-5">
+            <Text className="text-textColor  text-[28px] font-bold mt-5">
               Trainings
             </Text>
             <TouchableOpacity

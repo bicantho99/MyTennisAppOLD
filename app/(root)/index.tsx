@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
       <StatusBar style="light" />
-      <View className="mx-6 my-6">
+      <View className="mx-6 mb-6 mt-5">
         <View className="Header mb-5 flex-row justify-between">
           <Text className="text-textColor font-semibold text-[25px]">
             Welcome
@@ -162,7 +162,7 @@ export default function Home() {
 
         <View className="Header mt-5 flex-row justify-between mb-5">
           <Text className="text-textColor font-semibold text-[25px]">
-            Train
+            Explore Training
           </Text>
           <TouchableOpacity onPress={() => router.push("/training")}>
             <Text className="text-green-400 font-[500] text-[15px] p-2">
@@ -172,7 +172,9 @@ export default function Home() {
         </View>
 
         <View className="flex-wrap flex-row gap-4">
-          <View className="bg-cyan-400 rounded-md h-[90px]  flex-col gap-4 pl-3  pt-[12px]   min-w-[30%]">
+          <View
+            className="bg-cyan-400 rounded-md h-[90px]  flex-col gap-4 pl-3  pt-[12px]   min-w-[30%]"
+          >
             <FontAwesome5
               name="running"
               size={30}
@@ -205,9 +207,9 @@ export default function Home() {
 
         <View className="Header mt-5 flex-row justify-between mb-4 ">
           <Text className="text-textColor font-semibold text-[25px]">
-            Train
+            Programs
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push("/program")}>
             <Text className="text-green-400 font-[500] text-[15px] p-2">
               See All
             </Text>
@@ -218,8 +220,11 @@ export default function Home() {
             <View className="box-view   bg-gray-800  rounded-xl border-slate-600   border-[0.4px] p-3 ">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
-                  <Text className="text-lg font-semibold">
+                  <Text className="text-lg font-semibold ">
                     Improve Baseline
+                  </Text>
+                  <Text className="text-[14px] font-bold mt-[4px] text-slate-800">
+                    Coach Jakub
                   </Text>
                 </View>
                 <Text>Training focusing on being solid on the baseline</Text>
@@ -234,7 +239,11 @@ export default function Home() {
                   <Text className="text-lg font-semibold">
                     Improve Net Game
                   </Text>
+                  <Text className="text-[14px] font-bold mt-[4px] text-slate-800">
+                    Coach Chris
+                  </Text>
                 </View>
+
                 <Text>Training focusing on the upper part of the court</Text>
               </View>
             </View>

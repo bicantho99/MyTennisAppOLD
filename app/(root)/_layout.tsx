@@ -31,20 +31,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="program"
+        options={{
+          title: "Program",
+          tabBarIcon: ({ color }) => (
+            <Entypo name="rocket" size={22} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="training"
         options={{
           title: "Training",
           tabBarIcon: ({ color }) => (
             <Foundation name="clipboard-notes" size={22} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="map"
-        options={{
-          title: "Map",
-          tabBarIcon: ({ color }) => (
-            <Entypo name="rocket" size={22} color={color} />
           ),
         }}
       />

@@ -69,7 +69,7 @@ export default function Page() {
             </Text>
             {selectedTraining.mainDrills?.map((item, index) => {
               return (
-                <View className="gap-2">
+                <View className="gap-2" key={index}>
                   <View className=" bg-gray-700 py-3 px-4 rounded-md flex-row mb-3 gap-4">
                     <Text className="text-textColor font-bold text-[18px] pl-3">
                       {item}
@@ -85,7 +85,7 @@ export default function Page() {
             </Text>
             {selectedTraining.fitness?.map((item, index) => {
               return (
-                <View className="gap-2">
+                <View className="gap-2" key={index}>
                   <View className=" bg-gray-700 py-3 px-4 rounded-md flex-row mb-3 gap-4">
                     <Text className="text-textColor font-bold text-[18px] pl-3">
                       {item}
