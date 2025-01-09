@@ -53,12 +53,17 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
       ],
       description:
         "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.",
-      warmUp: [],
-      mainDrills: [],
-      fitness: [],
-      other: [],
+      warmUp: ["Jogging for 5 minutes", "Dynamic stretches", "Shadow swings"],
+      mainDrills: [
+        "Cross-court forehand drill",
+        "Cross-court backhand drill",
+        "Down-the-line forehand and backhand drill",
+        "Rally with a partner focusing on consistency",
+        "Target practice for depth and placement",
+      ],
+      fitness: ["Sprints", "Side-to-side shuffles", "Lunges"],
+      other: ["Cooldown stretches", "Foam rolling"],
     },
-
     {
       title: "Serving with Precision",
       numDrills: 4,
@@ -70,10 +75,22 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
       ],
       description:
         "Designed to improve serve placement and accuracy under pressure, focusing on technique, toss consistency, and follow-through.",
-      warmUp: [],
-      mainDrills: [],
-      fitness: [],
-      other: [],
+      warmUp: [
+        "Shoulder circles",
+        "Serve motion practice without the ball",
+        "Short serves to get the motion flowing",
+      ],
+      mainDrills: [
+        "Serve to specific zones",
+        "Flat serve practice",
+        "Spin serve practice",
+        "Simulated pressure serving (e.g., deuce point scenarios)",
+      ],
+      fitness: [
+        "Medicine ball throws",
+        "Core exercises (plank, Russian twists)",
+      ],
+      other: ["Stretching for shoulder and back muscles"],
     },
     {
       title: "Net Game Mastery",
@@ -86,10 +103,21 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
       ],
       description:
         "This program emphasizes net play, teaching players how to execute clean volleys, strong overheads, and improve reflexes at the net.",
-      warmUp: [],
-      mainDrills: [],
-      fitness: [],
-      other: [],
+      warmUp: [
+        "Short court rallying",
+        "Footwork drills focusing on moving forward",
+        "Overhead shadow swings",
+      ],
+      mainDrills: [
+        "Forehand and backhand volley practice",
+        "Reaction volleys with a partner",
+        "Overhead smash drill",
+        "Net approach drill with a partner",
+        "2-on-1 net play scenario practice",
+        "Quick reflex volley feeder drill",
+      ],
+      fitness: ["Jump rope", "Box jumps", "Lateral agility drills"],
+      other: ["Stretching for legs and shoulders"],
     },
     {
       title: "Baseline Consistency",
@@ -102,10 +130,16 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
       ],
       description:
         "Focused on baseline play, this program improves shot consistency under prolonged rallies and tough conditions.",
-      warmUp: [],
-      mainDrills: [],
-      fitness: [],
-      other: [],
+      warmUp: ["Light jogging", "Dynamic stretches", "Short baseline rallies"],
+      mainDrills: [
+        "Cross-court rally drill",
+        "Down-the-line rally drill",
+        "Alternating forehand and backhand drill",
+        "Consistency rally (target: 50 shots in a row)",
+        "Heavy topspin practice",
+      ],
+      fitness: ["Endurance runs", "Interval sprints", "Core strengthening"],
+      other: ["Mental visualization exercises", "Cooldown yoga"],
     },
     {
       title: "Match Strategy",
@@ -118,10 +152,18 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
       ],
       description:
         "Learn how to outsmart opponents through effective game planning, tactics, and mental focus during matches.",
-      warmUp: [],
-      mainDrills: [],
-      fitness: [],
-      other: [],
+      warmUp: [
+        "Dynamic stretching",
+        "Shadow drills",
+        "Short rallies focusing on placement",
+      ],
+      mainDrills: [
+        "Simulated match scenarios",
+        "Playing with intentional shot patterns",
+        "Practice breaking an opponent's pattern",
+      ],
+      fitness: ["Agility ladder", "Short sprints", "Reaction drills"],
+      other: ["Meditation for focus", "Post-session analysis"],
     },
     {
       title: "Footwork Fundamentals",
@@ -134,10 +176,18 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
       ],
       description:
         "Dedicated to footwork improvement, this program builds speed, agility, and positioning skills to dominate the court.",
-      warmUp: [],
-      mainDrills: [],
-      fitness: [],
-      other: [],
+      warmUp: ["High knees", "Butt kicks", "Side-to-side shuffles"],
+      mainDrills: [
+        "Cone drills for direction changes",
+        "Sprint-stop-sprint patterns",
+        "Lateral movement drills",
+        "Baseline to net footwork",
+        "Recover to the middle after every shot drill",
+        "Shadow swings with precise foot positioning",
+        "Footwork under pressure drill",
+      ],
+      fitness: ["Squat jumps", "Lunges with rotation", "Plyometric drills"],
+      other: ["Stretching for legs", "Balance exercises"],
     },
   ]);
 

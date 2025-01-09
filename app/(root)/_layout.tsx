@@ -3,7 +3,7 @@ import { Tabs } from "expo-router";
 import Entypo from "@expo/vector-icons/Entypo";
 import Foundation from "@expo/vector-icons/Foundation";
 import Animated from "react-native-reanimated";
-
+import Feather from "@expo/vector-icons/Feather";
 export default function TabLayout() {
   return (
     <Tabs
@@ -31,6 +31,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="program"
+        options={{
+          title: "Program",
+          tabBarIcon: ({ color }) => (
+            <Entypo name="rocket" size={22} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="training"
         options={{
           title: "Training",
@@ -40,11 +49,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="map"
+        name="profile"
         options={{
-          title: "Map",
+          title: "Profile",
           tabBarIcon: ({ color }) => (
-            <Entypo name="rocket" size={22} color={color} />
+            <Feather name="user" size={24} color={color} />
           ),
         }}
       />

@@ -196,11 +196,10 @@ export default function Adding() {
                       </View>
                       <TouchableOpacity
                         onPress={() => {
-                          console.log("hello");
                           handleRemove(index);
                         }}
                       >
-                        <Ionicons name="remove" size={24} color="red" />
+                        <Ionicons name="remove" size={24} color="white" />
                       </TouchableOpacity>
                     </View>
                   ))}

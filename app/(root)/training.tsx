@@ -21,11 +21,12 @@ export default function TrainingPage() {
 
   return (
     <SafeAreaView className="bg-bgColor flex-1">
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
+
       <ScrollView>
-        <View className="mx-7 gap-5 pb-10">
+        <View className="mx-6 gap-5 pb-10">
           <View className="flex-row justify-between items-center">
-            <Text className="text-textColor text-4xl font-bold mt-5">
+            <Text className="text-textColor  text-[28px] font-bold mt-5">
               Trainings
             </Text>
             <TouchableOpacity
@@ -48,17 +49,19 @@ export default function TrainingPage() {
           />
 
           {programData.map((item, index) => {
-            const borderColorClass =
-              index % 2 === 0 ? "border-blue-200" : "border-blue-600";
-
             return (
               <TouchableOpacity
                 key={index}
-                onPress={() => router.push("/(edit)/training-page")}
+                onPress={() =>
+                  router.push({
+                    pathname: "/(edit)/training-page",
+                    params: { trainingId: index },
+                  })
+                }
               >
                 <View key={index}>
                   <View
-                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  ${borderColorClass} border-[0.4px] `}
+                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  border-blue-800 border-[0.4px] `}
                   >
                     <View className="text-view gap-2">
                       <Text className="text-blue-300 font-bold text-[17px] ">

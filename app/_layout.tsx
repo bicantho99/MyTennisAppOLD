@@ -6,6 +6,7 @@ import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
 import { TrainingDataProvider } from "@/assets/constants/dataContext";
 
+
 export default function Layout() {
   const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
   if (!publishableKey) {
@@ -36,6 +37,9 @@ export default function Layout() {
               options={{
                 presentation: "modal",
               }}
+            />
+            <Stack.Screen
+              name="(edit)/program-page"
             />
           </Stack>
         </ClerkLoaded>
