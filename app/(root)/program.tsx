@@ -21,7 +21,7 @@ export default function program() {
           </Text>
           <TouchableOpacity
             onPress={() => {
-              router.push("/(edit)/program-page");
+              router.push("/(edit)/program-page");  //app/(edit)/program-page.tsx
             }}
           >
             <View className="box-view  bg-slate-800 pl-5  pr-3 pt-5  border-blue-800 rounded-xl gap-[5px]   border-[0.4px]  h-[165px] mb-4">
