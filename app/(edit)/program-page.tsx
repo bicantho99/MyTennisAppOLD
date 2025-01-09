@@ -9,7 +9,7 @@ import React from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 import Checkbox from "expo-checkbox";
-
+import * as Progress from "react-native-progress";
 export default function ProgramPage() {
   const [color, setColor] = React.useState<number>(0);
   const [task, setTask] = React.useState<number[]>([]);
@@ -80,15 +80,6 @@ export default function ProgramPage() {
             ))}
           </View>
 
-          <View className="flex-row gap-2 mt-4 justify-evenly">
-            {[...Array(4)].map((_, index) => (
-              <View
-                key={index}
-                className="h-[7px] flex-row rounded-lg bg-slate-600 w-[75px] transition duration-250 ease-in delay-100"
-              />
-            ))}
-          </View>
-
           <View className="coach flex-row mt-5 gap-4">
             <Text className="h-16 w-16 bg-teal-400 rounded-[50px] text-center">
               Coach Cecile
@@ -132,6 +123,22 @@ export default function ProgramPage() {
                 </View>
               </TouchableOpacity>
             ))}
+            <View className="flex-row gap-2 mt-4 justify-evenly">
+              {/* {[...Array(4)].map((_, index) => (
+              <View
+                key={index}
+                className="h-[7px] flex-row rounded-lg bg-slate-600 w-[75px] transition duration-250 ease-in delay-100"
+              />
+            ))} */}
+              <Progress.Bar
+                progress={0}
+                width={350}
+                animated={true}
+                useNativeDriver={true}
+                animationConfig={{ bounciness: 0 }}
+                animationType={"timing"}
+              />
+            </View>
           </View>
         </ScrollView>
       </View>
