@@ -13,7 +13,6 @@ import * as Progress from "react-native-progress";
 export default function ProgramPage() {
   const [color, setColor] = React.useState<number>(0);
 
-
   const [checkedValues, setCheckedValues] = useState<number[]>([]);
 
   const handleCheckboxChange = (index: number, value: boolean) => {
@@ -59,6 +58,10 @@ export default function ProgramPage() {
     },
   ]);
 
+
+    const progressBarArray = Array.from(checkedValues);
+
+
   return (
     <SafeAreaView className="bg-bgColor flex-1">
       <View className="mx-6 ">
@@ -85,8 +88,15 @@ export default function ProgramPage() {
               </TouchableOpacity>
             ))}
           </View>
-          <View className="flex-row gap-2 mt-3 justify-evenly">
-            <ProgressBar length={checkedValues.length} total={4} />;
+
+          <View className="flex-row gap-2 justify-evenly mt-3 ">
+            {[0,0,0,0].map((_, index) => (
+              <View
+                key={index}
+                className={`h-[7px] flex-row rounded-lg  ${ checkedValues.length > index ? "bg-teal-400" : "bg-slate-700"}
+                } w-[80px] transition duration-250 ease-in delay-100`}
+              />
+            ))}
           </View>
 
           <View className="coach flex-row mt-5 gap-4">
@@ -138,20 +148,3 @@ export default function ProgramPage() {
     </SafeAreaView>
   );
 }
-
-const ProgressBar = ({ length, total }: { length: number; total: number }) => {
-  const progressBarArray = Array.from({ length: total });
-
-  return (
-    <View className="flex-row gap-2 justify-evenly">
-      {progressBarArray.map((_, index) => (
-        <View
-          key={index}
-          className={`h-[7px] flex-row rounded-lg ${
-            length > index ? "bg-teal-400" : "bg-slate-700"
-          } w-[80px] transition duration-250 ease-in delay-100`}
-        />
-      ))}
-    </View>
-  );
-};
