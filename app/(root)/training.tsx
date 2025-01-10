@@ -61,7 +61,7 @@ export default function TrainingPage() {
               >
                 <View key={index}>
                   <View
-                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  border-blue-800 border-[0.4px] `}
+                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  border-blue-800 border-[0.4px] shadow-sm shadow-slate-500`}
                   >
                     <View className="text-view gap-2">
                       <Text className="text-blue-300 font-bold text-[17px] ">

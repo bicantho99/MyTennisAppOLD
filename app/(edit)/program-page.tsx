@@ -5,53 +5,60 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 import Checkbox from "expo-checkbox";
 import * as Progress from "react-native-progress";
 export default function ProgramPage() {
   const [color, setColor] = React.useState<number>(0);
-  const [task, setTask] = React.useState<number[]>([]);
-  const [checkedStates, setCheckedStates] = React.useState([
-    false,
-    false,
-    false,
-    false,
-  ]);
-  const handleCheckboxChange = (index: number) => {
-    // Update the specific checkbox state based on its index
-    const updatedCheckedStates = [...checkedStates];
-    updatedCheckedStates[index] = !updatedCheckedStates[index];
-    setCheckedStates(updatedCheckedStates);
+
+
+  const [checkedValues, setCheckedValues] = useState<number[]>([]);
+
+  const handleCheckboxChange = (index: number, value: boolean) => {
+    const updatedSessions = [...sessions];
+    updatedSessions[index].state = value;
+    setSessions(updatedSessions); // Update the sessions state
+
+    if (value) {
+      setCheckedValues((prevValues) => [...prevValues, 0]);
+    } else {
+      setCheckedValues((prevValues) => prevValues.slice(0, -1));
+    }
   };
 
-  const sessions = [
+  const [sessions, setSessions] = useState([
     {
+      state: false,
       time: "45 Mins to 60 Mins",
       title: "Groundstrokes Practice",
       description: "The Best BackHand in the world",
       borderColor: "border-teal-400",
     },
     {
+      state: false,
       time: "45 Mins to 60 Mins",
       title: "Groundstrokes Practice",
       description: "The Best BackHand in the world",
       borderColor: "border-blue-400",
     },
     {
+      state: false,
       time: "45 Mins to 60 Mins",
       title: "Groundstrokes Practice",
       description: "The Best BackHand in the world",
       borderColor: "border-teal-400",
     },
     {
+      state: false,
       time: "45 Mins to 60 Mins",
       title: "Groundstrokes Practice",
       description: "The Best BackHand in the world",
       borderColor: "border-blue-400",
     },
-  ];
+  ]);
+
   return (
     <SafeAreaView className="bg-bgColor flex-1">
       <View className="mx-6 ">
@@ -67,9 +74,8 @@ export default function ProgramPage() {
         <ScrollView>
           <View className="mid-view mt-5  pb-2 flex-row justify-between px-1">
             {["Week 1", "Week 2", "Week 3"].map((item, index) => (
-              <TouchableOpacity onPress={() => setColor(index)}>
+              <TouchableOpacity onPress={() => setColor(index)} key={index}>
                 <Text
-                  key={index}
                   className={`text-xl text-center font-medium ${
                     index === color ? "text-teal-400" : "text-textColor"
                   }`}
@@ -78,6 +84,9 @@ export default function ProgramPage() {
                 </Text>
               </TouchableOpacity>
             ))}
+          </View>
+          <View className="flex-row gap-2 mt-3 justify-evenly">
+            <ProgressBar length={checkedValues.length} total={4} />;
           </View>
 
           <View className="coach flex-row mt-5 gap-4">
@@ -91,12 +100,9 @@ export default function ProgramPage() {
             </Text>
           </View>
 
-          <View className="mt-10 gap-4">
+          <View className="mt-6 gap-4">
             {sessions.map((session, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => handleCheckboxChange(index)}
-              >
+              <TouchableOpacity key={index}>
                 <View>
                   <View
                     className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px] border-l-[14px] ${session.borderColor} border-[0.4px]`}
@@ -107,9 +113,12 @@ export default function ProgramPage() {
                           {session.time}
                         </Text>
                         <Checkbox
-                          value={checkedStates[index]}
-                          onValueChange={() => handleCheckboxChange(index)}
-                          color={checkedStates[index] ? "green" : "#334155"} // Green when checked
+                          key={index}
+                          value={session.state}
+                          onValueChange={(value) =>
+                            handleCheckboxChange(index, value)
+                          }
+                          color={session.state ? "#4630EB" : undefined}
                         />
                       </View>
                       <Text className="text-blue-300 font-bold text-[17px]">
@@ -123,25 +132,26 @@ export default function ProgramPage() {
                 </View>
               </TouchableOpacity>
             ))}
-            <View className="flex-row gap-2 mt-4 justify-evenly">
-              {/* {[...Array(4)].map((_, index) => (
-              <View
-                key={index}
-                className="h-[7px] flex-row rounded-lg bg-slate-600 w-[75px] transition duration-250 ease-in delay-100"
-              />
-            ))} */}
-              <Progress.Bar
-                progress={0}
-                width={350}
-                animated={true}
-                useNativeDriver={true}
-                animationConfig={{ bounciness: 0 }}
-                animationType={"timing"}
-              />
-            </View>
           </View>
         </ScrollView>
       </View>
     </SafeAreaView>
   );
 }
+
+const ProgressBar = ({ length, total }: { length: number; total: number }) => {
+  const progressBarArray = Array.from({ length: total });
+
+  return (
+    <View className="flex-row gap-2 justify-evenly">
+      {progressBarArray.map((_, index) => (
+        <View
+          key={index}
+          className={`h-[7px] flex-row rounded-lg ${
+            length > index ? "bg-teal-400" : "bg-slate-700"
+          } w-[80px] transition duration-250 ease-in delay-100`}
+        />
+      ))}
+    </View>
+  );
+};

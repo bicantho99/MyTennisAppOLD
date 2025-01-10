@@ -24,6 +24,9 @@ export default function Page() {
     setProgramData((prev) => prev.filter((item) => item.title !== title));
   };
 
+
+  
+
   return (
     <KeyboardAwareScrollView
       style={{ flex: 1 }}
@@ -50,18 +53,23 @@ export default function Page() {
         </View>
 
         <View className="Drill-Section gap-7 mt-2">
-          <View className="Warm-Up">
-            <Text className="mb-3 text-cyan-300 font-bold text-xl">
+          <View className="Warm-Up ">
+            <Text className="mb-3 text-cyan-300 font-bold text-xl ">
               Warm Up
             </Text>
 
             {selectedTraining.warmUp?.map((item, index) => {
               return (
                 <View className="gap-2" key={index}>
-                  <View className=" bg-gray-700 py-3 px-4 rounded-md flex-row mb-3 gap-4 justify-between">
-                    <Text className="text-textColor font-bold text-[18px]  pl-3 py-1">
-                      {item}
-                    </Text>
+                  <View className=" bg-gray-800 py-3 px-4 rounded-md flex-row mb-3 gap-4 justify-between">
+                    <View className="flex-row items-center">
+                      <Text className="text-white font-medium text-[18px] text-center ">
+                        {`${index + 1}.`}
+                      </Text>
+                      <Text className="text-textColor font-bold text-[18px]  pl-3 py-1">
+                        {item}
+                      </Text>
+                    </View>
                     {edit ? (
                       <Ionicons name="remove" size={24} color="#f4f4f5" />
                     ) : (
@@ -71,8 +79,10 @@ export default function Page() {
                 </View>
               );
             })}
-          
+
+
           </View>
+
           <View className="Main-Drill">
             <Text className="mb-3 text-emerald-300 font-bold text-xl">
               Main Drills
@@ -80,10 +90,15 @@ export default function Page() {
             {selectedTraining.mainDrills?.map((item, index) => {
               return (
                 <View className="gap-2" key={index}>
-                  <View className=" bg-gray-700 py-3 px-4 rounded-md flex-row mb-3 gap-4 justify-between ">
-                    <Text className="text-textColor font-bold text-[18px] pl-3 py-1">
-                      {item}
-                    </Text>
+                  <View className=" bg-gray-800 py-3 px-4 rounded-md flex-row mb-3 gap-4 justify-between ">
+                    <View className="flex-row items-center">
+                      <Text className="text-white font-medium text-[18px] text-center ">
+                        {`${index + 1}.`}
+                      </Text>
+                      <Text className="text-textColor font-bold text-[18px]  pl-3 py-1">
+                        {item}
+                      </Text>
+                    </View>
                     {edit ? (
                       <View>
                         <Ionicons name="remove" size={24} color="#f4f4f5" />
@@ -105,9 +120,14 @@ export default function Page() {
               return (
                 <View className="gap-2" key={index}>
                   <View className=" bg-gray-700 py-3 px-4 rounded-md flex-row mb-3 gap-4 justify-between ">
-                    <Text className="text-textColor font-bold text-[18px] pl-3 py-1">
-                      {item}
-                    </Text>
+                    <View className="flex-row items-center">
+                      <Text className="text-white font-medium text-[18px] text-center ">
+                        {`${index + 1}.`}
+                      </Text>
+                      <Text className="text-textColor font-bold text-[18px]  pl-3 py-1">
+                        {item}
+                      </Text>
+                    </View>
                     {edit ? (
                       <Ionicons name="remove" size={24} color="#f4f4f5" />
                     ) : (

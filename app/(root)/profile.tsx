@@ -35,29 +35,29 @@ export default function profile() {
         </View>
 
         <TouchableOpacity>
-          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border-teal-400   border shadow-md shadow-slate-400">
+          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border-blue-400   border shadow-md shadow-slate-400">
             Leave a Review
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-teal-400">
+          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-blue-400">
             Merch
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-teal-400">
+          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-blue-400">
             Connect with The Coaches
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-teal-400">
+          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-blue-400">
             Delete Account
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-teal-400">
+          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-blue-400">
             Sign Out
           </Text>
         </TouchableOpacity>
