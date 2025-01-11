@@ -15,8 +15,51 @@ import Checkbox from "expo-checkbox";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import * as WebBrowser from "expo-web-browser";
+import { SignedIn, useOAuth, useUser, useClerk } from "@clerk/clerk-expo";
+import * as Linking from "expo-linking";
+
+export const useWarmUpBrowser = () => {
+  React.useEffect(() => {
+    void WebBrowser.warmUpAsync();
+    return () => {
+      void WebBrowser.coolDownAsync();
+    };
+  }, []);
+};
+
+WebBrowser.maybeCompleteAuthSession();
 
 export default function Home() {
+  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+  useWarmUpBrowser();
+  const { user } = useUser();
+  const { signOut } = useClerk();
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      Linking.openURL(Linking.createURL("/(root)"));
+    } catch (err) {
+      console.error(JSON.stringify(err, null, 2));
+    }
+  };
+
+  const handleSignIn = React.useCallback(async () => {
+    try {
+      const { createdSessionId, signIn, signUp, setActive } =
+        await startOAuthFlow({
+          redirectUrl: Linking.createURL("/(root)", { scheme: "myapp" }),
+        });
+
+      if (createdSessionId) {
+        setActive!({ session: createdSessionId });
+      } else {
+      }
+    } catch (err) {
+      console.error(JSON.stringify(err, null, 2));
+    }
+  }, []);
+
   type Challenge = {
     day: number;
     text: string;
@@ -70,13 +113,20 @@ export default function Home() {
       <View className="mx-6 my-6">
         <View className="Header mb-5 flex-row justify-between">
           <Text className="text-textColor font-semibold text-[25px]">
-            Welcome
+            Welcome 
           </Text>
-          <TouchableOpacity>
-            <Text className="text-green-400 font-[500] text-[15px] p-2">
-              Log In
+          {user ? (
+            <Text className="text-sky-400 text-xl font-medium ">
+              {/* <Text style={{ color: "#16bcfe" }}>Welcome</Text> */}
+              {user.firstName}
             </Text>
-          </TouchableOpacity>
+          ) : (
+            <TouchableOpacity onPress={handleSignIn}>
+              <Text className="color-[#16bcfe] text-lg font-medium mt-5 ">
+                Log In
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
 
         <View className="box-view  bg-slate-800 pl-5  pr-3 pt-5  border-blue-800 rounded-xl gap-[5px]   border-[0.4px]  h-[190px] shadow-sm shadow-blue-400">

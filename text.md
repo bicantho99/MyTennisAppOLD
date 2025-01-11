@@ -180,3 +180,13 @@ indicator
                 ))}
               </View>
             )}
+
+
+
+
+            // {
+//   "image": "./assets/images/adaptive-icon.png",
+//   "imageWidth": 200,
+//   "resizeMode": "contain",
+//   "backgroundColor": "#38bdf8"
+// }
