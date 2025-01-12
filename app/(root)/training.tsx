@@ -64,9 +64,12 @@ export default function TrainingPage() {
                     className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px]  border-blue-800 border-[0.4px] shadow-sm shadow-slate-500`}
                   >
                     <View className="text-view gap-2">
-                      <Text className="text-blue-300 font-bold text-[17px] ">
-                        {item.title}
-                      </Text>
+                      <View className="flex-row justify-between">
+                        <Text className="text-blue-300 font-bold text-[17px] ">
+                          {item.title}
+                        </Text>
+                        <Text className="text-slate-200 text-sm">{item.time} minutes</Text>
+                      </View>
                       <View className="flex-row">
                         {item.focuses?.map((focusItem, idx) => (
                           <Text
@@ -77,7 +80,7 @@ export default function TrainingPage() {
                           </Text>
                         ))}
                       </View>
-                      <Text className="text-gray-400 font-semibold">
+                      <Text className="text-gray-400 font-semibold text-[14px]">
                         {item.description}
                       </Text>
                     </View>

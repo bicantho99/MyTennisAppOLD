@@ -32,46 +32,50 @@ export default function Adding() {
   const [TDef, setTDef] = useState<string>("");
 
   // the lower part
-  const items = ["Warm Up", "Main Drills", "Fitness", "Other"];
+  const items = ["Warm Up", "Main Drills", "Fitness", "Recovery"];
   const [tabName, setTabName] = useState<keyof Drills>("Warm Up");
   const [drillName, setDrillName] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
   const [error, setError] = useState(false);
+  const [drills, setDrills] = useState<Drills>({
+    "Warm Up": [],
+    "Main Drills": [],
+    Fitness: [],
+    Recovery: [],
+  });
 
   interface Drills {
     "Warm Up": string[];
     "Main Drills": string[];
     Fitness: string[];
-    Other: string[];
+    Recovery: string[];
   }
 
   interface Program {
     title: string;
     description: string;
     numDrills?: number;
-    time: string;
+    time?: string;
     focuses?: { focus: string }[] | null;
     warmUp?: string[];
     mainDrills?: string[];
     fitness?: string[];
-    other?: string[];
+    Recovery?: string[];
   }
-
-  const [drills, setDrills] = useState<Drills>({
-    "Warm Up": [],
-    "Main Drills": [],
-    Fitness: [],
-    Other: [],
-  });
 
   const Saved = () => {
     const newProgram = {
       title: title,
       description: TDef,
       time: TDur,
+      warmUp: drills["Warm Up"] || [], // Use the array of strings as is
+      mainDrills: drills["Main Drills"] || [], // Use the array of strings as is
+      fitness: drills.Fitness || [], // Use the array of strings as is
+      recovery: drills.Recovery || [], // Use the array of strings as is
     };
     setProgramData([newProgram, ...programData]);
+    console.log(newProgram);
   };
 
   const handleSubmit = () => {
@@ -82,7 +86,7 @@ export default function Adding() {
 
     setDrills((prev: any) => ({
       ...prev,
-      [tabName]: [...prev[tabName], { name: drillName, description, duration }],
+      [tabName]: [...prev[tabName], drillName],
     }));
 
     setDrillName("");
@@ -116,7 +120,6 @@ export default function Adding() {
               onPress={() => {
                 Saved();
                 router.back();
-                // console.log(programData);
               }}
             >
               <Text className="mt-5 text-[15px] font-medium text-green-300">
@@ -127,7 +130,7 @@ export default function Adding() {
           <View className="section-view gap-3">
             <Text className="text-teal-50">Description</Text>
             <TextInput
-              className="bg-gray-800 p-3 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
+              className="bg-gray-800 p-4 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
               placeholder="Write Your Practice Name"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTitle(text)}
@@ -141,7 +144,7 @@ export default function Adding() {
               value={TDur}
             />
             <TextInput
-              className="bg-gray-800 px-3 py-6 rounded-lg   border-teal-500 border-[0.4px] text-white"
+              className="bg-gray-800 px-3 pb-10 pt-5 rounded-lg   border-teal-500 border-[0.4px] text-white"
               placeholder="Write Your Practice Description"
               placeholderTextColor={"gray"}
               editable
@@ -174,7 +177,7 @@ export default function Adding() {
                 );
               })}
             </View>
-            <View className="NO  flex  gap-2  mb-3  min-h-[160px]  rounded border-b-2 border-gray-500 transition duration-500 ease-in">
+            <View className="NO  flex  gap-2  mb-3  min-h-[160px]  rounded border-b-2 border-gray-500 transition duration-500 ease-in pb-10">
               {drills[tabName]?.length === 0 ? (
                 <Text className="text-gray-600 mt-3 font-medium text-[19px] text-center w-[200px] mb-2 transition ease-in duration-500">
                   Add {tabName} Below
@@ -183,7 +186,7 @@ export default function Adding() {
                 <View className="transition duration-700 ease-in-out">
                   {drills[tabName].map((items: any, index: any) => (
                     <View
-                      className="tasks-view py-4 px-4 rounded-md  flex-row gap-2  mt-2 border border-dotted border-teal-300  bg-teal-900/20 transition duration-700 ease-in-out justify-between"
+                      className="tasks-view py-4  px-4 rounded-md  flex-row gap-2  mt-2 border border-dotted border-teal-300  bg-teal-900/20 transition duration-700 ease-in-out justify-between"
                       key={index}
                     >
                       <View className="flex-row gap-2 items-center">
@@ -191,7 +194,7 @@ export default function Adding() {
                           {`${index + 1}.`}
                         </Text>
                         <Text className="text-white text-[17px] font-medium">
-                          {items.name}
+                          {items}
                         </Text>
                       </View>
                       <TouchableOpacity
@@ -208,17 +211,13 @@ export default function Adding() {
             </View>
 
             <TextInput
-              className="bg-gray-800 p-4 rounded-md text-white border-gray-400 border-[0.2px]"
+              className="bg-gray-800 p-5 rounded-md text-white border-gray-400 border-[0.2px]"
               placeholder="Drill name"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setDrillName(text)}
               value={drillName}
             />
-            <TextInput
-              className="bg-gray-800 p-4 rounded-md   border-gray-500 border-[0.4px] text-textColor"
-              placeholder="Description. Ex: high knee then butt kick"
-              placeholderTextColor={"gray"}
-            />
+
             {error ? (
               <Text className="text-slate-400 text-lg">Please drill name</Text>
             ) : null}

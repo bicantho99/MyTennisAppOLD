@@ -16,12 +16,12 @@ export default function profile() {
         <View className="border-b pb-7 pt-5 border-slate-400">
           <Text className="text-teal-50 text-xl">Feature Request:</Text>
           <TextInput
-            className="bg-gray-800 p-4 rounded-md text-white  border-teal-500 border-[0.4px] mt-5"
+            className="bg-gray-800 p-4 rounded-md text-white  border-teal-500 border-[1.5px] mt-5"
             placeholder="Email"
             placeholderTextColor={"gray"}
           />
           <TextInput
-            className="bg-gray-800 px-3 py-6 rounded-lg   border-teal-500 border-[0.4px] text-white mt-5"
+            className="bg-gray-800 px-3 py-6 rounded-lg   border-teal-500 border-[1.5px] text-white mt-5"
             placeholder="Help improve app or report an issue..."
             placeholderTextColor={"gray"}
             editable

@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -58,10 +59,12 @@ export default function ProgramPage() {
     },
   ]);
 
+  const progressBarArray = Array.from(checkedValues);
 
-    const progressBarArray = Array.from(checkedValues);
-
-
+  const fullText =
+    "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";
+  const truncatedText = "This practice focuses on solid...";
+  const [showFullText, setShowFullText] = useState(false);
   return (
     <SafeAreaView className="bg-bgColor flex-1">
       <View className="mx-6 ">
@@ -71,7 +74,7 @@ export default function ProgramPage() {
           </TouchableOpacity>
 
           <Text className="text-textColor font-medium text-xl">
-            Plan Overview
+            Program Overview
           </Text>
         </View>
         <ScrollView>
@@ -90,24 +93,34 @@ export default function ProgramPage() {
           </View>
 
           <View className="flex-row gap-2 justify-evenly mt-3 ">
-            {[0,0,0,0].map((_, index) => (
+            {[0, 0, 0, 0].map((_, index) => (
               <View
                 key={index}
-                className={`h-[7px] flex-row rounded-lg  ${ checkedValues.length > index ? "bg-teal-400" : "bg-slate-700"}
+                className={`h-[7px] flex-row rounded-lg  ${
+                  checkedValues.length > index ? "bg-teal-400" : "bg-slate-700"
+                }
                 } w-[80px] transition duration-250 ease-in delay-100`}
               />
             ))}
           </View>
 
           <View className="coach flex-row mt-5 gap-4">
-            <Text className="h-16 w-16 bg-teal-400 rounded-[50px] text-center">
-              Coach Cecile
-            </Text>
-            <Text className="text-textColor">
-              "This practice focuses on solid forehand and backhand along with
-              endurance training to make sure techniques don't break down when
-              it's tiring."
-            </Text>
+            <View className="flex items-center justify-center bg-teal-400 h-14 w-14 rounded-[19px]">
+              <Text className=" rounded-[50px] text-center">Cecile</Text>
+            </View>
+            <View className="flex-col">
+              <Text className="text-slate-100 font-medium">Coach Cecile</Text>
+              <Pressable onPress={() => setShowFullText(!showFullText)}>
+                <View className="flex-row mt-2 w-[290px]">
+                  <Text className="text-textColor ">
+                    {showFullText ? fullText : truncatedText}
+                  </Text>
+                  <Text className="text-slate-400 text-[14px] ml-2">
+                    {showFullText ? "" : "See more"}
+                  </Text>
+                </View>
+              </Pressable>
+            </View>
           </View>
 
           <View className="mt-6 gap-4">

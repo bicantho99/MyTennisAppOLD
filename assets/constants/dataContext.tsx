@@ -15,12 +15,12 @@ interface TrainingData {
   title: string;
   description: string;
   numDrills?: number;
-  time: string;
+  time?: string;
   focuses?: { focus: string }[] | null;
   warmUp?: string[];
   mainDrills?: string[];
   fitness?: string[];
-  other?: string[];
+  recovery?: string[];
 }
 
 type TrainingDataType = {
@@ -62,7 +62,7 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
         "Target practice for depth and placement",
       ],
       fitness: ["Sprints", "Side-to-side shuffles", "Lunges"],
-      other: ["Cooldown stretches", "Foam rolling"],
+      recovery: ["Cooldown stretches", "Foam rolling"],
     },
     {
       title: "Serving with Precision",
@@ -90,7 +90,7 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
         "Medicine ball throws",
         "Core exercises (plank, Russian twists)",
       ],
-      other: ["Stretching for shoulder and back muscles"],
+      recovery: ["Stretching for shoulder and back muscles"],
     },
     {
       title: "Net Game Mastery",
@@ -117,7 +117,7 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
         "Quick reflex volley feeder drill",
       ],
       fitness: ["Jump rope", "Box jumps", "Lateral agility drills"],
-      other: ["Stretching for legs and shoulders"],
+      recovery: ["Stretching for legs and shoulders"],
     },
     {
       title: "Baseline Consistency",
@@ -139,7 +139,7 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
         "Heavy topspin practice",
       ],
       fitness: ["Endurance runs", "Interval sprints", "Core strengthening"],
-      other: ["Mental visualization exercises", "Cooldown yoga"],
+      recovery: ["Mental visualization exercises", "Cooldown yoga"],
     },
     {
       title: "Match Strategy",
@@ -163,7 +163,7 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
         "Practice breaking an opponent's pattern",
       ],
       fitness: ["Agility ladder", "Short sprints", "Reaction drills"],
-      other: ["Meditation for focus", "Post-session analysis"],
+      recovery: ["Meditation for focus", "Post-session analysis"],
     },
     {
       title: "Footwork Fundamentals",
@@ -187,7 +187,7 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
         "Footwork under pressure drill",
       ],
       fitness: ["Squat jumps", "Lunges with rotation", "Plyometric drills"],
-      other: ["Stretching for legs", "Balance exercises"],
+      recovery: ["Stretching for legs", "Balance exercises"],
     },
   ]);
 

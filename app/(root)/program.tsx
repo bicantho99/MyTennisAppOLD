@@ -61,7 +61,7 @@ export default function program() {
                   router.push("/(edit)/program-page");
                 }}
               >
-                <View className="box-view bg-slate-800 pl-5 pr-3 pt-5 border-blue-800  rounded-xl gap-[9px] border-[0.4px] h-[165px] mb-4 ">
+                <View className="box-view bg-slate-800 pl-5 pr-3 pt-5 border-blue-800  rounded-xl gap-[9px] border-[0.4px] h-[165px] mb-4  shadow-sm shadow-slate-300">
                   <View className="text-view flex-col justify-between h-full">
                     <View className="gap-2">
                       <View className="flex-row justify-between">

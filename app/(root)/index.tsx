@@ -113,7 +113,7 @@ export default function Home() {
       <View className="mx-6 my-6">
         <View className="Header mb-5 flex-row justify-between">
           <Text className="text-textColor font-semibold text-[25px]">
-            Welcome 
+            Welcome
           </Text>
           {user ? (
             <Text className="text-sky-400 text-xl font-medium ">
@@ -138,7 +138,6 @@ export default function Home() {
               <Progress.Bar
                 progress={progress}
                 borderColor={""}
-                //make width dynamic to user phone screen
                 width={cardWidth}
                 animated={true}
                 useNativeDriver={true}

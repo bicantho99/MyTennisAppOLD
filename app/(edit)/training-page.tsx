@@ -25,7 +25,7 @@ export default function Page() {
   };
 
 
-  
+
 
   return (
     <KeyboardAwareScrollView
@@ -79,8 +79,6 @@ export default function Page() {
                 </View>
               );
             })}
-
-
           </View>
 
           <View className="Main-Drill">
@@ -138,6 +136,34 @@ export default function Page() {
               );
             })}
           </View>
+
+          <View className="Fitness-Drill">
+            <Text className="mb-3 text-blue-400 font-bold text-xl">
+              Other
+            </Text>
+            {selectedTraining.other?.map((item, index) => {
+              return (
+                <View className="gap-2" key={index}>
+                  <View className=" bg-gray-700 py-3 px-4 rounded-md flex-row mb-3 gap-4 justify-between ">
+                    <View className="flex-row items-center">
+                      <Text className="text-white font-medium text-[18px] text-center ">
+                        {`${index + 1}.`}
+                      </Text>
+                      <Text className="text-textColor font-bold text-[18px]  pl-3 py-1">
+                        {item}
+                      </Text>
+                    </View>
+                    {edit ? (
+                      <Ionicons name="remove" size={24} color="#f4f4f5" />
+                    ) : (
+                      ""
+                    )}
+                  </View>
+                </View>
+              );
+            })}
+          </View>
+
           <View className="WrapUp-Drill ml-1">
             {!toggle ? (
               <TouchableOpacity onPress={() => setToggle(true)}>
