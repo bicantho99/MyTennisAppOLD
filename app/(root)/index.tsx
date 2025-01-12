@@ -68,13 +68,13 @@ export default function Home() {
 
   // hardcode the challenges here
   const challenges: Challenge[] = [
-    { day: 1, text: "Approach the net 10 times", completed: false },
-    { day: 2, text: "Hit 5 aces", completed: false },
-    { day: 3, text: "Play a full match", completed: false },
-    { day: 4, text: "Win 3 games in a row", completed: false },
-    { day: 5, text: "Practice footwork for 20 mins", completed: false },
-    { day: 6, text: "Serve consistently for 10 minutes", completed: false },
-    { day: 7, text: "Play a full set", completed: false },
+    { day: 1, text: "Hit Serve + Forehands 4 Times", completed: false },
+    { day: 2, text: "Hit 4 Serve outwide + Forehands", completed: false },
+    { day: 3, text: "Win 3 points in a row", completed: false },
+    { day: 4, text: "Use the 2-1 Pattern 4 Times", completed: false },
+    { day: 5, text: "Return Approach 4 Times", completed: false },
+    { day: 6, text: "Use Slice + Run Around Forehands", completed: false },
+    { day: 7, text: "Use the 2-1 Pattern 4 Times", completed: false },
   ];
 
   const [currentChallenge, setCurrentChallenge] = useState(0); // Tracks current day's challenge

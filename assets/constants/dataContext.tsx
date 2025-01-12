@@ -191,6 +191,49 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
     },
   ]);
 
+  const [sessions, setSessions] = useState([
+    {
+      state: false,
+      time: "45 Mins to 60 Mins",
+      title: "Short Ball Hunter",
+      description: "Approaching the net has a wonderful winning percentage",
+      borderColor: "border-teal-400",
+      Drills: [
+        "Generate Short Balls",
+        "The 50-50 Ball",
+        "Approach to Opponent's weakness / Forehand Approach",
+        "Second Serve Return Approach",
+      ],
+    },
+    {
+      state: false,
+      time: "45 Mins to 60 Mins",
+      title: "Serving Patterns",
+      description: "The Best BackHand in the world",
+      borderColor: "border-blue-400",
+      Drills: [
+        "Combine a serve and a forehand",
+        "Serve Backhand / Wide / Body",
+        "Serve and Volley",
+        "Serve + Approaching",
+      ],
+    },
+    {
+      state: false,
+      time: "45 Mins to 60 Mins",
+      title: "Groundstrokes Practice",
+      description: "Between The Points",
+      borderColor: "border-teal-400",
+    },
+    {
+      state: false,
+      time: "45 Mins to 60 Mins",
+      title: "Groundstrokes Practice",
+      description: "The Best BackHand in the world",
+      borderColor: "border-blue-400",
+    },
+  ]);
+
   return (
     <TrainingDataContext.Provider
       {...props}

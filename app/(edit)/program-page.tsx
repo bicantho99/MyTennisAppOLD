@@ -32,29 +32,31 @@ export default function ProgramPage() {
     {
       state: false,
       time: "45 Mins to 60 Mins",
-      title: "Groundstrokes Practice",
-      description: "The Best BackHand in the world",
+      title: "Short Ball Hunter",
+      description: "Approaching the net has a wonderful winning percentage",
       borderColor: "border-teal-400",
     },
     {
       state: false,
       time: "45 Mins to 60 Mins",
-      title: "Groundstrokes Practice",
-      description: "The Best BackHand in the world",
+      title: "Serving Patterns",
+      description:
+        "Combine the Serve & the first two-three shots after the serve into 1 unit.",
       borderColor: "border-blue-400",
     },
     {
       state: false,
       time: "45 Mins to 60 Mins",
-      title: "Groundstrokes Practice",
-      description: "The Best BackHand in the world",
+      title: "Between The Points",
+      description:
+        "This area focuses on the mental and emotional aspects of your game",
       borderColor: "border-teal-400",
     },
     {
       state: false,
       time: "45 Mins to 60 Mins",
-      title: "Groundstrokes Practice",
-      description: "The Best BackHand in the world",
+      title: "Baseline Patterns and Strategies",
+      description: "Discover the best baseline practices",
       borderColor: "border-blue-400",
     },
   ]);
@@ -141,7 +143,7 @@ export default function ProgramPage() {
                           onValueChange={(value) =>
                             handleCheckboxChange(index, value)
                           }
-                          color={session.state ? "#4630EB" : undefined}
+                          color={session.state ? "#ec4899" : undefined}
                         />
                       </View>
                       <Text className="text-blue-300 font-bold text-[17px]">

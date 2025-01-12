@@ -139,9 +139,9 @@ export default function Page() {
 
           <View className="Fitness-Drill">
             <Text className="mb-3 text-blue-400 font-bold text-xl">
-              Other
+              Recover
             </Text>
-            {selectedTraining.other?.map((item, index) => {
+            {selectedTraining.recovery?.map((item, index) => {
               return (
                 <View className="gap-2" key={index}>
                   <View className=" bg-gray-700 py-3 px-4 rounded-md flex-row mb-3 gap-4 justify-between ">
