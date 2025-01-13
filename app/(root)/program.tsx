@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  TextInput
 } from "react-native";
 import React, { useState } from "react";
 import * as Progress from "react-native-progress";
@@ -44,6 +45,11 @@ export default function program() {
       tags: ["Serve", "Volley", "Footwork", "Tactics"],
     },
   ];
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filterPrograms = programs.filter((programs) =>
+    programs.coach.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <SafeAreaView className="flex-1 bg-bgColor">
@@ -54,7 +60,14 @@ export default function program() {
             Programs
           </Text>
           <View className="gap-2">
-            {programs.map((program, index) => (
+            <TextInput
+              className="bg-gray-800 rounded-md h-[35px]  pl-3  text-white"
+              placeholder="Search by name"
+              placeholderTextColor={"gray"}
+              value={searchTerm}
+              onChangeText={setSearchTerm}
+            />
+            {filterPrograms.map((program, index) => (
               <TouchableOpacity
                 key={index}
                 onPress={() => {
@@ -94,6 +107,8 @@ export default function program() {
               </TouchableOpacity>
             ))}
           </View>
+
+
           <View className="mt-8 gap-2">
             {/* <View
               className="flex-row gap-2 justify-evenly"
