@@ -77,7 +77,6 @@ export default function Home() {
     { day: 7, text: "Use the 2-1 Pattern 4 Times", completed: false },
   ];
 
-  const [currentChallenge, setCurrentChallenge] = useState(0); // Tracks current day's challenge
   const [completedTasks, setCompletedTasks] = React.useState<number[]>([]);
   const progress = completedTasks.length / challenges.length;
   const scrollY = React.useRef(new Animated.Value(0)).current;
