@@ -18,6 +18,12 @@ import { useTrainingData } from "@/assets/constants/dataContext";
 
 export default function TrainingPage() {
   const { programData, setProgramData } = useTrainingData();
+  const [searchTerm, setSearchTerm] = useState("");
+ 
+  //filter program data based on user search term
+  const filterPrograms = programData.filter((program) =>
+    program.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <SafeAreaView className="bg-bgColor flex-1">
@@ -42,13 +48,16 @@ export default function TrainingPage() {
               />
             </TouchableOpacity>
           </View>
+
           <TextInput
-            className="bg-gray-800 rounded-md h-[35px]  pl-3 "
+            className="bg-gray-800 rounded-md h-[35px]  pl-3  text-white"
             placeholder="Search by name"
             placeholderTextColor={"gray"}
+            value={searchTerm}
+            onChangeText={setSearchTerm}
           />
 
-          {programData.map((item, index) => {
+          {filterPrograms.map((item, index) => {
             return (
               <TouchableOpacity
                 key={index}
