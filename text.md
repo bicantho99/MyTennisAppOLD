@@ -190,3 +190,28 @@ indicator
 //   "resizeMode": "contain",
 //   "backgroundColor": "#38bdf8"
 // }
+
+
+
+
+  {
+      coach: "Coach Jakub",
+      totalWeeks: 3,
+      title: "Speed & Agility",
+      description: "Training to improve footwork and speed",
+      tags: ["Plyometric", "Footwork", "Endurance", "Agility"],
+    },
+    {
+      coach: "Coach Raith",
+      totalWeeks: 3,
+      title: "Single Sprinkle Strategies",
+      description: "Training focus on the best single strategies",
+      tags: ["Focus", "Mindset", "Mental Toughness"],
+    },
+    {
+      coach: "Coach Mark",
+      totalWeeks: 3,
+      title: "Double Trouble Strategies",
+      description: "Training for a strong serve and quick volleys",
+      tags: ["Serve", "Volley", "Footwork", "Tactics"],
+    },

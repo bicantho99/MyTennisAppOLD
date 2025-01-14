@@ -13,13 +13,15 @@ import Checkbox from "expo-checkbox";
 import * as Progress from "react-native-progress";
 export default function ProgramPage() {
   const [color, setColor] = React.useState<number>(0);
+  const [weekNum, setWeekNum] = React.useState<string[]>(["Week 1", "Week 2", "Week 3"]);
 
   const [checkedValues, setCheckedValues] = useState<number[]>([]);
+
 
   const handleCheckboxChange = (index: number, value: boolean) => {
     const updatedSessions = [...sessions];
     updatedSessions[index].state = value;
-    setSessions(updatedSessions); // Update the sessions state
+    setSessions(updatedSessions);
 
     if (value) {
       setCheckedValues((prevValues) => [...prevValues, 0]);
@@ -55,6 +57,39 @@ export default function ProgramPage() {
     {
       state: false,
       time: "45 Mins to 60 Mins",
+      title: "Baseline Patterns and Strategies",
+      description: "Discover the best baseline practices",
+      borderColor: "border-blue-400",
+    },
+  ]);
+
+  const [sessions1, setSessions1] = useState([
+    {
+      state: false,
+      time: "45 Mins to 60 Mins 2",
+      title: "Short Ball Hunter",
+      description: "Approaching the net has a wonderful winning percentage",
+      borderColor: "border-teal-400",
+    },
+    {
+      state: false,
+      time: "45 Mins to 60 Mins 2",
+      title: "Serving Patterns",
+      description:
+        "Combine the Serve & the first two-three shots after the serve into 1 unit.",
+      borderColor: "border-blue-400",
+    },
+    {
+      state: false,
+      time: "45 Mins to 60 Mins 2",
+      title: "Between The Points",
+      description:
+        "This area focuses on the mental and emotional aspects of your game",
+      borderColor: "border-teal-400",
+    },
+    {
+      state: false,
+      time: "45 Mins to 60 Mins 2",
       title: "Baseline Patterns and Strategies",
       description: "Discover the best baseline practices",
       borderColor: "border-blue-400",
@@ -127,7 +162,12 @@ export default function ProgramPage() {
 
           <View className="mt-6 gap-4">
             {sessions.map((session, index) => (
-              <TouchableOpacity key={index}>
+              <TouchableOpacity
+                key={index}
+                onPress={() => {
+                  router.push("/trainingPage2");
+                }}
+              >
                 <View>
                   <View
                     className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px] border-l-[14px] ${session.borderColor} border-[0.4px]`}

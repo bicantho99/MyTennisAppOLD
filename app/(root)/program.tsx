@@ -4,7 +4,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
-  TextInput
+  TextInput,
 } from "react-native";
 import React, { useState } from "react";
 import * as Progress from "react-native-progress";
@@ -14,6 +14,7 @@ import { router } from "expo-router";
 import RNSegmentedProgressBar, {
   RunAnimationHandler,
 } from "@baby-journey/rn-segmented-progress-bar";
+import { programName } from "@/assets/constants/dataContext";
 export default function program() {
   const programs = [
     {
@@ -22,27 +23,6 @@ export default function program() {
       title: "Prep For Tournament",
       description: "Training focusing on match play's importants",
       tags: ["Serve", "Return", "Net Game", "Mental"],
-    },
-    {
-      coach: "Coach Jakub",
-      totalWeeks: 3,
-      title: "Speed & Agility",
-      description: "Training to improve footwork and speed",
-      tags: ["Plyometric", "Footwork", "Endurance", "Agility"],
-    },
-    {
-      coach: "Coach Raith",
-      totalWeeks: 3,
-      title: "Single Sprinkle Strategies",
-      description: "Training focus on the best single strategies",
-      tags: ["Focus", "Mindset", "Mental Toughness"],
-    },
-    {
-      coach: "Coach Mark",
-      totalWeeks: 3,
-      title: "Double Trouble Strategies",
-      description: "Training for a strong serve and quick volleys",
-      tags: ["Serve", "Volley", "Footwork", "Tactics"],
     },
   ];
   const [searchTerm, setSearchTerm] = useState("");
@@ -60,14 +40,14 @@ export default function program() {
             Programs
           </Text>
           <View className="gap-2">
-            <TextInput
+            {/* <TextInput
               className="bg-gray-800 rounded-md h-[35px]  pl-3  text-white"
               placeholder="Search by name"
               placeholderTextColor={"gray"}
               value={searchTerm}
               onChangeText={setSearchTerm}
-            />
-            {filterPrograms.map((program, index) => (
+            /> */}
+            {programs.map((program, index) => (
               <TouchableOpacity
                 key={index}
                 onPress={() => {
@@ -107,7 +87,6 @@ export default function program() {
               </TouchableOpacity>
             ))}
           </View>
-
 
           <View className="mt-8 gap-2">
             {/* <View

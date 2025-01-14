@@ -38,9 +38,8 @@ export default function Layout() {
                 presentation: "modal",
               }}
             />
-            <Stack.Screen
-              name="(edit)/program-page"
-            />
+            <Stack.Screen name="(edit)/program-page" />
+            <Stack.Screen name="(edit)/trainigPage2" />
           </Stack>
         </ClerkLoaded>
       </TrainingDataProvider>
