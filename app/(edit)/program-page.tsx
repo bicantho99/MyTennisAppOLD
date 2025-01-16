@@ -11,90 +11,51 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 import Checkbox from "expo-checkbox";
 import * as Progress from "react-native-progress";
+import { useLocalSearchParams } from "expo-router";
+import { Data } from "@/assets/constants/programData";
 export default function ProgramPage() {
-  const [color, setColor] = React.useState<number>(0);
-  const [weekNum, setWeekNum] = React.useState<string[]>(["Week 1", "Week 2", "Week 3"]);
-
+  const { trainingId } = useLocalSearchParams();
+  const { programData, setProgramData } = Data();
   const [checkedValues, setCheckedValues] = useState<number[]>([]);
-
+  const trainingIdNumber = Number(trainingId);
+  const weeks = [
+    programData[trainingIdNumber].Week1,
+    programData[trainingIdNumber].Week2,
+    programData[trainingIdNumber].Week3,
+  ];
+  const [selectedWeek, setSelectedWeek] = useState(0);
 
   const handleCheckboxChange = (index: number, value: boolean) => {
-    const updatedSessions = [...sessions];
-    updatedSessions[index].state = value;
-    setSessions(updatedSessions);
+    const updatedProgramData = { ...programData };
+    const currentWeekIndex = selectedWeek; // Get the selected week index (0, 1, or 2)
 
+    // Update the correct week's session state based on the selected week
+    updatedProgramData[trainingIdNumber] = {
+      ...updatedProgramData[trainingIdNumber],
+    };
+    updatedProgramData[trainingIdNumber][`Week${currentWeekIndex + 1}`] = [
+      ...updatedProgramData[trainingIdNumber][`Week${currentWeekIndex + 1}`],
+    ];
+    updatedProgramData[trainingIdNumber][`Week${currentWeekIndex + 1}`][index] =
+      {
+        ...updatedProgramData[trainingIdNumber][`Week${currentWeekIndex + 1}`][
+          index
+        ],
+        state: value,
+      };
+
+    // Set the updated program data
+    setProgramData(updatedProgramData);
+
+    // Update the checked values for the selected week
     if (value) {
-      setCheckedValues((prevValues) => [...prevValues, 0]);
+      setCheckedValues((prevValues) => [...prevValues, currentWeekIndex]);
     } else {
-      setCheckedValues((prevValues) => prevValues.slice(0, -1));
+      setCheckedValues((prevValues) =>
+        prevValues.filter((weekIndex) => weekIndex !== currentWeekIndex)
+      );
     }
   };
-
-  const [sessions, setSessions] = useState([
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Short Ball Hunter",
-      description: "Approaching the net has a wonderful winning percentage",
-      borderColor: "border-teal-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Serving Patterns",
-      description:
-        "Combine the Serve & the first two-three shots after the serve into 1 unit.",
-      borderColor: "border-blue-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Between The Points",
-      description:
-        "This area focuses on the mental and emotional aspects of your game",
-      borderColor: "border-teal-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Baseline Patterns and Strategies",
-      description: "Discover the best baseline practices",
-      borderColor: "border-blue-400",
-    },
-  ]);
-
-  const [sessions1, setSessions1] = useState([
-    {
-      state: false,
-      time: "45 Mins to 60 Mins 2",
-      title: "Short Ball Hunter",
-      description: "Approaching the net has a wonderful winning percentage",
-      borderColor: "border-teal-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins 2",
-      title: "Serving Patterns",
-      description:
-        "Combine the Serve & the first two-three shots after the serve into 1 unit.",
-      borderColor: "border-blue-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins 2",
-      title: "Between The Points",
-      description:
-        "This area focuses on the mental and emotional aspects of your game",
-      borderColor: "border-teal-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins 2",
-      title: "Baseline Patterns and Strategies",
-      description: "Discover the best baseline practices",
-      borderColor: "border-blue-400",
-    },
-  ]);
 
   const progressBarArray = Array.from(checkedValues);
 
@@ -102,6 +63,7 @@ export default function ProgramPage() {
     "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";
   const truncatedText = "This practice focuses on solid...";
   const [showFullText, setShowFullText] = useState(false);
+
   return (
     <SafeAreaView className="bg-bgColor flex-1">
       <View className="mx-6 ">
@@ -116,14 +78,19 @@ export default function ProgramPage() {
         </View>
         <ScrollView>
           <View className="mid-view mt-5  pb-2 flex-row justify-between px-1">
-            {["Week 1", "Week 2", "Week 3"].map((item, index) => (
-              <TouchableOpacity onPress={() => setColor(index)} key={index}>
+            {weeks.map((_, index) => (
+              <TouchableOpacity
+                onPress={() => {
+                  setSelectedWeek(index);
+                }}
+                key={index}
+              >
                 <Text
                   className={`text-xl text-center font-medium ${
-                    index === color ? "text-teal-400" : "text-textColor"
+                    selectedWeek === index ? "text-teal-400" : "text-textColor"
                   }`}
                 >
-                  {item}
+                  Week {index + 1}
                 </Text>
               </TouchableOpacity>
             ))}
@@ -142,7 +109,7 @@ export default function ProgramPage() {
           </View>
 
           <View className="coach flex-row mt-5 gap-4">
-            <View className="flex items-center justify-center bg-teal-400 h-14 w-14 rounded-[19px]">
+            <View className="flex items-center justify-center bg-slate-400 h-14 w-14 rounded-[19px]">
               <Text className=" rounded-[50px] text-center">Cecile</Text>
             </View>
             <View className="flex-col">
@@ -160,8 +127,10 @@ export default function ProgramPage() {
             </View>
           </View>
 
+          {/* <View>{switchCases()}</View> */}
+
           <View className="mt-6 gap-4">
-            {sessions.map((session, index) => (
+            {weeks[selectedWeek].map((session: any, index: any) => (
               <TouchableOpacity
                 key={index}
                 onPress={() => {
@@ -170,7 +139,7 @@ export default function ProgramPage() {
               >
                 <View>
                   <View
-                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px] border-l-[14px] ${session.borderColor} border-[0.4px]`}
+                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px] border-l-[14px] border-teal-400 border-[0.4px]`}
                   >
                     <View className="text-view gap-2">
                       <View className="flex-row justify-between">
@@ -183,7 +152,7 @@ export default function ProgramPage() {
                           onValueChange={(value) =>
                             handleCheckboxChange(index, value)
                           }
-                          color={session.state ? "#ec4899" : undefined}
+                          color={session.state ? "#16a34a" : undefined}
                         />
                       </View>
                       <Text className="text-blue-300 font-bold text-[17px]">

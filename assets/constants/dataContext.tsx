@@ -201,88 +201,18 @@ const TrainingDataProvider = (props: { children: ReactNode }): ReactElement => {
 
 export { TrainingDataProvider, useTrainingData };
 
-export const programName = {
-  1: {
-    coach: "Coach Cecile",
-    totalWeeks: 3,
-    title: "Prep For Tournament",
-    description: "Training focusing on match play's importants",
-    tags: ["Serve", "Return", "Net Game", "Mental"],
+const trainingData = [
+  {
+    trainingName: "Prep",
+    week1: "prepa",
+    week2: "prepb",
+    week3: "prepc",
   },
-  2: {
-    coach: "Coach Jakub Novak",
-    totalWeeks: 3,
-    title: "Double Trouble Strategies",
-    description: "Training for a strong serve and quick volleys",
-    tags: ["Serve", "Volley", "Footwork", "Tactics"],
+  {
+    trainingName: "Double",
+    week1: "DoubleA",
+    week2: "DoubleB",
+    week3: "DoubleC",
   },
-};
-
-export const programDatas = {
-  1: [
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Short Ball Hunter",
-      description: "Approaching the net has a wonderful winning percentage",
-      borderColor: "border-teal-400",
-    },
-
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Serving Patterns",
-      description:
-        "Combine the Serve & the first two-three shots after the serve into 1 unit.",
-      borderColor: "border-blue-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Between The Points",
-      description:
-        "This area focuses on the mental and emotional aspects of your game",
-      borderColor: "border-teal-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Baseline Patterns and Strategies",
-      description: "Discover the best baseline practices",
-      borderColor: "border-blue-400",
-    },
-  ],
-
-  2: [
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Double Hunter",
-      description: "Approaching the net has a wonderful winning percentage",
-      borderColor: "border-teal-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Poaching Pattern",
-      description:
-        "Combine the Serve & the first two-three shots after the serve into 1 unit.",
-      borderColor: "border-blue-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "Serving Pattern",
-      description:
-        "This area focuses on the mental and emotional aspects of your game",
-      borderColor: "border-teal-400",
-    },
-    {
-      state: false,
-      time: "45 Mins to 60 Mins",
-      title: "The Lob Return",
-      description: "Discover the best baseline practices",
-      borderColor: "border-blue-400",
-    },
-  ],
-};
+  
+];

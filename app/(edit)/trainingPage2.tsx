@@ -1,8 +1,43 @@
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
+import { useState } from "react";
 
 export default function profile() {
+  const [trainingData, setTrainingData] = useState<any>({
+    singleServePattern: {
+      warmUp: {
+        drills: [
+          "Mini Tennis - 30 balls totals",
+          "Baseline cross court deuce side - 20 Ball in a row or 5 balls in a row (x4)",
+          "Serve warm up deuce side x15",
+        ],
+        notes: [
+          "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
+        ],
+      },
+      mainDrills: {
+        drills: [
+          "Combine a serve and forehands to opponent's backhand on deuce side (x15)",
+          "Serve and Volleys to Opponent's backhand (x10)",
+          "2nd Serve to opponent's backhand or T on deuce side (x10)",
+        ],
+        notes: [
+          "Focus on maximizing your strengths to your opponent's weakness",
+        ],
+      },
+      wrapUp: {
+        drills: [
+          "Play points and apply the serving patterns above",
+          "Play points with second serve only",
+        ],
+        notes: [
+          "Focus on having a strong second serve physically and mentally",
+        ],
+      },
+    },
+  });
+  const sections = trainingData.singleServePattern;
   return (
     <SafeAreaView className="bg-bgColor flex-1">
       <View className="mx-6 my-6">
@@ -26,75 +61,30 @@ export default function profile() {
           </Text>
         </View> */}
 
-        <View className="">
-          <View className="gap-2  border-b-2 pb-5 border-slate-600">
-            <Text className="text-slate-300 font-bold text-lg mt-3">
-              Warm Up
-            </Text>
-            <Text className="text-slate-400">
-              Mini Tennis - Get the legs moving and grooving
-            </Text>
-            <Text className="text-slate-400">
-              Baseline - 25 hits in a row middle then cross on FH/BH
+        {Object.keys(sections).map((section, index) => (
+          <View key={index} className="mt-5">
+            {/* Section Title */}
+            <Text className="text-sky-500 text-lg font-bold mb-2 capitalize">
+              {section}
             </Text>
 
-            <Text className="text-slate-300 bg-gray-800 rounded-md p-4 py-3">
-              Note: Pay attention to details of each balls such as it depth,
-              height and pace and adjust
-            </Text>
-          </View>
-
-          <View className="gap-2  border-b-2 pb-5 border-teal-600">
-            <Text className="text-slate-300 font-bold text-lg mt-3">
-              Ground Strokes
-            </Text>
-            <Text className="text-slate-400">
-              Depth - Hit 2 good depth shots in a row land pass the service line
-              -- 10 minutes both side
-            </Text>
-            <Text className="text-slate-400">
-              Change of Direction: 2 shots cross court and one shot down the
-              line
-            </Text>
-            <Text className="text-slate-400">
-              Short angles: Aim for wider angles and closer to service line and
-              open up the court
-            </Text>
-            <Text className="text-slate-300 bg-gray-800 rounded-md p-4 py-3">
-              Note: Pay attention to details of each balls such as it depth,
-              height and pace and adjust
-            </Text>
-          </View>
-          <View className="gap-2  border-b-2 pb-5 border-sky-600">
-            <Text className="text-slate-300 font-bold text-lg mt-3">
-              Point Play
-            </Text>
-            <Text className="text-slate-400">
-              Serve body - start by body serve for high serve percentage
-            </Text>
-            <Text className="text-slate-400">
-              <Text className="text-slate-400">
-                Serve outwide - on both side and look for forehand right after
+            {/* Drills */}
+            {sections[section].drills.map((drill: any, idx: any) => (
+              <Text key={idx} className="text-slate-400 text-sm mb-1">
+                - {drill}
               </Text>
-            </Text>
-            <Text className="text-slate-400">
-              Serve and Volley: a good way to mix it up and surprise your
-              opponent
-            </Text>
-            <Text className="text-slate-300 bg-gray-800 rounded-md p-3">
-              Note: Pay attention to details of each balls such as it depth,
-              height and pace and adjust
-            </Text>
+            ))}
+
+            {/* Notes */}
+            <Text className="text-sky-500 text-sm font-bold mt-3">Notes:</Text>
+            {sections[section].notes.map((note: any, idx: any) => (
+              <Text key={idx} className="text-slate-400 text-sm mb-1">
+                - {note}
+              </Text>
+            ))}
           </View>
-        </View>
+        ))}
       </View>
     </SafeAreaView>
   );
 }
-
-//  <TouchableOpacity
-//                 key={index}
-//                 onPress={() => {
-//                   router.push("/(edit)/program-page");
-//                 }}
-//               ></TouchableOpacity>

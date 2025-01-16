@@ -14,22 +14,47 @@ import { router } from "expo-router";
 import RNSegmentedProgressBar, {
   RunAnimationHandler,
 } from "@baby-journey/rn-segmented-progress-bar";
-import { programName } from "@/assets/constants/dataContext";
+
 export default function program() {
   const programs = [
     {
+      id: 0,
       coach: "Coach Cecile",
       totalWeeks: 3,
-      title: "Prep For Tournament",
+      title: "Match Play Strategies",
       description: "Training focusing on match play's importants",
       tags: ["Serve", "Return", "Net Game", "Mental"],
     },
+    {
+      id: 1,
+      coach: "Coach Cecile",
+      totalWeeks: 3,
+      title: "Double The Trouble",
+      description: "Training focusing on double wizard-ry",
+      tags: ["Serve", "Return", "Net Game", "Mental"],
+    },
+    {
+      id: 3,
+      coach: "Coach Cecile",
+      totalWeeks: 3,
+      title: "Request a Custom Plan",
+      description: "Training customize to your game",
+      tags: ["Serve", "Return", "Net Game", "Mental"],
+    },
   ];
-  const [searchTerm, setSearchTerm] = useState("");
+  const [message, setMessage] = useState("");
 
-  const filterPrograms = programs.filter((programs) =>
-    programs.coach.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const handleClick = (id: number) => {
+    if (id === 3) {
+      setMessage("Sorry...This is under construction :)");
+    } else {
+      setMessage("");
+      router.push({
+        pathname: "/(edit)/program-page",
+        params: { trainingId: id },
+      });
+    }
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-bgColor">
@@ -40,18 +65,11 @@ export default function program() {
             Programs
           </Text>
           <View className="gap-2">
-            {/* <TextInput
-              className="bg-gray-800 rounded-md h-[35px]  pl-3  text-white"
-              placeholder="Search by name"
-              placeholderTextColor={"gray"}
-              value={searchTerm}
-              onChangeText={setSearchTerm}
-            /> */}
             {programs.map((program, index) => (
               <TouchableOpacity
                 key={index}
                 onPress={() => {
-                  router.push("/(edit)/program-page");
+                  handleClick(program.id);
                 }}
               >
                 <View className="box-view bg-slate-800 pl-5 pr-3 pt-5 border-blue-800  rounded-xl gap-[9px] border-[0.4px] h-[165px] mb-4  shadow-sm shadow-slate-300">
@@ -87,6 +105,7 @@ export default function program() {
               </TouchableOpacity>
             ))}
           </View>
+          {message ? <Text className="text-textColor">{message}</Text> : null}
 
           <View className="mt-8 gap-2">
             {/* <View
