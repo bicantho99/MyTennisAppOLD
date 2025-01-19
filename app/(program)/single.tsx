@@ -4,8 +4,7 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { singleDataWeek1 } from "@/assets/constants/singledata/data1";
-export default function profile() {
-
+export default function single() {
   const { title } = useLocalSearchParams();
   const sections = singleDataWeek1[title as keyof typeof singleDataWeek1];
 

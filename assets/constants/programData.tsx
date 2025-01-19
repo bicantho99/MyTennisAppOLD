@@ -19,14 +19,14 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Baseline Patterns",
+          title: "Practice Sets",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Between The Points",
+          title: "Baseline Patterns",
           description: "Discover the best baseline practices",
         },
       ],
@@ -34,27 +34,27 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Practice Set",
+          title: "Serving Patterns 2",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Serving + 1",
+          title: "Returning Patterns 2",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Return + 1",
+          title: "Practice Sets 2",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Slicing Pattern",
+          title: "Baseline Patterns 2",
           description: "Discover the best baseline practices",
         },
       ],
@@ -62,27 +62,27 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Practice Set",
+          title: "Serving Patterns 3",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Serving + 2",
+          title: "Returning Patterns 3",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Return + 2",
+          title: "Practice Sets 3",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Defensive Pattern",
+          title: "Baseline Patterns 3",
           description: "Discover the best baseline practices",
         },
       ],
@@ -92,27 +92,27 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Serving Patterns",
+          title: "Poaching Scenarios",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Returning Pattern",
+          title: "Serving Formations",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "The Middle Tape",
+          title: "Returning Strategies",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Practice Set",
+          title: "Practice Sets",
           description: "Discover the best baseline practices",
         },
       ],
@@ -120,27 +120,27 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Return Lob",
+          title: "Poaching Scenarios 1",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
-          time: "45 Mins to 60 Mins",
-          title: "Serving and Volleying",
+          time: "45 Mins to 60 Mins ",
+          title: "Serving Formations 2",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
-          time: "45 Mins to 60 Mins ",
-          title: "Practice Set",
+          time: "45 Mins to 60 Mins",
+          title: "Returning Strategies 2",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "I formation",
+          title: "Practice Sets 2",
           description: "Discover the best baseline practices",
         },
       ],
@@ -148,27 +148,27 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Moving at net",
+          title: "Poaching Scenarios 3",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Volley Lob Strategies",
+          title: "Serving Formations 3",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
-          time: "45 Mins to 60 Mins ",
-          title: "I-Formation",
+          time: "45 Mins to 60 Mins",
+          title: "Returning Strategies 3",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
-          time: "45 Mins to 60 Mins ",
-          title: "Baseline Strategies",
+          time: "45 Mins to 60 Mins",
+          title: "Practice Sets 3",
           description: "Discover the best baseline practices",
         },
       ],
