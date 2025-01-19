@@ -6,28 +6,27 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Serving and Returning Patterns",
+          title: "Serving Patterns",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Short Ball Strategies",
+          title: "Returning Patterns",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Between The Points",
+          title: "Baseline Patterns",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
-          link: "baselineStrat",
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Baseline Strategies",
+          title: "Between The Points",
           description: "Discover the best baseline practices",
         },
       ],

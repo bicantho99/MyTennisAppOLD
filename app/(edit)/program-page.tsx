@@ -134,7 +134,11 @@ export default function ProgramPage() {
               <TouchableOpacity
                 key={index}
                 onPress={() => {
-                  router.push("/trainingPage2");
+                  router.push({
+                    pathname: "/trainingPage2",
+                    params: { title: session.title },
+                  });
+                    console.log(session.title);
                 }}
               >
                 <View>

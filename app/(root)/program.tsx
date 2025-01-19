@@ -22,7 +22,7 @@ export default function program() {
       coach: "Coach Cecile",
       totalWeeks: 3,
       title: "Match Play Strategies",
-      description: "Training focusing on match play's importants",
+      description: "Trainings focusing on match play's importants",
       tags: ["Serve", "Return", "Net Game", "Mental"],
     },
     {
@@ -30,7 +30,7 @@ export default function program() {
       coach: "Coach Cecile",
       totalWeeks: 3,
       title: "Double The Trouble",
-      description: "Training focusing on double wizard-ry",
+      description: "Trainings focusing on double wizard-ry",
       tags: ["Serve", "Return", "Net Game", "Mental"],
     },
     {
@@ -61,7 +61,7 @@ export default function program() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <StatusBar style="light" />
         <View className="mx-6 my-2 ">
-          <Text className="text-textColor  text-[28px] font-bold mt-3  mb-6">
+          <Text className="text-textColor  text-[25px]  font-semibold mt-3  mb-6">
             Programs
           </Text>
           <View className="gap-2">

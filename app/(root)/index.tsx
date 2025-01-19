@@ -69,12 +69,12 @@ export default function Home() {
   // hardcode the challenges here
   const challenges: Challenge[] = [
     { day: 1, text: "Use Serve and Volley", completed: false },
-    { day: 2, text: "Combine Serve outwide + Forehands", completed: false },
+    { day: 2, text: "Use Serve + Forehands", completed: false },
     { day: 3, text: "Win 3 points in a row", completed: false },
     { day: 4, text: "Hit Aces x4", completed: false },
     { day: 5, text: "Return Approach x4", completed: false },
     { day: 6, text: "Use Slice + Run Around Forehands", completed: false },
-    { day: 7, text: "Use the 2-1 Pattern x4", completed: false },
+    { day: 7, text: "Use the 2-1 Pattern", completed: false },
   ];
 
   const [completedTasks, setCompletedTasks] = React.useState<number[]>([]);
@@ -115,7 +115,7 @@ export default function Home() {
             Welcome
           </Text>
           {user ? (
-            <Text className="text-sky-400 text-xl font-medium ">
+            <Text className="text-sky-400 text-xl font-medium" onPress={()=> router.push("/(edit)/profile")}>
               {/* <Text style={{ color: "#16bcfe" }}>Welcome</Text> */}
               {user.firstName}
             </Text>

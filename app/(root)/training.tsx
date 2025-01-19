@@ -19,7 +19,7 @@ import { useTrainingData } from "@/assets/constants/dataContext";
 export default function TrainingPage() {
   const { programData, setProgramData } = useTrainingData();
   const [searchTerm, setSearchTerm] = useState("");
- 
+
   //filter program data based on user search term
   const filterPrograms = programData.filter((program) =>
     program.title.toLowerCase().includes(searchTerm.toLowerCase())

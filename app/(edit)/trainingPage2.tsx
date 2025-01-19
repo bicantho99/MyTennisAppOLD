@@ -2,42 +2,13 @@ import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 import { useState } from "react";
-
+import { useLocalSearchParams } from "expo-router";
+import { singleDataWeek1 } from "@/assets/constants/singledata/data1";
 export default function profile() {
-  const [trainingData, setTrainingData] = useState<any>({
-    singleServePattern: {
-      warmUp: {
-        drills: [
-          "Mini Tennis - 30 balls totals",
-          "Baseline cross court deuce side - 20 Ball in a row or 5 balls in a row (x4)",
-          "Serve warm up deuce side x15",
-        ],
-        notes: [
-          "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
-        ],
-      },
-      mainDrills: {
-        drills: [
-          "Combine a serve and forehands to opponent's backhand on deuce side (x15)",
-          "Serve and Volleys to Opponent's backhand (x10)",
-          "2nd Serve to opponent's backhand or T on deuce side (x10)",
-        ],
-        notes: [
-          "Focus on maximizing your strengths to your opponent's weakness",
-        ],
-      },
-      wrapUp: {
-        drills: [
-          "Play points and apply the serving patterns above",
-          "Play points with second serve only",
-        ],
-        notes: [
-          "Focus on having a strong second serve physically and mentally",
-        ],
-      },
-    },
-  });
-  const sections = trainingData.singleServePattern;
+
+  const { title } = useLocalSearchParams();
+  const sections = singleDataWeek1[title as keyof typeof singleDataWeek1];
+
   return (
     <SafeAreaView className="bg-bgColor flex-1">
       <View className="mx-6 my-6">
@@ -47,41 +18,36 @@ export default function profile() {
           </TouchableOpacity>
           <View className="flex-1 items-center mr-5">
             <Text className="text-textColor font-medium text-2xl ">
-              Baseline Flows
+              {title}
             </Text>
           </View>
         </View>
 
-        {/* <View className="mt-5">
-          <Text className="text-sky-500 text-[16px] font-medium ">
-            The Serve
-          </Text>
-          <Text className="text-slate-400 mt-1 text-[14px]">
-            Having the right intention when ask him....Read More
-          </Text>
-        </View> */}
-
         {Object.keys(sections).map((section, index) => (
           <View key={index} className="mt-5">
-            {/* Section Title */}
             <Text className="text-sky-500 text-lg font-bold mb-2 capitalize">
               {section}
             </Text>
 
-            {/* Drills */}
-            {sections[section].drills.map((drill: any, idx: any) => (
-              <Text key={idx} className="text-slate-400 text-sm mb-1">
-                - {drill}
-              </Text>
-            ))}
-
-            {/* Notes */}
-            <Text className="text-sky-500 text-sm font-bold mt-3">Notes:</Text>
-            {sections[section].notes.map((note: any, idx: any) => (
-              <Text key={idx} className="text-slate-400 text-sm mb-1">
-                - {note}
-              </Text>
-            ))}
+            {Object.keys(sections[section]).map(
+              (subSection: any, index: any) => (
+                <View className="gap-3">
+                  {/* <Text key={index} className="text-textColor">
+                    {subSection}
+                  </Text> */}
+                  {sections[section][subSection].map(
+                    (drill: any, drillIndex: any) => (
+                      <Text
+                        key={drillIndex}
+                        className="text-[14px] mb-1 text-textColor"
+                      >
+                        - {drill}
+                      </Text>
+                    )
+                  )}
+                </View>
+              )
+            )}
           </View>
         ))}
       </View>

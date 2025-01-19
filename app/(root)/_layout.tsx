@@ -30,12 +30,22 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="program"
         options={{
-          title: "Program",
+          title: "Programs",
           tabBarIcon: ({ color }) => (
             <Entypo name="rocket" size={22} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="prep"
+        options={{
+          title: "Prep",
+          tabBarIcon: ({ color }) => (
+            <Feather name="user" size={24} color={color} />
           ),
         }}
       />
@@ -45,15 +55,6 @@ export default function TabLayout() {
           title: "Training",
           tabBarIcon: ({ color }) => (
             <Foundation name="clipboard-notes" size={22} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          tabBarIcon: ({ color }) => (
-            <Feather name="user" size={24} color={color} />
           ),
         }}
       />

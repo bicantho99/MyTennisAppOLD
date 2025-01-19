@@ -69,7 +69,7 @@ export default function GuestLayout() {
       />
       <View className="gap-4">
         <Text className="text-2xl font-bold">Welcome to My Tennis App</Text>
-        <Text>Managing your practice and exploring drills </Text>
+        <Text>Managing your trainings and exploring drills</Text>
         <TouchableOpacity onPress={() => router.push("/(root)")}>
           <Text className="text-center text-textColor p-2 bg-bgColor mt-2 rounded-md">
             Get Started
