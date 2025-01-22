@@ -3,7 +3,11 @@ import React from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 export default function matchpage() {
-  
+  // player1 name scores
+  // player2 name scores
+  // match notes
+
+
   return (
 
     <SafeAreaView className="bg-bgColor flex-1">

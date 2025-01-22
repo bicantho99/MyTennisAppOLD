@@ -18,13 +18,14 @@ export const doubleData: any = {
         "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
+        "Note: Adjust to court conditions, ball bounce, and overall environment.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Baseliner hit deep groundstrokes to set up volleyers ",
-        "Serving and switching - baseliner and volleyr switch side after serve",
+        "Groundstroke Setup: Baseliners hit deep to create poaching opportunities for volleyers.",
+        "Serving and Switching: The server and baseliner switch sides after each serve, emphasizing movement and positioning for poaching.",
+        "Shadow Poaching: Volleyers create pressure by moving and faking the poach",
       ],
       notes: [
         "Note: Baseliner should focus on hitting solid groundstrokes and serve to set up volleyers",
@@ -33,7 +34,7 @@ export const doubleData: any = {
     },
     "Point Play": {
       drills: [
-        "Play points and apply the serving patterns above",
+        "Play points using the serving and poaching patterns practiced",
         "Play points with only one serve!!",
       ],
       notes: [

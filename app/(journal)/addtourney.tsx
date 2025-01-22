@@ -20,16 +20,8 @@ import DrillForm from "@/hooks/drillForm";
 import { useProgramData } from "@/assets/constants/programs";
 import { router } from "expo-router";
 import { useTrainingData } from "@/assets/constants/dataContext";
-export default function Adding() {
-    const tourneys = [
-      {
-        date: "10/24",
-        tourName: "Level 4 Austin 12's Under",
-        plan: "Solid practice against Craig. Backhand felt good today...",
-        location: "Houston",
-      },
-    ];
 
+export default function Adding() {
   return (
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
       <View>

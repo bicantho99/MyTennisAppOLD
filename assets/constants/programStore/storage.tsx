@@ -1,6 +1,12 @@
-import { useState } from "react";
-export function Data() {
-  const [programData, setProgramData] = useState<any>({
+import { create } from "zustand";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+type store = {
+  programData: any;
+  setProgramData: (program: any) => void;
+  loadProgramData: () => void;
+};
+export const useProgramStore = create<store>((set) => ({
+  programData: {
     0: {
       Week1: [
         {
@@ -170,6 +176,26 @@ export function Data() {
         },
       ],
     },
-  });
-  return { programData, setProgramData };
-}
+  },
+  loadProgramData: async () => {
+    try {
+      const savedData = await AsyncStorage.getItem("programData");
+      if (savedData) {
+        set({ programData: JSON.parse(savedData) });
+      }
+    } catch (error) {
+      console.error("Error loading program data from AsyncStorage", error);
+    }
+  },
+  setProgramData: async (newProgramData) => {
+    try {
+      // Save the new program data to AsyncStorage
+      await AsyncStorage.setItem("programData", JSON.stringify(newProgramData));
+
+      // Update the state with the new program data
+      set({ programData: newProgramData });
+    } catch (error) {
+      console.error("Error saving program data to AsyncStorage", error);
+    }
+  },
+}));

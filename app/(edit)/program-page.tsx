@@ -6,17 +6,22 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 import Checkbox from "expo-checkbox";
 import * as Progress from "react-native-progress";
 import { useLocalSearchParams } from "expo-router";
 import { Data } from "@/assets/constants/programData";
+import { useCheckedValuesStore } from "@/assets/constants/progressData";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useProgramStore } from "@/assets/constants/programStore/storage";
 export default function ProgramPage() {
   const { trainingId } = useLocalSearchParams();
-  const { programData, setProgramData } = Data();
-  const [checkedValues, setCheckedValues] = useState<number[]>([]);
+  const { programData, setProgramData } = useProgramStore();
+  const { addCheckedValue, toggleCheckedValue, checkedValues } =
+    useCheckedValuesStore();
+  const [tested, setTest] = useState<any>([]);
   const trainingIdNumber = Number(trainingId);
   const weeks = [
     programData[trainingIdNumber].Week1,
@@ -27,9 +32,8 @@ export default function ProgramPage() {
 
   const handleCheckboxChange = (index: number, value: boolean) => {
     const updatedProgramData = { ...programData };
-    const currentWeekIndex = selectedWeek; // Get the selected week index (0, 1, or 2)
+    const currentWeekIndex = selectedWeek;
 
-    // Update the correct week's session state based on the selected week
     updatedProgramData[trainingIdNumber] = {
       ...updatedProgramData[trainingIdNumber],
     };
@@ -44,20 +48,27 @@ export default function ProgramPage() {
         state: value,
       };
 
-    // Set the updated program data
     setProgramData(updatedProgramData);
 
-    // Update the checked values for the selected week
-    if (value) {
-      setCheckedValues((prevValues) => [...prevValues, currentWeekIndex]);
-    } else {
-      setCheckedValues((prevValues) =>
-        prevValues.filter((weekIndex) => weekIndex !== currentWeekIndex)
-      );
-    }
+    // setCheckedValues(currentWeekIndex, value);
+    // if (value) {
+    //   addCheckedValue(currentWeekIndex);
+      // If true, add the currentWeekIndex to the array
+      // setTest((prev: any) => [...prev, currentWeekIndex]);
+    // } else {
+      //  setTest((prev: any) => {
+      //    const newArray = [...prev]; // Create a shallow copy of the array
+      //    const index = newArray.indexOf(currentWeekIndex);
+      //    if (index > -1) {
+      //      newArray.splice(index, 1); // Removes the element at the specified index
+      //    }
+      //    return newArray;
+      //  });
+      // toggleCheckedValue(currentWeekIndex);
+    // }
   };
 
-  const progressBarArray = Array.from(checkedValues);
+  // const progressBarArray = Array.from(checkedValues);
 
   const fullText =
     "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";
@@ -87,8 +98,10 @@ export default function ProgramPage() {
               >
                 <Text
                   className={`text-xl text-center font-medium ${
-                    selectedWeek === index ? "text-teal-400" : "text-textColor"
-                  }`}
+                    selectedWeek === index
+                      ? "text-teal-400  bg-slate-800"
+                      : "text-textColor"
+                  } p-2 px-7 rounded-lg `}
                 >
                   Week {index + 1}
                 </Text>
@@ -96,17 +109,17 @@ export default function ProgramPage() {
             ))}
           </View>
 
-          <View className="flex-row gap-2 justify-evenly mt-3 ">
+          {/* <View className="flex-row gap-2 justify-evenly mt-3 ">
             {[0, 0, 0, 0].map((_, index) => (
               <View
                 key={index}
-                className={`h-[7px] flex-row rounded-lg  ${
+                // key={index}
+                className={`h-[7px] flex-row rounded-lg ${
                   checkedValues.length > index ? "bg-teal-400" : "bg-slate-700"
-                }
                 } w-[80px] transition duration-250 ease-in delay-100`}
               />
             ))}
-          </View>
+          </View> */}
 
           <View className="coach flex-row mt-5 gap-4">
             <View className="flex items-center justify-center bg-slate-400 h-14 w-14 rounded-[19px]">
@@ -138,12 +151,14 @@ export default function ProgramPage() {
                     pathname: "/trainingPage2",
                     params: { title: session.title },
                   });
-                    console.log(session.title);
+                  console.log(session.title);
                 }}
               >
                 <View>
                   <View
-                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px] border-l-[14px] border-teal-400 border-[0.4px]`}
+                    className={`box-view box-border bg-gray-800 pl-5 pr-3 py-5 rounded-xl gap-[5px] ${
+                      index % 2 === 0 ? "border-teal-400" : "border-blue-400"
+                    } border-l-[14px] border-[0.4px]`}
                   >
                     <View className="text-view gap-2">
                       <View className="flex-row justify-between">

@@ -40,13 +40,13 @@ export default function Layout() {
             <Stack.Screen name="(edit)/program-page" />
             <Stack.Screen name="(edit)/profile" />
             <Stack.Screen
-              name="(edit)/tourney"
+              name="(journal)/addmatch"
               options={{
                 presentation: "modal",
               }}
             />
             <Stack.Screen
-              name="(edit)/matches"
+              name="(journal)/addtourney"
               options={{
                 presentation: "modal",
               }}

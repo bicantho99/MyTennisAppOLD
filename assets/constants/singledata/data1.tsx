@@ -18,111 +18,19 @@ export const singleDataWeek1: any = {
         "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
+        "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Combine a serve and forehands to opponent's backhand on deuce side",
-        "Serve and Volleys to Opponent's backhand",
-        "2nd Serve to opponent's backhand or T on deuce side",
+        "Practice serving T on both side x15",
+        "Serve T and follow up with Forehands both sides x15",
+        "Serve and volley to T and volley put away x15",
+        "Play points using the pattern above",
       ],
       notes: [
-        "Note: Focus on maximizing your strengths to your opponent's weakness",
+        "Serve T is where most aces happen and great for targeting opponent's BH",
       ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points and apply the serving patterns above",
-        "Play points with second serve only",
-      ],
-      notes: ["Focus on having a strong second serve physically and mentally"],
-    },
-  },
-  "Returning Patterns": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis",
-        "Baseline cross court",
-        "Serve warm up each side x10",
-      ],
-      notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Return deep pass the service line - focus on depth of the return",
-        "Return far back behind the baseline - big swing and height - Rafa style",
-        "Return early on the baseline",
-        "Return slice",
-      ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points with emphasis on deep return",
-        "Play points where you get extra points if return is pass the service line",
-      ],
-      notes: ["Focus on depth and height of the return"],
-    },
-  },
-  "Practice Sets": {
-    "Warm Up": {
-      drills: ["Mini Tennis", "Baseline middle", "Serve warm up each side"],
-      notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Play practice sets or practice tie breakers",
-        "Experiment with serving and return patterns in the two previous practice",
-        "Take time in between points to adjust and take things into consideration",
-      ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Do an experiment. No negative body language for an entire set. See how good that feels",
-      ],
-      notes: ["Focus on depth and height of the return"],
-    },
-  },
-  "Baseline Patterns": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis",
-        "Baseline middle - 20 Ball in a row or 5 balls in a row",
-        "Serve warm up each side",
-      ],
-      notes: [
-        "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Make opponent hit backhands or their weaker shot  3-4 in a row ",
-        "Hit run-around forehand on ad side down the line.",
-        "Forehand 2-1 - two forehand cross court, one forehand down the line.",
-      ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points off the ground no serve with emphasis on hitting forehands",
-        "Play points and look to hit more forehand than backhand when ball land on the ad side",
-      ],
-      notes: ["Focus on depth and height of the return"],
     },
   },
   "Serving Patterns 2": {
@@ -133,56 +41,96 @@ export const singleDataWeek1: any = {
         "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
+        "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Serve outwide deuce side and hit your forehand after",
-        "Serve and approach, approach right after the first hit",
-        "2nd Serve to outwide on ad side and look for forehands",
+        "Practice serving outwide on both side x15",
+        "Serve outwide and follow up with Forehands both sides x15",
+        "Serve and volley to outwide and volley put away x15",
+        "Play points using the pattern above",
       ],
       notes: [
-        "Note: focus on mixing up your serve patterns and use them in matches",
+        "Outwide serve is great for taking opponent of the court and get them unbalanced",
       ],
     },
-    "Point Play": {
-      drills: [
-        "Play points and apply the serving patterns above",
-        "Play points with second serve only",
+  },
+  "Practice Sets": {
+    "Warm Up": {
+      drills: ["Mini Tennis", "Baseline middle", "Serve warm up each side"],
+      notes: [
+        "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
       ],
-      notes: ["Focus on having a strong second serve physically and mentally"],
+    },
+    "Main Drills": {
+      drills: [
+        "Play practice sets or practice tie breakers",
+        "Experiment with mixing up serving patterns in the previous practices",
+        "Take time in between points to adjust and take things into consideration",
+      ],
+      notes: ["Do an experiment. No negative body language for an entire set"],
+    },
+  },
+  "Baseline Patterns": {
+    "Warm Up": {
+      drills: [
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
+      ],
+      notes: [
+        "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
+      ],
+    },
+    "Main Drills": {
+      drills: [
+        "The 2-1, hit 2 FH cross court and 1 FH down the line x10",
+        "The 2-1, hit 2 BH cross court and 1 BH down the line x10",
+        "Play points with the patterns above",
+      ],
+      notes: ["The 2-1 is the favorite baseline strategy of the pro’s."],
+    },
+  },
+  "Returning Patterns": {
+    "Warm Up": {
+      drills: [
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
+      ],
+      notes: [
+        "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
+      ],
+    },
+    "Main Drills": {
+      drills: [
+        "Deep FH return pass the service line both sides x10",
+        "Deep BH return pass the service line both sides x10",
+        "Play points with emphasis on deep return ",
+      ],
+      notes: ["Coach can serve from the opposite site on the service line"],
     },
   },
   "Returning Patterns 2": {
     "Warm Up": {
       drills: [
-        "Mini Tennis",
-        "Baseline cross court",
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
         "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
+        "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Return deep pass the service line - focus on depth of the return",
-        "Return Approach",
-        "Return early on the baseline",
-        "Return slice",
+        "Deep FH slice return pass the service line both sides x10",
+        "Deep BH slice return pass the service line both sides x10",
+        "Slice return approach the net, take advantage of weak 2nd serve x10",
+        "Play points with emphasis on deep return ",
       ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points with emphasis on deep return",
-        "Play points where you get extra points if return is pass the service line",
-      ],
-      notes: ["Focus on depth and height of the return"],
+      notes: ["Coach can serve from the opposite site on the service line"],
     },
   },
   "Practice Sets 2": {
@@ -195,25 +143,18 @@ export const singleDataWeek1: any = {
     "Main Drills": {
       drills: [
         "Play practice sets or practice tie breakers",
-        "Experiment with serving and return patterns in the two previous practices",
+        "Experiment with serving and return patterns in the previous practices",
         "Take time in between points to adjust and take things into consideration",
       ],
       notes: ["Focus on depth of the return and aim middle"],
-    },
-    "Point Play": {
-      drills: [
-        "Do an experiment. No negative body language for an entire set. See how good that feels",
-        "Play points where you get extra points if return is pass the service line",
-      ],
-      notes: ["Focus on depth and height of the return"],
     },
   },
   "Baseline Patterns 2": {
     "Warm Up": {
       drills: [
-        "Mini Tennis",
-        "Baseline middle - 20 Ball in a row or 5 balls in a row",
-        "Serve warm up each side",
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
       ],
       notes: [
         "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
@@ -221,111 +162,44 @@ export const singleDataWeek1: any = {
     },
     "Main Drills": {
       drills: [
-        "The backhand cage - make your opponent hit their weaker shot or BH 4-5 times in a row",
-        "Approach the net behind a forehand",
-        "Volley behind your opponent. Ex: approach to opponent BH then volley again to BH",
+        "Backhand down the line x15",
+        "Forehand down the line x15",
+        "Backhand/Forehand slice down the line x15",
+        "Play points with patterns above",
       ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points with emphasis on approaching the net",
-        "Play points and look to hit more forehand than backhand when ball land on the ad side",
-      ],
-      notes: ["Focus on depth and height of the return"],
+      notes: ["Coach can feed varieties of balls higher/lower/faster/slower."],
     },
   },
   "Serving Patterns 3": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",
-        "Baseline middle - 20 Ball in a row",
+        "Baseline cross court - 20 Ball in a row",
         "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
+        "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Serve outwide deuce side and hit your forehand after",
-        "Serve outwide on ad side and combine with your strength",
-        "Serve T deuce side and combine with your strength",
-        "Serve T ad side and combine with your strength",
+        "2nd Serve T, use slice or kick serves x15",
+        "2nd Serve body, use slice or kick serves x15",
+
+        "2nd Serve + Forehands x15",
+        "Play points using only 2nd serves",
       ],
       notes: [
-        "Note: focus on mixing up your serve patterns and use them in matches",
+        "Practice making your opponent unbalanced with good placement and spin on 2nd serves",
       ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points and apply the serving patterns above",
-        "Play points with second serve only",
-      ],
-      notes: ["Focus on having a strong second serve physically and mentally"],
-    },
-  },
-  "Returning Patterns 3": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis",
-        "Baseline cross court",
-        "Serve warm up each side x10",
-      ],
-      notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Return deep and go cross court to neutralize the rally",
-        "Return early on the baseline",
-        "Return slice",
-      ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points with emphasis on deep return",
-        "Play points where you get extra points if return is pass the service line",
-      ],
-      notes: ["Focus on depth and height of the return"],
-    },
-  },
-  "Practice Sets 3": {
-    "Warm Up": {
-      drills: ["Mini Tennis", "Baseline middle", "Serve warm up each side"],
-      notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Play practice sets or practice tie breakers",
-        "Experiment with serving and return patterns in the two previous practices",
-        "Take time in between points to adjust and take things into consideration",
-      ],
-      notes: ["Focus on depth of the return and aim middle"],
-    },
-    "Point Play": {
-      drills: [
-        "Do an experiment. No negative body language for an entire set. See how good that feels",
-      ],
-      notes: ["Focus on depth and height of the return"],
     },
   },
   "Baseline Patterns 3": {
     "Warm Up": {
       drills: [
-        "Mini Tennis",
-        "Baseline middle - 20 Ball in a row or 5 balls in a row",
-        "Serve warm up each side",
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
       ],
       notes: [
         "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
@@ -333,21 +207,12 @@ export const singleDataWeek1: any = {
     },
     "Main Drills": {
       drills: [
-        "High forehand top spin with depth",
-        "Short angles forehand outwide",
-        "Slice approach the net",
+        "Forehand/Backhand drop shot x15, ball should bounce twice within the service box",
+        "Forehand/Backhand top spin lobs x15",
+        "Overhead and Volleys x15",
+        "Play points with patterns above",
       ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points with emphasis on approaching the net",
-        "Play points and look to hit more forehand than backhand when ball land on the ad side",
-      ],
-      notes: ["Focus on depth and height of the return"],
+      notes: ["Coach can feed varieties of balls higher/lower/faster/slower."],
     },
   },
 };

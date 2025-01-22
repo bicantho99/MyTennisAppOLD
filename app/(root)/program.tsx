@@ -6,7 +6,7 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Progress from "react-native-progress";
 import Checkbox from "expo-checkbox";
 import { StatusBar } from "expo-status-bar";
@@ -14,8 +14,12 @@ import { router } from "expo-router";
 import RNSegmentedProgressBar, {
   RunAnimationHandler,
 } from "@baby-journey/rn-segmented-progress-bar";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useProgramStore } from "@/assets/constants/programStore/storage";
+import { useCheckedValuesStore } from "@/assets/constants/progressData";
 export default function program() {
+  const { loadProgramData } = useProgramStore();
+  const { loadCheckedValues } = useCheckedValuesStore();
   const programs = [
     {
       id: 0,
@@ -55,7 +59,9 @@ export default function program() {
       });
     }
   };
-
+  useEffect(() => {
+    loadProgramData();
+  }, []);
   return (
     <SafeAreaView className="flex-1 bg-bgColor">
       <ScrollView showsVerticalScrollIndicator={false}>
