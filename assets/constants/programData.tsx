@@ -89,13 +89,13 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Poaching Scenarios",
+          title: "Net Play Essentials",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Serving Formations",
+          title: "Net Play Essentials 2",
           description:
             "This training focus on patterns to capilize short balls.",
         },
@@ -117,13 +117,13 @@ export function Data() {
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Poaching Scenarios 1",
+          title: "Net Play Essentials 3",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Serving Formations 2",
+          title: "Serve Essential",
           description:
             "This training focus on patterns to capilize short balls.",
         },

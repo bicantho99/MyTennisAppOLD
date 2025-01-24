@@ -50,7 +50,7 @@ export default function program() {
 
   const handleClick = (id: number) => {
     if (id === 3) {
-      setMessage("Sorry...This is under construction :)");
+      setMessage("This feature is under construction :)");
     } else {
       setMessage("");
       router.push({

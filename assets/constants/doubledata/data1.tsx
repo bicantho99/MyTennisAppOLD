@@ -10,7 +10,7 @@ type WeekData = {
 };
 
 export const doubleData: any = {
-  "Poaching Scenarios": {
+  "Net Play Essentials": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",
@@ -18,239 +18,188 @@ export const doubleData: any = {
         "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Adjust to court conditions, ball bounce, and overall environment.",
+        "Adjust to court conditions, ball bounce, and overall environment.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Groundstroke Setup: Baseliners hit deep to create poaching opportunities for volleyers.",
-        "Serving and Switching: The server and baseliner switch sides after each serve, emphasizing movement and positioning for poaching.",
-        "Shadow Poaching: Volleyers create pressure by moving and faking the poach",
+        "Over-Head middle/crosscourt/insideout x15 each",
+        "Backhand overhead x15",
+        "Topspin Forehand/Backhand lob x20",
+        "Slice Forehand/Backhand lob x20",
       ],
-      notes: [
-        "Note: Baseliner should focus on hitting solid groundstrokes and serve to set up volleyers",
-        "Note: Volleyers look for every opportunities to poach",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points using the serving and poaching patterns practiced",
-        "Play points with only one serve!!",
-      ],
-      notes: [
-        "Focus on making consistent first serve and placement when playing double",
-      ],
+      notes: ["Drill these until you have confidence and consistency"],
     },
   },
-  "Serving Formations": {
+  "Net Play Essentials 2": {
     "Warm Up": {
       drills: [
-        "Mini Tennis",
-        "Baseline cross court",
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
         "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
+        "Adjust to court conditions, ball bounce, and overall environment.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Practice Australian and I formation on both deuce and ad side",
-        "Volleyers encouraged to be poaching for extra points if poached",
+        "Drive Forehand volley from service line x20",
+        "Drive backhand volley from service line x20",
+        "Cross court FH/BH approach shot + aggressive FH volleys x20",
+        "Cross court FH/BH approach shot + aggressive BH volleys x20",
       ],
       notes: [
-        "Focus on the quality of serve and volleyers aggressive prow the nets",
+        "Drive FH/BH are great for balls that not quiet high enough to overhead",
       ],
     },
-    "Point Play": {
+  },
+  "Returning Strategies": {
+    "Warm Up": {
       drills: [
-        "Play points with emphasis on trying different formations",
-        "Play points where you get extra points if you try out I formation or australian formation",
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
       ],
-      notes: ["Focus on depth and height of the return"],
+      notes: [
+        "Adjust to court conditions, ball bounce, and overall environment.",
+      ],
+    },
+    "Main Drills": {
+      drills: [
+        "Forehand cross court return x20 - focus on depth",
+        "Forehand cross court return x20 - low and short to opponent's feet",
+        "Backhand cross court return x20 - focus on depth",
+        "Forehand cross court return x20 - low and short to opponent's feet",
+      ],
+      notes: [
+        "Drill them on both Deuce and Ad side, coach can feed from service line",
+      ],
     },
   },
   "Practice Sets": {
     "Warm Up": {
       drills: ["Mini Tennis", "Baseline middle", "Serve warm up each side"],
       notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: ["Play practice sets", "Play practice tie breakers"],
-      notes: [
-        "Try out different serving and poaching patterns in past 2 practices",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Do an experiment. No negative body language for an entire set. See how good that feels",
-      ],
-    },
-  },
-  "Baseline Patterns": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis",
-        "Baseline middle - 20 Ball in a row or 5 balls in a row",
-        "Serve warm up each side",
-      ],
-      notes: [
         "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Returner Lob Cross Court",
-        "Returner Lob Down The Line",
-        "Return Deep Lob and approach the net",
-      ],
-      notes: ["Return Lob is surprising very high in pro tournament"],
-    },
-    "Point Play": {
-      drills: [
-        "Play points off the ground no serve with emphasis on hitting forehands",
-        "Play points and look to hit more forehand than backhand when ball land on the ad side",
-      ],
-      notes: ["Focus on depth and height of the return"],
-    },
-  },
-  "Net Wizard": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis - 30 balls in a row",
-        "Baseline middle - 20 Ball in a row",
-        "Serve warm up each side x10",
-      ],
-      notes: [
-        "Note: Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Baseliner Volleyer practice - volley past the baseline 30 balls",
-        "Serve and Volleys - first volley cross and deep",
-        "Serve and HALF volleys",
-      ],
-      notes: [
-        "Note: as you moving up to the net from baseline, you will do lots of half volley and volley half court - work on those",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points 2 at net and 2 baseline",
-        "Play approach volley overhead",
-      ],
-      notes: ["Focus on having a strong second serve physically and mentally"],
-    },
-  },
-  "Top-spin lob": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis",
-        "Baseline cross court",
-        "Serve warm up each side x10",
-      ],
-      notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Drill top spin forehand and backhand lob",
-        "Drill slice forehand backhand lob",
-      ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: ["Play points with emphasis on lobbing"],
-      notes: [
-        "This is a serious strategies that is being underplayed by juniors",
-      ],
-    },
-  },
-  "Practice Sets 2": {
-    "Warm Up": {
-      drills: ["Mini Tennis", "Baseline middle", "Serve warm up each side"],
-      notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
       ],
     },
     "Main Drills": {
       drills: [
         "Play practice sets or practice tie breakers",
-        "Play with more weapons such as topspin and slice lobs",
-      ],
-      notes: ["Focus on depth of the return and aim middle"],
-    },
-    "Point Play": {
-      drills: [
-        "Do an experiment. No negative body language for an entire set. See how good that feels",
-        "Play points where you get extra points if return is pass the service line",
-      ],
-      notes: ["Focus on depth and height of the return"],
-    },
-  },
-  "Baseline Patterns 2": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis",
-        "Baseline middle - 20 Ball in a row or 5 balls in a row",
-        "Serve warm up each side",
+        "Implement shots in the previous practices",
+        "Take time in between points to adjust and take things into consideration",
       ],
       notes: [
-        "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
+        "Make high percentage first serve and communicate with your partner",
       ],
-    },
-    "Main Drills": {
-      drills: [
-        "Baseliner - hit 2 cross court top spin and 1 lob top spin down the line - Deuce side",
-        "Baseliner - hit 2 cross court top spin and 1 lob top spin down the line - Ad side",
-        "Baseliner - slice and approach - Deuce side",
-        "Baseliner - slice and approach - Ad side",
-      ],
-      notes: [
-        "Coach can serve from the opposite site on the service line",
-        "Focus on depth of the return and aim middle",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Play points with emphasis on approaching the net",
-        "Play points and look to hit more forehand than backhand when ball land on the ad side",
-      ],
-      notes: ["Focus on depth and height of the return"],
     },
   },
-  "Serving Patterns 3": {
+  "Net Play Essentials 3": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",
-        "Baseline cross-court middle - 15 balls in a row to develop rhythm.",
-        "Serve warm-up each side x10, targeting wide and T serves.",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
       ],
       notes: [
-        "Note: Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
+        "Adjust to court conditions, ball bounce, and overall environment.",
       ],
     },
     "Main Drills": {
       drills: [
-        "Serve wide on the deuce side, partner poaches (practice volleying at the net).",
-        "Serve T on the ad side, partner covers the middle for the return.",
-        "Mix serves (wide, body, T), and practice coordinated movement with your partner",
+        "Forehand/Backhand drop shot cross court x20",
+        "Forehand/Backhand down the line volley x20",
+        "Forehand/Backhand slice approach shot cross court x20",
+        "Forehand/Backhand slice approach shot down the line x20",
       ],
-      notes: ["Note: Work on communication with partner"],
+      notes: ["Drill these until you have confidence and consistency"],
     },
-    "Point Play": {
+  },
+  "Serve Essential": {
+    "Warm Up": {
       drills: [
-        "Play points where the server’s team gets an extra point for winning points off a poach or volley",
-        "Serve and volley practice: The server must approach the net after every serve",
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
       ],
-      notes: ["Focus on having a strong second serve physically and mentally"],
+      notes: [
+        "Adjust to court conditions, ball bounce, and overall environment.",
+      ],
+    },
+    "Main Drills": {
+      drills: [
+        "Serve T on Deuce x20",
+        "Serve T on Ad x20",
+        "Serve T on Deuce + Volley put-away x20",
+        "Serve T on Ad + Volley put-away x20",
+      ],
+      notes: ["Drill these and play points implementing them"],
+    },
+  },
+  "Serving Essential 2": {
+    "Warm Up": {
+      drills: [
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
+      ],
+      notes: [
+        "Adjust to court conditions, ball bounce, and overall environment.",
+      ],
+    },
+    "Main Drills": {
+      drills: [
+        "Serve Outwide on Deuce x20",
+        "Serve Outwide on Ad x20",
+        "Serve Outwide on Deuce + Volley put-away x20",
+        "Serve Outwide on Ad + Volley put-away x20",
+      ],
+      notes: ["Drill these and play points implementing them"],
+    },
+  },
+  "Serving Formation": {
+    "Warm Up": {
+      drills: [
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
+      ],
+      notes: [
+        "Adjust to court conditions, ball bounce, and overall environment.",
+      ],
+    },
+    "Main Drills": {
+      drills: [
+        "I-Formation on Ad Side x15",
+        "I-Formation on Deuce Side x15",
+        "Australian formation on Ad Side x15",
+        "Australian formation on Deuce Side x15",
+      ],
+      notes: ["Research these formations and apply them"],
+    },
+  },
+  "Planned Switch": {
+    "Warm Up": {
+      drills: [
+        "Mini Tennis - 30 balls in a row",
+        "Baseline cross court - 20 Ball in a row",
+        "Serve warm up each side x10",
+      ],
+      notes: [
+        "Adjust to court conditions, ball bounce, and overall environment.",
+      ],
+    },
+    "Main Drills": {
+      drills: [
+        "Baseliner topspin lob and volleyer switch to poach x15",
+        "Baseline heavy deep topsin and volleyer switch to poach x15",
+        "Server and Volleyer switch side after serve x15",
+        "Server and Volleyer switch side after serve x15 - I-formation",
+      ],
+      notes: [
+        "Planned switch is switch between volleyer and baseliner that you planned ahead",
+      ],
     },
   },
   "Returning Patterns 3": {
@@ -266,73 +215,14 @@ export const doubleData: any = {
     },
     "Main Drills": {
       drills: [
-        "Cross-court deep returns to neutralize the server’s advantage",
-        "Cross-court spin return to opponent's feet",
-        "Chip or slice returns to the feet of the net player.",
-        "Lob returns over the net player’s head to force them back.",
+        "Forehand slice lob down the line x15",
+        "Backhand slice lob down the line x15",
+        "Forehand slice lob down the line Ad side x15",
+        "Forehand slice lob down the line Deuce side x15",
       ],
       notes: [
-        "Focus on communication with your parnter on your return strategies",
+        "Lob return is heavily used by professionals. It's amazing to not giving your opponent a free point on returning ",
       ],
-    },
-    "Point Play": {
-      drills: [
-        "Return points where you aim for the net player’s feet or lob over them.",
-        "Play points where you get extra points if return is pass the service line",
-      ],
-      notes: [
-        "Focus on keeping returns low or forcing the opposing net player into tough positions.",
-      ],
-    },
-  },
-  "Practice Sets 3": {
-    "Warm Up": {
-      drills: ["Mini Tennis", "Baseline middle", "Serve warm up each side"],
-      notes: [
-        "Note: Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "play practice sets, alternating between different serve formations",
-        "Experiment with playing two back or two net",
-      ],
-      notes: [
-        "Focus on maintaining consistent communication and adapting strategies based on opponents’ weaknesses.",
-      ],
-    },
-    "Point Play": {
-      drills: [
-        "Do an experiment. No negative body language for an entire set. See how good that feels",
-      ],
-      notes: ["Focus on depth and height of the return"],
-    },
-  },
-  "Net Play": {
-    "Warm Up": {
-      drills: [
-        "Mini Tennis",
-        "Baseline middle - 20 Ball in a row or 5 balls in a row",
-        "Serve warm up each side",
-      ],
-      notes: [
-        "Warm up with good rhythm, height and consistency, adjust to each opponent's ball.",
-      ],
-    },
-    "Main Drills": {
-      drills: [
-        "Volley-to-volley drills at the net (simulate fast exchanges).",
-        "Overhead practice: one player lobs, the other practices overhead smashes.",
-        "Baseline drills: one player at the net while the other practices passing shots.",
-      ],
-      notes: ["Practice recognizing opportunities to poach."],
-    },
-    "Point Play": {
-      drills: [
-        "Play points where one player starts at the net, and the other at the baseline.",
-        "Play points emphasizing aggressive net play, with extra points for poaches or forced errors.",
-      ],
-      notes: ["Focus on depth and height of the return"],
     },
   },
 };

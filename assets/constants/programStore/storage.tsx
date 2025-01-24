@@ -95,13 +95,13 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Poaching Scenarios",
+          title: "Net Play Essentials",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Serving Formations",
+          title: "Net Play Essentials 2",
           description:
             "This training focus on patterns to capilize short balls.",
         },
@@ -123,27 +123,27 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Poaching Scenarios 1",
+          title: "Net Play Essentials 3",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Serving Formations 2",
+          title: "Serve Essential",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Returning Strategies 2",
+          title: "Returning Strategies",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Practice Sets 2",
+          title: "Practice Sets",
           description: "Discover the best baseline practices",
         },
       ],
@@ -151,27 +151,27 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Poaching Scenarios 3",
+          title: "Net Play Essentials 3",
           description: "This training focus on serving and returning",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Serving Formations 3",
+          title: "Returning Patterns 3",
           description:
             "This training focus on patterns to capilize short balls.",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Returning Strategies 3",
+          title: "Planned Switch",
           description:
             "This training focuses on the mental and emotional aspects of your game",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Practice Sets 3",
+          title: "Net Play Essentials",
           description: "Discover the best baseline practices",
         },
       ],

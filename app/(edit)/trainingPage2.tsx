@@ -1,14 +1,23 @@
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { singleDataWeek1 } from "@/assets/constants/singledata/data1";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { doubleData } from "@/assets/constants/doubledata/data1";
 export default function profile() {
-  const { title } = useLocalSearchParams();
-  const sections = singleDataWeek1[title as keyof typeof singleDataWeek1];
-
+  useEffect(() => {
+    console.log(id);
+  }, []);
+  const { title, id } = useLocalSearchParams();
+  let sections;
+  if (Number(id) == 0) {
+    sections = singleDataWeek1[title as keyof typeof singleDataWeek1];
+  }
+  if (Number(id) == 1) {
+    sections = doubleData[title as keyof typeof doubleData];
+  }
   return (
     <KeyboardAwareScrollView
       style={{ flex: 1 }}

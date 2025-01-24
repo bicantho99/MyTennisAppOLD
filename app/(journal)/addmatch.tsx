@@ -25,7 +25,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { v4 as uuidv4 } from "uuid";
 import "react-native-get-random-values";
 import { useMatchStore } from "@/assets/constants/matchdata/storage";
+import { Rating } from "@kolking/react-native-rating";
 export default function Adding() {
+  const [rating, setRating] = useState(4);
   const [player1, setPlayer1] = useState("");
   const [player2, setPlayer2] = useState("");
   const [player1_1s, setPlayer1_1s] = useState("");
@@ -40,11 +42,16 @@ export default function Adding() {
 
   const { matchInfos, addMatchInfo, loadMatchInfos, deleteMatchInfo } =
     useMatchStore();
-  useEffect(() => {
-    loadMatchInfos();
-  }, []);
+
+  const [techni, setTechni] = useState(0);
+  const [mental, setMental] = useState(0);
+  const [strate, setStrate] = useState(0);
+  const [physical, setPhysical] = useState(0);
 
   const handleAddMatchInfo = () => {
+    if (!player1 && !player2) {
+      return;
+    }
     const newMatchInfo = {
       matchId,
       player1,
@@ -56,12 +63,14 @@ export default function Adding() {
       player2_2s,
       player2_3s,
       matchNote,
+      techni,
+      mental,
+      strate,
+      physical,
     };
+
     addMatchInfo(newMatchInfo);
     router.back();
-  };
-  const handleDeleteMatchInfo = (matchId: string) => {
-    deleteMatchInfo(matchId);
   };
 
   return (
@@ -73,20 +82,11 @@ export default function Adding() {
             <Text className="text-textColor text-3xl font-bold mt-5">
               New Match
             </Text>
-            <TouchableOpacity
-              onPress={() => {
-                router.back();
-              }}
-            >
-              {/* <Text className="mt-5 text-[15px] font-medium text-green-300">
-                Save
-              </Text> */}
-            </TouchableOpacity>
           </View>
-          <View className="section-view gap-3 mt-4">
+          <View className="section-view gap-3">
             <View className="flex-row justify-between">
               <TextInput
-                className="bg-gray-800 p-4 py-5 mb-1 rounded-xl   text-white   border-slate-400 border-[0.4px] shadow-sm shadow-slate-700 w-[55%]"
+                className="bg-slate-800 p-4 py-5 mb-1 rounded-xl   text-white   border-teal-700 border-[0.8px] shadow-sm shadow-slate-700 w-[55%]"
                 placeholder="Player's Name"
                 placeholderTextColor={"gray"}
                 value={player1}
@@ -94,7 +94,7 @@ export default function Adding() {
               />
               <View className="flex-row gap-2">
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white"
+                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -103,7 +103,7 @@ export default function Adding() {
                   onChangeText={setPlayer1_1s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white"
+                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -112,7 +112,7 @@ export default function Adding() {
                   onChangeText={setPlayer1_2s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white"
+                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -124,7 +124,7 @@ export default function Adding() {
             </View>
             <View className="flex-row justify-between">
               <TextInput
-                className="bg-gray-800 p-4 py-5 mb-1 rounded-xl   text-white   border-slate-400 border-[0.4px] shadow-sm shadow-slate-700 w-[55%]"
+                className="bg-gray-800 p-4 py-5 mb-1 rounded-xl   text-white   border-teal-700 border-[0.8px] shadow-sm shadow-slate-700 w-[55%]"
                 placeholder="Player's Name"
                 placeholderTextColor={"gray"}
                 value={player2}
@@ -132,7 +132,7 @@ export default function Adding() {
               />
               <View className="flex-row gap-2">
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white"
+                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white  border-teal-700 border-[0.5px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -141,7 +141,7 @@ export default function Adding() {
                   onChangeText={setPlayer2_1s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white"
+                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -150,7 +150,7 @@ export default function Adding() {
                   onChangeText={setPlayer2_2s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white"
+                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -161,7 +161,7 @@ export default function Adding() {
               </View>
             </View>
             <TextInput
-              className="bg-gray-800 px-3 pb-10 pt-4 rounded-lg   border-slate-400 border-[0.4px] text-white  shadow-sm shadow-slate-700"
+              className="bg-gray-800 px-3 pb-10 pt-4 rounded-lg  border border-slate-600 text-white  shadow-sm shadow-slate-700 mt-2"
               placeholder="Note..."
               placeholderTextColor={"gray"}
               editable
@@ -170,9 +170,82 @@ export default function Adding() {
               onChangeText={setmatchNote}
             />
           </View>
+          <View className="bg-slate-800 mt-1 p-3 rounded-xl border-slate-700 border">
+            <View className="p-2 gap-4">
+              <View className="flex-row items-center">
+                <Text className="text-slate-300 text-[16px] font-medium w-[140px]">
+                  Strategies
+                </Text>
+                <View className="ml-4">
+                  <Rating
+                    size={13}
+                    rating={strate}
+                    onChange={setStrate}
+                    scale={1}
+                    spacing={11}
+                    baseColor={"#C7C7CC"}
+                    fillColor="gold"
+                    touchColor="gold"
+                  />
+                </View>
+              </View>
+              <View className="flex-row items-center ">
+                <Text className="text-slate-300  text-[16px] font-medium w-[140px]">
+                  Physical
+                </Text>
+                <View className="ml-4">
+                  <Rating
+                    size={13}
+                    rating={physical}
+                    onChange={setPhysical}
+                    scale={1}
+                    spacing={11}
+                    baseColor={"#C7C7CC"}
+                    fillColor="gold"
+                    touchColor="gold"
+                  />
+                </View>
+              </View>
+              <View className="flex-row items-center ">
+                <Text className="text-slate-300 text-[16px] font-medium w-[140px]">
+                  Mental
+                </Text>
+                <View className="ml-4 ">
+                  <Rating
+                    size={13}
+                    rating={mental}
+                    onChange={setMental}
+                    scale={1}
+                    spacing={11}
+                    baseColor={"#C7C7CC"}
+                    fillColor="gold"
+                    touchColor="gold"
+                  />
+                </View>
+              </View>
+              <View className="flex-row items-center">
+                <Text className="text-slate-300 text-[16px] font-medium w-[140px]">
+                  Techniques
+                </Text>
+                <View className="ml-4">
+                  <Rating
+                    size={13}
+                    rating={techni}
+                    onChange={setTechni}
+                    scale={1}
+                    spacing={11}
+                    baseColor={"#C7C7CC"}
+                    fillColor="gold"
+                    touchColor="gold"
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
           <View className="section-view gap-3 items-center ">
             <TouchableOpacity
               onPress={() => {
+                // handleSaveRating();
                 handleAddMatchInfo();
               }}
             >

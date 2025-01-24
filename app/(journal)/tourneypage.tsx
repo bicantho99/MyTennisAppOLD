@@ -17,7 +17,7 @@ export default function tourneypage() {
             Edit
           </Text>
         </View>
-        <View className="bg-slate-800 mt-5 p-2 rounded-lg">
+        <View className="bg-slate-800 mt-5 p-3 rounded-lg">
           <Text className="text-slate-300 text-xl pl-3">
             Level 4 Austin 12's Under
           </Text>
@@ -28,7 +28,7 @@ export default function tourneypage() {
         </View>
 
         <Text className="text-slate-300 mt-8 text-[15px] font-medium">
-          Match Notes:
+          Tournament Notes:
         </Text>
         <View className="mt-4 bg-slate-800 p-2 rounded-lg pl-4 py-5">
           <Text className="text-slate-300">

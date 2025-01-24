@@ -18,7 +18,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useProgramStore } from "@/assets/constants/programStore/storage";
 export default function ProgramPage() {
   const { trainingId } = useLocalSearchParams();
-  const { programData, setProgramData } = useProgramStore();
+  const { programData, setProgramData, loadProgramData } = useProgramStore();
   const { addCheckedValue, toggleCheckedValue, checkedValues } =
     useCheckedValuesStore();
   const [tested, setTest] = useState<any>([]);
@@ -49,26 +49,8 @@ export default function ProgramPage() {
       };
 
     setProgramData(updatedProgramData);
-
-    // setCheckedValues(currentWeekIndex, value);
-    // if (value) {
-    //   addCheckedValue(currentWeekIndex);
-      // If true, add the currentWeekIndex to the array
-      // setTest((prev: any) => [...prev, currentWeekIndex]);
-    // } else {
-      //  setTest((prev: any) => {
-      //    const newArray = [...prev]; // Create a shallow copy of the array
-      //    const index = newArray.indexOf(currentWeekIndex);
-      //    if (index > -1) {
-      //      newArray.splice(index, 1); // Removes the element at the specified index
-      //    }
-      //    return newArray;
-      //  });
-      // toggleCheckedValue(currentWeekIndex);
-    // }
   };
-
-  // const progressBarArray = Array.from(checkedValues);
+  useEffect(() => {}, []);
 
   const fullText =
     "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";
@@ -149,7 +131,10 @@ export default function ProgramPage() {
                 onPress={() => {
                   router.push({
                     pathname: "/trainingPage2",
-                    params: { title: session.title },
+                    params: {
+                      title: session.title,
+                      id: trainingId,
+                    },
                   });
                   console.log(session.title);
                 }}
