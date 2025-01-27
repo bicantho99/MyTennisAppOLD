@@ -7,9 +7,6 @@ import { singleDataWeek1 } from "@/assets/constants/singledata/data1";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { doubleData } from "@/assets/constants/doubledata/data1";
 export default function profile() {
-  useEffect(() => {
-    console.log(id);
-  }, []);
   const { title, id } = useLocalSearchParams();
   let sections;
   if (Number(id) == 0) {
@@ -35,7 +32,7 @@ export default function profile() {
             </Text>
           </View>
         </View>
-        <View className="Warm-up mt-7">
+        {/* <View className="Warm-up mt-7">
           <View className="flex-row items-center gap-4 mb-4">
             <Text className="text-textColor font-bold text-xl bg-slate-700 px-3 py-1 rounded-lg flex-shrink-0">
               1
@@ -60,8 +57,8 @@ export default function profile() {
               </Text>
             ))}
           </View>
-        </View>
-        <View className="Warm-up">
+        </View> */}
+        {/* <View className="Warm-up">
           <View className="flex-row items-center gap-4 mb-4">
             <Text className="text-textColor font-bold text-xl bg-slate-700 px-3 py-1 rounded-lg flex-shrink-0">
               2
@@ -88,6 +85,64 @@ export default function profile() {
               </Text>
             ))}
           </View>
+        </View> */}
+
+        <View className="bg-slate-800 mt-8 p-3 rounded-xl border border-slate-500 ">
+          <Text className="text-blue-300 text-xl pl-3 font-semibold">
+            Warm Up
+          </Text>
+          <View className="flex-col gap-3 pl-3 mt-3">
+            {sections["Warm Up"].drills.map((drill: any, index: any) => (
+              <Text
+                key={index}
+                className="text-slate-300 text-lg"
+                style={{ marginVertical: 5 }}
+              >
+                {index + 1}. {drill}
+              </Text>
+            ))}
+          </View>
+        </View>
+
+        <View className="bg-slate-800 mt-5 p-3 rounded-xl border border-slate-500">
+          <Text className="text-blue-300 text-xl pl-3 font-semibold">
+            Main Drills
+          </Text>
+          <View className="flex-col gap-3 pl-3 mt-3">
+            {sections["Main Drills"].drills.map((drill: any, index: any) => (
+              <Text
+                key={index}
+                className="text-slate-300 text-lg"
+                style={{ marginVertical: 5 }}
+              >
+                - {drill}
+              </Text>
+            ))}
+          </View>
+        </View>
+        <View className="bg-slate-800 mt-5 p-3 rounded-xl border border-slate-500">
+          <Text className="text-blue-300 text-xl pl-3 font-semibold">
+            Notes
+          </Text>
+          <View className="flex-col gap-3 pl-3 mt-3">
+            {sections["Main Drills"].notes.map((drill: any, index: any) => (
+              <Text
+                key={index}
+                className="text-slate-300 text-lg"
+                style={{ marginVertical: 5 }}
+              >
+                {drill}
+              </Text>
+            ))}
+          </View>
+        </View>
+        <View>
+          <Text
+            onPress={() => router.back()}
+            className="text-center bg-teal-500 rounded-xl p-4 mt-5 text-white font-bold text-xl"
+          >
+            Complete
+          </Text>
         </View>
       </View>
     </KeyboardAwareScrollView>

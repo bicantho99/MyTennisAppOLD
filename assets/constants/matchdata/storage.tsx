@@ -7,13 +7,14 @@ type Store = {
   loadMatchInfos: () => void;
   clearStorage: () => void;
   deleteMatchInfo: (matchId: string) => void;
+  // editMatch: (matchId: any) => void;
 };
 
 export const useMatchStore = create<Store>((set) => ({
   matchInfos: [],
   addMatchInfo: async (newMatchInfo) => {
     set((state) => {
-      const updatedMatchInfos = [...state.matchInfos, newMatchInfo];
+      const updatedMatchInfos = [newMatchInfo, ...state.matchInfos];
       AsyncStorage.setItem("matchInfos", JSON.stringify(updatedMatchInfos));
       return { matchInfos: updatedMatchInfos };
     });
@@ -37,4 +38,14 @@ export const useMatchStore = create<Store>((set) => ({
     await AsyncStorage.clear();
     set({ matchInfos: null });
   },
+  // editMatch: async (newMatchInfo) => {
+  //   set((state) => {
+  //     const editedMatchInfo = state.matchInfos.map((match) =>
+  //       match.matchId == newMatchInfo.matchId
+  //         ? { ...newMatchInfo, editedMatchInfo }
+  //         : matchInfo
+  //     );
+  //     ret
+  //   });
+  // },
 }));

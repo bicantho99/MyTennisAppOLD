@@ -15,9 +15,9 @@ export default function Layout() {
   }
 
   return (
-    <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
+    // <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
       <TrainingDataProvider>
-        <ClerkLoaded>
+        {/* <ClerkLoaded> */}
           <Stack
             screenOptions={{
               headerShown: false,
@@ -38,7 +38,10 @@ export default function Layout() {
               }}
             />
             <Stack.Screen name="(edit)/program-page" />
+            <Stack.Screen name="(training)/training" />
+            <Stack.Screen name="(program)/examplePage" />
             <Stack.Screen name="(edit)/profile" />
+            <Stack.Screen name="(program)/trainingPage" />
             <Stack.Screen
               name="(journal)/addmatch"
               options={{
@@ -54,8 +57,8 @@ export default function Layout() {
             <Stack.Screen name="(journal)/matchpage" />
             <Stack.Screen name="(journal)/tourneypage" />
           </Stack>
-        </ClerkLoaded>
+        {/* </ClerkLoaded> */}
       </TrainingDataProvider>
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }

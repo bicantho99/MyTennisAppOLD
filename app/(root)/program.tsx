@@ -11,15 +11,16 @@ import * as Progress from "react-native-progress";
 import Checkbox from "expo-checkbox";
 import { StatusBar } from "expo-status-bar";
 import { router } from "expo-router";
-import RNSegmentedProgressBar, {
-  RunAnimationHandler,
-} from "@baby-journey/rn-segmented-progress-bar";
+
+import AntDesign from "@expo/vector-icons/AntDesign";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useProgramStore } from "@/assets/constants/programStore/storage";
 import { useCheckedValuesStore } from "@/assets/constants/progressData";
+import { useTrainingStore } from "@/assets/constants/trainingsData/data";
 export default function program() {
   const { loadProgramData } = useProgramStore();
   const { loadCheckedValues } = useCheckedValuesStore();
+  const { loadTrainings, trainingData, deleteTraining } = useTrainingStore();
   const programs = [
     {
       id: 0,
@@ -37,6 +38,8 @@ export default function program() {
       description: "Trainings focusing on double wizard-ry",
       tags: ["Serve", "Return", "Net Game", "Mental"],
     },
+  ];
+  const createProgram = [
     {
       id: 3,
       coach: "Coach Cecile",
@@ -59,18 +62,92 @@ export default function program() {
       });
     }
   };
-  useEffect(() => {
-    loadProgramData();
-  }, []);
+
+  // useEffect(() => {}, [loadTrainings()]);
   return (
     <SafeAreaView className="flex-1 bg-bgColor">
       <ScrollView showsVerticalScrollIndicator={false}>
         <StatusBar style="light" />
         <View className="mx-6 my-2 ">
-          <Text className="text-textColor  text-[25px]  font-semibold mt-3  mb-6">
-            Programs
-          </Text>
-          <View className="gap-2">
+          <View className="flex-row items-center justify-between mb-6">
+            <Text className="text-textColor  text-[25px]  font-semibold mt-3  mb-1">
+              Programs
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                router.push("/(edit)/addprogram");
+              }}
+            >
+              <AntDesign
+                name="pluscircle"
+                size={22}
+                color="white"
+                className=""
+              />
+            </TouchableOpacity>
+          </View>
+          <View className="gap-5">
+            {trainingData.length === 0 ? (
+              <TouchableOpacity
+                onPress={() => {
+                  router.push({
+                    pathname: "/(program)/examplePage",
+                    // params: { trainingIDX: item.id },
+                  });
+                }}
+              >
+                <View
+                  // key={index}
+                  className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300"
+                >
+                  <View className="flex-row justify-between">
+                    <Text className="text-textColor text-md">
+                      Time: 4:00 PM
+                    </Text>
+                    <Text className="text-gray-400 text-md">
+                      Total Players: 2
+                    </Text>
+                  </View>
+                  <Text className="text-blue-300 font-bold text-[20px]">
+                    Backhand Training
+                  </Text>
+                  <Text className="text-white text-md">
+                    Focus on aggressive backhand offense
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            ) : (
+              trainingData.map((item: any, index: any) => {
+                return (
+                  <TouchableOpacity
+                    key={item.id}
+                    onPress={() => {
+                      router.push({
+                        pathname: "/(program)/trainingPage",
+                        params: { trainingIDX: item.id },
+                      });
+                    }}
+                  >
+                    <View className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300">
+                      <View className="flex-row justify-between">
+                        <Text className="text-textColor text-md">
+                          Time: {item.time}
+                        </Text>
+                        <Text className="text-gray-400 text-md">
+                          Players: {item.totalPlayers}
+                        </Text>
+                      </View>
+                      <Text className="text-blue-300 font-bold text-[20px]">
+                        {item.title}
+                      </Text>
+                      <Text className="text-white text-md">
+                        {item.description}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                );
+              })
+            )}
             {programs.map((program, index) => (
               <TouchableOpacity
                 key={index}
@@ -78,7 +155,7 @@ export default function program() {
                   handleClick(program.id);
                 }}
               >
-                <View className="box-view bg-slate-800 pl-5 pr-3 pt-5 border-blue-800  rounded-xl gap-[9px] border-[0.4px] h-[165px] mb-4  shadow-sm shadow-slate-300">
+                <View className="box-view bg-slate-800 pl-5 pr-3 pt-5 border-blue-300  rounded-xl gap-[9px] border-[0.4px] h-[165px]   shadow-sm shadow-blue-300">
                   <View className="text-view flex-col justify-between h-full">
                     <View className="gap-2">
                       <View className="flex-row justify-between">
@@ -110,85 +187,23 @@ export default function program() {
                 </View>
               </TouchableOpacity>
             ))}
-          </View>
-          {message ? <Text className="text-textColor">{message}</Text> : null}
-
-          <View className="mt-8 gap-2">
-            {/* <View
-              className="flex-row gap-2 justify-evenly"
-              style={{ transform: [{ translateY: -10 }] }}
+            <TouchableOpacity
+              onPress={() => {
+                router.push("/(edit)/addprogram");
+              }}
             >
-              <View
-                className={`h-[7px]  flex-row rounded-lg
-                     ${
-                       checkedValues.length >= 1
-                         ? "bg-teal-400"
-                         : "bg-slate-200"
-                     } w-[57px] transition duration-250 ease-in delay-100`}
-              />
-              <View
-                className={`h-[7px]  flex-row rounded-lg
-                     ${
-                       checkedValues.length >= 2
-                         ? "bg-teal-400"
-                         : "bg-slate-200"
-                     } w-[57px] transition duration-250 ease-in delay-100`}
-              />
-              <View
-                className={`h-[7px]  flex-row rounded-lg
-                     ${
-                       checkedValues.length >= 3
-                         ? "bg-teal-400"
-                         : "bg-slate-200"
-                     } w-[57px] transition duration-250 ease-in delay-100`}
-              />
-              <View
-                className={`h-[7px]  flex-row rounded-lg
-                     ${
-                       checkedValues.length >= 4
-                         ? "bg-teal-400"
-                         : "bg-slate-200"
-                     } w-[57px] transition duration-250 ease-in delay-100`}
-              />
-            </View> */}
+              <View className="box-view border-dotted border border-teal-300  bg-teal-900/20  rounded-xl gap-[15px]  h-[85px] mb-4   items-center justify-center">
+                <Text className="text-slate-200 text-[17px] font-medium">
+                  Create Your Own Trainings
+                </Text>
+                <AntDesign name="addfile" size={22} color="white" />
+              </View>
+            </TouchableOpacity>
           </View>
+
+          <View className="mt-8 gap-2"></View>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-// const [checkboxStates, setCheckboxStates] = useState<boolean[]>([
-//   false,
-//   false,
-//   false,
-//   false,
-// ]);
-// const [checkedValues, setCheckedValues] = useState<number[]>([]);
-
-// const handleCheckboxChange = (index: number, value: boolean) => {
-//   // Update checkbox state
-//   const updatedStates = [...checkboxStates];
-//   updatedStates[index] = value;
-//   setCheckboxStates(updatedStates);
-
-//   // Update central array based on checkbox state
-//   if (value) {
-//     setCheckedValues((prevValues) => [...prevValues, 0]); // Add 0 if checked
-//   } else {
-//     setCheckedValues((prevValues) => prevValues.slice(0, -1)); // Remove the last 0 if unchecked
-//   }
-// };
-
-//
-
-// <View className="flex-row gap-4 pl-3">
-//   {checkboxStates.map((isChecked, index) => (
-//     <Checkbox
-//       key={index}
-//       value={isChecked}
-//       onValueChange={(value) => handleCheckboxChange(index, value)}
-//       color={isChecked ? "#4630EB" : undefined}
-//     />
-//   ))}
-// </View>;

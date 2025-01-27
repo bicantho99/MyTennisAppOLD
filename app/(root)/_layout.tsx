@@ -4,6 +4,8 @@ import Entypo from "@expo/vector-icons/Entypo";
 import Foundation from "@expo/vector-icons/Foundation";
 import Animated from "react-native-reanimated";
 import Feather from "@expo/vector-icons/Feather";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 export default function TabLayout() {
   return (
     <Tabs
@@ -36,25 +38,25 @@ export default function TabLayout() {
         options={{
           title: "Programs",
           tabBarIcon: ({ color }) => (
-            <Entypo name="rocket" size={22} color={color} />
+            <MaterialIcons name="fitness-center" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="prep"
         options={{
-          title: "Prep",
+          title: "Journal",
           tabBarIcon: ({ color }) => (
-            <Feather name="user" size={24} color={color} />
+            <Foundation name="clipboard-notes" size={22} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="training"
+        name="profile"
         options={{
-          title: "Training",
+          title: "Profile",
           tabBarIcon: ({ color }) => (
-            <Foundation name="clipboard-notes" size={22} color={color} />
+            <Feather name="user" size={24} color={color} />
           ),
         }}
       />

@@ -50,7 +50,6 @@ export default function ProgramPage() {
 
     setProgramData(updatedProgramData);
   };
-  useEffect(() => {}, []);
 
   const fullText =
     "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";

@@ -34,11 +34,11 @@ export default function Adding() {
   const [player1_2s, setPlayer1_2s] = useState("");
   const [player1_3s, setPlayer1_3s] = useState("");
   const matchId = uuidv4();
-  //
   const [player2_1s, setPlayer2_1s] = useState("");
   const [player2_2s, setPlayer2_2s] = useState("");
   const [player2_3s, setPlayer2_3s] = useState("");
   const [matchNote, setmatchNote] = useState("");
+  const [date, setDate] = useState("");
 
   const { matchInfos, addMatchInfo, loadMatchInfos, deleteMatchInfo } =
     useMatchStore();
@@ -77,16 +77,17 @@ export default function Adding() {
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
       <View>
         {/* <SafeAreaView> */}
-        <View className="mx-6 gap-5 pb-10 pt-3 ">
+        <View className="mx-6 gap-5 pb-10 ">
           <View className="flex-row justify-between items-center">
             <Text className="text-textColor text-3xl font-bold mt-5">
               New Match
             </Text>
+
           </View>
           <View className="section-view gap-3">
             <View className="flex-row justify-between">
               <TextInput
-                className="bg-slate-800 p-4 py-5 mb-1 rounded-xl   text-white   border-teal-700 border-[0.8px] shadow-sm shadow-slate-700 w-[55%]"
+                className="bg-slate- p-4 py-5 mb-1 rounded-xl   text-white   border-blue-300 border-[0.9px] shadow-sm shadow-slate-700 w-[55%]"
                 placeholder="Player's Name"
                 placeholderTextColor={"gray"}
                 value={player1}
@@ -94,7 +95,7 @@ export default function Adding() {
               />
               <View className="flex-row gap-2">
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
+                  className="bg-gray- w-[39px] rounded-lg pl-4 text-xl text-white border-blue-300 border-[0.9px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -103,7 +104,7 @@ export default function Adding() {
                   onChangeText={setPlayer1_1s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
+                  className="bg-gray- w-[39px] rounded-lg pl-4 text-xl text-white border-blue-300 border-[0.9px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -112,7 +113,7 @@ export default function Adding() {
                   onChangeText={setPlayer1_2s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
+                  className="bg-gray- w-[39px] rounded-lg pl-4 text-xl text-white border-blue-300 border-[0.9px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -124,7 +125,7 @@ export default function Adding() {
             </View>
             <View className="flex-row justify-between">
               <TextInput
-                className="bg-gray-800 p-4 py-5 mb-1 rounded-xl   text-white   border-teal-700 border-[0.8px] shadow-sm shadow-slate-700 w-[55%]"
+                className=" p-4 py-5 mb-1 rounded-xl   text-white   border-blue-300 border-[0.9px] shadow-sm shadow-slate-700 w-[55%]"
                 placeholder="Player's Name"
                 placeholderTextColor={"gray"}
                 value={player2}
@@ -132,7 +133,7 @@ export default function Adding() {
               />
               <View className="flex-row gap-2">
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white  border-teal-700 border-[0.5px]"
+                  className=" w-[39px] rounded-lg pl-4 text-xl text-white  border-blue-300 border-[0.9px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -141,7 +142,7 @@ export default function Adding() {
                   onChangeText={setPlayer2_1s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
+                  className=" w-[39px] rounded-lg pl-4 text-xl text-white border-blue-300 border-[0.9px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -150,7 +151,7 @@ export default function Adding() {
                   onChangeText={setPlayer2_2s}
                 />
                 <TextInput
-                  className="bg-gray-800 w-[39px] rounded-lg pl-4 text-xl text-white border-teal-700 border-[0.5px]"
+                  className=" w-[39px] rounded-lg pl-4 text-xl text-white border-blue-300 border-[0.9px]"
                   placeholder="0"
                   placeholderTextColor={"gray"}
                   keyboardType="numeric"
@@ -160,8 +161,9 @@ export default function Adding() {
                 />
               </View>
             </View>
+
             <TextInput
-              className="bg-gray-800 px-3 pb-10 pt-4 rounded-lg  border border-slate-600 text-white  shadow-sm shadow-slate-700 mt-2"
+              className="bg-gray-800 px-3 pb-10 pt-4 rounded-lg  border border-slate-400 text-white  shadow-sm shadow-slate-700 mt-2"
               placeholder="Note..."
               placeholderTextColor={"gray"}
               editable
@@ -170,10 +172,11 @@ export default function Adding() {
               onChangeText={setmatchNote}
             />
           </View>
-          <View className="bg-slate-800 mt-1 p-3 rounded-xl border-slate-700 border">
+
+          <View className="bg-slate-800 mt-1 p-3 rounded-xl border-slate-400 border">
             <View className="p-2 gap-4">
               <View className="flex-row items-center">
-                <Text className="text-slate-300 text-[16px] font-medium w-[140px]">
+                <Text className="text-blue-300 text-[16px] font-medium w-[140px]">
                   Strategies
                 </Text>
                 <View className="ml-4">
@@ -190,7 +193,7 @@ export default function Adding() {
                 </View>
               </View>
               <View className="flex-row items-center ">
-                <Text className="text-slate-300  text-[16px] font-medium w-[140px]">
+                <Text className="text-blue-300  text-[16px] font-medium w-[140px]">
                   Physical
                 </Text>
                 <View className="ml-4">
@@ -207,7 +210,7 @@ export default function Adding() {
                 </View>
               </View>
               <View className="flex-row items-center ">
-                <Text className="text-slate-300 text-[16px] font-medium w-[140px]">
+                <Text className="text-blue-300 text-[16px] font-medium w-[140px]">
                   Mental
                 </Text>
                 <View className="ml-4 ">
@@ -224,7 +227,7 @@ export default function Adding() {
                 </View>
               </View>
               <View className="flex-row items-center">
-                <Text className="text-slate-300 text-[16px] font-medium w-[140px]">
+                <Text className="text-blue-300 text-[16px] font-medium w-[140px]">
                   Techniques
                 </Text>
                 <View className="ml-4">
@@ -242,6 +245,7 @@ export default function Adding() {
               </View>
             </View>
           </View>
+
           <View className="section-view gap-3 items-center ">
             <TouchableOpacity
               onPress={() => {

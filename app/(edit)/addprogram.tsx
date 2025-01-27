@@ -13,14 +13,20 @@ import {
 } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Link } from "expo-router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import DrillForm from "@/hooks/drillForm";
 import { useProgramData } from "@/assets/constants/programs";
 import { router } from "expo-router";
 import { useTrainingData } from "@/assets/constants/dataContext";
+import { v4 as uuidv4 } from "uuid";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useTrainingStore } from "@/assets/constants/trainingsData/data";
 export default function Adding() {
+  const { addTraining, trainingData } = useTrainingStore();
+  const [trainings, setTraining] = useState<any>([]);
+  const trainingID = uuidv4();
   const { programData, setProgramData } = useTrainingData();
 
   const [selected, setSelected] = useState<number>(0);
@@ -35,6 +41,7 @@ export default function Adding() {
   const items = ["Warm Up", "Main Drills", "Fitness", "Recovery"];
   const [tabName, setTabName] = useState<keyof Drills>("Warm Up");
   const [drillName, setDrillName] = useState("");
+  const [totalPlayer, setTotalPlayer] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
   const [error, setError] = useState(false);
@@ -64,19 +71,21 @@ export default function Adding() {
     Recovery?: string[];
   }
 
-  const Saved = () => {
-    const newProgram = {
-      title: title,
-      description: TDef,
-      time: TDur,
-      warmUp: drills["Warm Up"] || [], // Use the array of strings as is
-      mainDrills: drills["Main Drills"] || [], // Use the array of strings as is
-      fitness: drills.Fitness || [], // Use the array of strings as is
-      recovery: drills.Recovery || [], // Use the array of strings as is
-    };
-    setProgramData([newProgram, ...programData]);
-    console.log(newProgram);
+  const newProgram = {
+    id: trainingID,
+    title: title,
+    totalPlayers: totalPlayer,
+    description: TDef,
+    time: TDur,
+    warmUp: drills["Warm Up"] || [],
+    mainDrills: drills["Main Drills"] || [],
+    fitness: drills.Fitness || [],
+    recovery: drills.Recovery || [],
   };
+  const saveTraining = () => {
+    addTraining(newProgram);
+  };
+
 
   const handleSubmit = () => {
     if (!drillName) {
@@ -118,7 +127,7 @@ export default function Adding() {
             </Text>
             <TouchableOpacity
               onPress={() => {
-                Saved();
+                saveTraining();
                 router.back();
               }}
             >
@@ -130,18 +139,25 @@ export default function Adding() {
           <View className="section-view gap-3">
             <Text className="text-teal-50">Description</Text>
             <TextInput
-              className="bg-gray-800 p-4 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
+              className="bg-gray-800 py-5 px-4 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
               placeholder="Write Your Practice Name"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTitle(text)}
               value={title}
             />
             <TextInput
-              className="bg-gray-800 p-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
-              placeholder="Training Durration"
+              className="bg-gray-800 py-5 px-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
+              placeholder="Time. Ex: 4:00 PM "
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTDur(text)}
               value={TDur}
+            />
+            <TextInput
+              className="bg-gray-800 py-5 px-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
+              placeholder="Total Players. Ex: 2 Players"
+              placeholderTextColor={"gray"}
+              onChangeText={(text) => setTotalPlayer(text)}
+              value={totalPlayer}
             />
             <TextInput
               className="bg-gray-800 px-3 pb-10 pt-5 rounded-lg   border-teal-500 border-[0.4px] text-white"
@@ -211,7 +227,7 @@ export default function Adding() {
             </View>
 
             <TextInput
-              className="bg-gray-800 p-5 rounded-md text-white border-gray-400 border-[0.2px]"
+              className="bg-gray-800 py-5 px-4 rounded-md text-white border-gray-400 border-[0.2px]"
               placeholder="Drill name"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setDrillName(text)}

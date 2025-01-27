@@ -15,50 +15,50 @@ import Checkbox from "expo-checkbox";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import * as WebBrowser from "expo-web-browser";
-import { SignedIn, useOAuth, useUser, useClerk } from "@clerk/clerk-expo";
-import * as Linking from "expo-linking";
+// import * as WebBrowser from "expo-web-browser";
+// import { SignedIn, useOAuth, useUser, useClerk } from "@clerk/clerk-expo";
+// import * as Linking from "expo-linking";
 
-export const useWarmUpBrowser = () => {
-  React.useEffect(() => {
-    void WebBrowser.warmUpAsync();
-    return () => {
-      void WebBrowser.coolDownAsync();
-    };
-  }, []);
-};
+// export const useWarmUpBrowser = () => {
+//   React.useEffect(() => {
+//     void WebBrowser.warmUpAsync();
+//     return () => {
+//       void WebBrowser.coolDownAsync();
+//     };
+//   }, []);
+// };
 
-WebBrowser.maybeCompleteAuthSession();
+// WebBrowser.maybeCompleteAuthSession();
 
 export default function Home() {
-  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
-  useWarmUpBrowser();
-  const { user } = useUser();
-  const { signOut } = useClerk();
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-      Linking.openURL(Linking.createURL("/(root)"));
-    } catch (err) {
-      console.error(JSON.stringify(err, null, 2));
-    }
-  };
+  // const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+  // useWarmUpBrowser();
+  // const { user } = useUser();
+  // const { signOut } = useClerk();
+  // const handleSignOut = async () => {
+  //   try {
+  //     await signOut();
+  //     Linking.openURL(Linking.createURL("/(root)"));
+  //   } catch (err) {
+  //     console.error(JSON.stringify(err, null, 2));
+  //   }
+  // };
 
-  const handleSignIn = React.useCallback(async () => {
-    try {
-      const { createdSessionId, signIn, signUp, setActive } =
-        await startOAuthFlow({
-          redirectUrl: Linking.createURL("/(root)", { scheme: "myapp" }),
-        });
+  // const handleSignIn = React.useCallback(async () => {
+  //   try {
+  //     const { createdSessionId, signIn, signUp, setActive } =
+  //       await startOAuthFlow({
+  //         redirectUrl: Linking.createURL("/(root)", { scheme: "myapp" }),
+  //       });
 
-      if (createdSessionId) {
-        setActive!({ session: createdSessionId });
-      } else {
-      }
-    } catch (err) {
-      console.error(JSON.stringify(err, null, 2));
-    }
-  }, []);
+  //     if (createdSessionId) {
+  //       setActive!({ session: createdSessionId });
+  //     } else {
+  //     }
+  //   } catch (err) {
+  //     console.error(JSON.stringify(err, null, 2));
+  //   }
+  // }, []);
 
   type Challenge = {
     day: number;
@@ -114,9 +114,8 @@ export default function Home() {
           <Text className="text-textColor font-semibold text-[25px]">
             Welcome
           </Text>
-          {user ? (
+          {/* {user ? (
             <Text className="text-sky-400 text-xl font-medium" onPress={()=> router.push("/(edit)/profile")}>
-              {/* <Text style={{ color: "#16bcfe" }}>Welcome</Text> */}
               {user.firstName}
             </Text>
           ) : (
@@ -125,7 +124,7 @@ export default function Home() {
                 Log In
               </Text>
             </TouchableOpacity>
-          )}
+          )} */}
         </View>
 
         <View className="box-view  bg-slate-800 pl-5  pr-3 pt-5  border-blue-800 rounded-xl gap-[5px]   border-[0.4px]  h-[190px] shadow-sm shadow-blue-400">
@@ -147,9 +146,10 @@ export default function Home() {
             <View className="h-[90px] flex justify-between ">
               <Animated.FlatList
                 ref={scrollViewRef} // Attach the FlatList reference
-                onScroll={Animated.event([
-                  { nativeEvent: { contentOffset: { y: scrollY } } },
-                ])}
+                onScroll={Animated.event(
+                  [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+                  { useNativeDriver: true }
+                )}
                 data={challenges}
                 keyExtractor={(item) => String(item.day)}
                 pagingEnabled
@@ -157,6 +157,13 @@ export default function Home() {
                 contentContainerStyle={{ gap: 2 }}
                 scrollEventThrottle={10} // Lower values will make scroll events fire more frequently
                 decelerationRate={0.2}
+                getItemLayout={(data, index) => ({
+                  length: ITEM_SIZE,
+                  offset: ITEM_SIZE * index,
+                  index,
+                })}
+                initialNumToRender={1} // Renders only 10 items initially
+                maxToRenderPerBatch={1}
                 renderItem={({ item, index }) => {
                   const inputRange = [
                     -1,
@@ -183,12 +190,14 @@ export default function Home() {
 
                   return (
                     <Animated.View
-                      //make width dynamic to user screen
-                      className="w-[cardWidth]"
+                      className="w-[320px]"
                       style={{ transform: [{ scale }], opacity }}
                     >
-                      <View className="bg-blue-400 rounded-xl gap-3 p-[15px] mt-[8.3px] ">
-                        <View className="flex-row justify-between">
+                      <View
+                        className="bg-blue-400 rounded-xl gap-3 p-[15px] mt-[8.3px] "
+                        style={{}}
+                      >
+                        <View className="flex-row justify-between ">
                           <Text className="font-semibold opacity-[0.6px]">
                             Day {item.day}
                           </Text>
@@ -198,8 +207,8 @@ export default function Home() {
                             color={isChecked ? "#2563eb" : "#334155"}
                           />
                         </View>
-                        <Text className="text-[15px] font-semibold">
-                          {item.text}
+                        <Text className="text-[16px] font-semibold">
+                          Approach the net 10 times
                         </Text>
                       </View>
                     </Animated.View>
@@ -264,9 +273,9 @@ export default function Home() {
           </TouchableOpacity>
         </View>
 
-        <View className="gap-2">
+        <View className="gap-2 mb-2">
           <TouchableOpacity>
-            <View className="box-view   bg-gray-800  rounded-xl  border-slate-600  border-[0.4px] p-3 ">
+            <View className="box-view   bg-slate-900  rounded-xl  border-slate-500  border-[0.4px] p-3 ">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
                   <Text className="text-lg font-semibold">
@@ -282,13 +291,13 @@ export default function Home() {
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View className="box-view  bg-gray-800  border-slate-600  rounded-xl  border-[0.4px]  p-3">
-              <View className="bg-blue-500 rounded-md gap-3 p-3 ">
+            <View className="box-view  bg-slate-900  border-slate-300  rounded-xl  border-[0.4px]  p-3">
+              <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
-                  <Text className="text-lg font-semibold">
+                  <Text className="text-lg font-semibold text-slate-900">
                     Improve Net Game
                   </Text>
-                  <Text className="text-[14px] font-bold mt-[4px] text-slate-800">
+                  <Text className="text-[14px] font-bold mt-[4px] text-slate-900">
                     Coach Chris
                   </Text>
                 </View>

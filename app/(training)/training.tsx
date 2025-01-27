@@ -13,7 +13,6 @@ import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import Animated, { FadeIn, SlideInDown } from "react-native-reanimated";
 import Adding from "../(edit)/addprogram";
-
 import { useTrainingData } from "@/assets/constants/dataContext";
 
 export default function TrainingPage() {
@@ -26,13 +25,19 @@ export default function TrainingPage() {
   );
 
   return (
-    <SafeAreaView className="bg-bgColor flex-1">
+    <SafeAreaView className="flex-1 bg-bgColor">
       <StatusBar style="auto" />
-
       <ScrollView>
-        <View className="mx-6 gap-5 pb-10">
+        <View className="mx-6 gap-4 mt-3 ">
           <View className="flex-row justify-between items-center">
-            <Text className="text-textColor  text-[28px] font-bold mt-5">
+            <TouchableOpacity
+              onPress={() => router.back()}
+              className="flex items-center justify-center"
+            >
+              <AntDesign name="arrowleft" size={24} color="white" />
+            </TouchableOpacity>
+
+            <Text className="text-textColor  text-[25px] font-bold">
               Trainings
             </Text>
             <TouchableOpacity
@@ -48,7 +53,6 @@ export default function TrainingPage() {
               />
             </TouchableOpacity>
           </View>
-
           <TextInput
             className="bg-gray-800 rounded-md h-[35px]  pl-3  text-white"
             placeholder="Search by name"
@@ -77,7 +81,9 @@ export default function TrainingPage() {
                         <Text className="text-blue-300 font-bold text-[17px] ">
                           {item.title}
                         </Text>
-                        <Text className="text-slate-200 text-sm">{item.time} minutes</Text>
+                        <Text className="text-slate-200 text-sm">
+                          {item.time} minutes
+                        </Text>
                       </View>
                       <View className="flex-row">
                         {item.focuses?.map((focusItem, idx) => (
@@ -98,7 +104,6 @@ export default function TrainingPage() {
               </TouchableOpacity>
             );
           })}
-          {/* <Adding programData={programData} setProgramData={setProgramData} /> */}
         </View>
       </ScrollView>
     </SafeAreaView>
