@@ -74,18 +74,24 @@ export default function Home() {
   const screenWidth = Dimensions.get("window").width;
   const cardWidth = screenWidth * 0.8;
 
+
   const handleCheckboxChange = (day: number) => {
     toggleChallenge(day);
+  
     setTimeout(() => {
-      const nextIndex = day;
+      const currentIndex = challenges.findIndex((item) => item.day === day);
+      const nextIndex = currentIndex + 1;
+  
       if (nextIndex < challenges.length && scrollViewRef.current) {
         scrollViewRef.current.scrollToIndex({
           index: nextIndex,
           animated: true,
         });
       }
-    }, 130);
+    }, 200); // Small delay for UI update
   };
+  
+  
   
   // const handleCheckboxChange = (index: number) => {
   //   const isChecked = completedTasks.includes(index);
@@ -137,7 +143,7 @@ export default function Home() {
             </Text>
             <View className="mb-1">
               <Progress.Bar
-                progress={progress}
+                progress={challenges.length > 0 ? challenges.filter((c) => c.completed).length / challenges.length : 0}
                 borderColor={""}
                 width={cardWidth}
                 animated={true}
@@ -148,6 +154,7 @@ export default function Home() {
             </View>
             <View className="h-[90px] flex justify-between ">
               <Animated.FlatList
+                ref={scrollViewRef}
                 data={challenges} // Use the challenges from the store
                 keyExtractor={(item) => String(item.day)}
                 renderItem={({ item }) => {
