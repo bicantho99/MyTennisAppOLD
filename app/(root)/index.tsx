@@ -8,13 +8,15 @@ import {
   Animated,
   ScrollView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import * as Progress from "react-native-progress";
 import Checkbox from "expo-checkbox";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useWeeklyStore } from "../../tennis-backend/useWeeklyStore";
+
 // import * as WebBrowser from "expo-web-browser";
 // import { SignedIn, useOAuth, useUser, useClerk } from "@clerk/clerk-expo";
 // import * as Linking from "expo-linking";
@@ -58,56 +60,63 @@ export default function Home() {
   //   } catch (err) {
   //     console.error(JSON.stringify(err, null, 2));
   //   }
-  // }, []);
+  // }, []);  
+  const { challenges, toggleChallenge, loadChallenges } = useWeeklyStore();
 
-  type Challenge = {
-    day: number;
-    text: string;
-    completed: boolean;
-  };
-
-  // hardcode the challenges here
-  const challenges: Challenge[] = [
-    { day: 1, text: "Use Serve and Volley", completed: false },
-    { day: 2, text: "Use Serve + Forehands", completed: false },
-    { day: 3, text: "Win 3 points in a row", completed: false },
-    { day: 4, text: "Hit Aces x4", completed: false },
-    { day: 5, text: "Return Approach x4", completed: false },
-    { day: 6, text: "Use Slice + Run Around Forehands", completed: false },
-    { day: 7, text: "Use the 2-1 Pattern", completed: false },
-  ];
-
-  const [completedTasks, setCompletedTasks] = React.useState<number[]>([]);
-  const progress = completedTasks.length / challenges.length;
+  useEffect(() => {
+    loadChallenges();
+  }, []);
+  
+  const progress = challenges.filter((c) => c.completed).length / challenges.length;
   const scrollY = React.useRef(new Animated.Value(0)).current;
   const scrollViewRef = React.useRef<FlatList>(null);
   const ITEM_SIZE = 90;
   const screenWidth = Dimensions.get("window").width;
   const cardWidth = screenWidth * 0.8;
 
-  const handleCheckboxChange = (index: number) => {
-    const isChecked = completedTasks.includes(index);
 
-    if (isChecked) {
-      // Uncheck the box, no scroll needed
-      setCompletedTasks(completedTasks.filter((task) => task !== index));
-    } else {
-      // Check the box and scroll to the next task
-      setCompletedTasks((prev) => [...prev, index]);
-      setTimeout(() => {
-        const nextIndex = index + 1;
-        if (index < challenges.length - 1 && scrollViewRef.current) {
-          // Ensure to scroll to the next item if it's within bounds
-          scrollViewRef.current.scrollToIndex({
-            index: nextIndex,
-            animated: true,
-          });
-        }
-      }, 130);
-    }
+  const handleCheckboxChange = (day: number) => {
+    toggleChallenge(day);
+  
+    setTimeout(() => {
+      const currentIndex = challenges.findIndex((item) => item.day === day);
+      const nextIndex = currentIndex + 1;
+  
+      if (nextIndex < challenges.length && scrollViewRef.current) {
+        scrollViewRef.current.scrollToIndex({
+          index: nextIndex,
+          animated: true,
+        });
+      }
+    }, 200); // Small delay for UI update
   };
+  
+  
+  
+  // const handleCheckboxChange = (index: number) => {
+  //   const isChecked = completedTasks.includes(index);
+
+  //   if (isChecked) {
+  //     // Uncheck the box, no scroll needed
+  //     setCompletedTasks(completedTasks.filter((task) => task !== index));
+  //   } else {
+  //     // Check the box and scroll to the next task
+  //     setCompletedTasks((prev) => [...prev, index]);
+  //     setTimeout(() => {
+  //       const nextIndex = index + 1;
+  //       if (index < challenges.length - 1 && scrollViewRef.current) {
+  //         // Ensure to scroll to the next item if it's within bounds
+  //         scrollViewRef.current.scrollToIndex({
+  //           index: nextIndex,
+  //           animated: true,
+  //         });
+  //       }
+  //     }, 130);
+  //   }
+  // };
   return (
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
+      <KeyboardAwareScrollView>
       <StatusBar style="light" />
       <View className="mx-6 my-6">
         <View className="Header mb-5 flex-row justify-between">
@@ -134,7 +143,7 @@ export default function Home() {
             </Text>
             <View className="mb-1">
               <Progress.Bar
-                progress={progress}
+                progress={challenges.length > 0 ? challenges.filter((c) => c.completed).length / challenges.length : 0}
                 borderColor={""}
                 width={cardWidth}
                 animated={true}
@@ -145,6 +154,30 @@ export default function Home() {
             </View>
             <View className="h-[90px] flex justify-between ">
               <Animated.FlatList
+                ref={scrollViewRef}
+                data={challenges} // Use the challenges from the store
+                keyExtractor={(item) => String(item.day)}
+                renderItem={({ item }) => {
+                  const isChecked = item.completed; // Check if the challenge is completed
+                  return (
+                    <Animated.View style={{ width: cardWidth }}>
+                      <View className="bg-blue-400 rounded-xl gap-3 p-[15px] mt-[8.3px]">
+                        <View className="flex-row justify-between">
+                          <Text className="font-semibold opacity-[0.6px]">Day {item.day}</Text>
+                          <Checkbox
+                            value={isChecked}
+                            onValueChange={() => handleCheckboxChange(item.day)}
+                            color={isChecked ? "#2563eb" : "#334155"}
+                          />
+                        </View>
+                        <Text className="text-[16px] font-semibold">{item.text}</Text>
+                      </View>
+                    </Animated.View>
+                  );
+                }}
+              />
+
+              {/* <Animated.FlatList
                 ref={scrollViewRef} // Attach the FlatList reference
                 onScroll={Animated.event(
                   [{ nativeEvent: { contentOffset: { y: scrollY } } }],
@@ -214,7 +247,7 @@ export default function Home() {
                     </Animated.View>
                   );
                 }}
-              />
+              /> */}
             </View>
           </View>
         </View>
@@ -308,6 +341,7 @@ export default function Home() {
           </TouchableOpacity>
         </View>
       </View>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 }
