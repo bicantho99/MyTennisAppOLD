@@ -3,57 +3,26 @@ import {
   Text,
   SafeAreaView,
   TextInput,
-  Button,
-  StyleSheet,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  ScrollView,
-  Platform,
-  Pressable,
-  FlatList,
 } from "react-native";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import { Link } from "expo-router";
 import React, { useEffect, useState } from "react";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import DrillForm from "@/hooks/drillForm";
-import { useProgramData } from "@/assets/constants/programs";
-import { router } from "expo-router";
-import { useTrainingData } from "@/assets/constants/dataContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { v4 as uuidv4 } from "uuid";
-import "react-native-get-random-values";
 import { useMatchStore } from "@/assets/constants/matchdata/storage";
+import { router } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import { Rating } from "@kolking/react-native-rating";
-export default function Adding() {
-  const [rating, setRating] = useState(4);
-  const [player1, setPlayer1] = useState("");
-  const [player2, setPlayer2] = useState("");
-  const [player1_1s, setPlayer1_1s] = useState("");
-  const [player1_2s, setPlayer1_2s] = useState("");
-  const [player1_3s, setPlayer1_3s] = useState("");
-  const matchId = uuidv4();
-  const [player2_1s, setPlayer2_1s] = useState("");
-  const [player2_2s, setPlayer2_2s] = useState("");
-  const [player2_3s, setPlayer2_3s] = useState("");
-  const [matchNote, setmatchNote] = useState("");
+export default function matchEdit() {
   const [date, setDate] = useState("");
 
-  const { matchInfos, addMatchInfo, loadMatchInfos, deleteMatchInfo } =
-    useMatchStore();
-
-  const [techni, setTechni] = useState(0);
-  const [mental, setMental] = useState(0);
-  const [strate, setStrate] = useState(0);
-  const [physical, setPhysical] = useState(0);
+  const {
+    matchInfos,
+    addMatchInfo,
+    loadMatchInfos,
+    deleteMatchInfo,
+    editMatchInfo,
+  } = useMatchStore();
 
   const handleAddMatchInfo = () => {
-    if (!player1 && !player2) {
-      return;
-    }
     const newMatchInfo = {
-      matchId,
       player1,
       player2,
       player1_1s,
@@ -72,6 +41,45 @@ export default function Adding() {
     addMatchInfo(newMatchInfo);
     router.back();
   };
+  const { editingMatchID } = useLocalSearchParams();
+
+  const editingMatch = matchInfos.find(
+    (match: any) => match.matchId == editingMatchID
+  );
+  const [player1, setPlayer1] = useState(editingMatch?.player1 || "");
+  const [player2, setPlayer2] = useState(editingMatch?.player2 || "");
+  const [player1_1s, setPlayer1_1s] = useState(editingMatch?.player1_1s || "");
+  const [player1_2s, setPlayer1_2s] = useState(editingMatch?.player1_2s || "");
+  const [player1_3s, setPlayer1_3s] = useState(editingMatch?.player1_3s || "");
+  const [player2_1s, setPlayer2_1s] = useState(editingMatch?.player2_1s || "");
+  const [player2_2s, setPlayer2_2s] = useState(editingMatch?.player2_2s || "");
+  const [player2_3s, setPlayer2_3s] = useState(editingMatch?.player2_3s || "");
+  const [matchNote, setmatchNote] = useState(editingMatch?.matchNote || "");
+  const [techni, setTechni] = useState(editingMatch?.techni || "");
+  const [mental, setMental] = useState(editingMatch?.mental || "");
+  const [strate, setStrate] = useState(editingMatch?.strate || "");
+  const [physical, setPhysical] = useState(editingMatch?.physical || "");
+  const handleEditMatchInfo = () => {
+    const updatedMatchInfo = {
+      editingMatchID,
+      player1,
+      player2,
+      player1_1s,
+      player1_2s,
+      player1_3s,
+      player2_1s,
+      player2_2s,
+      player2_3s,
+      matchNote,
+      techni,
+      mental,
+      strate,
+      physical,
+    };
+
+    editMatchInfo(updatedMatchInfo);
+    router.back();
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
@@ -87,7 +95,7 @@ export default function Adding() {
             <View className="flex-row justify-between">
               <TextInput
                 className="bg-slate- p-4 py-5 mb-1 rounded-xl   text-white   border-blue-300 border-[0.9px] shadow-sm shadow-slate-700 w-[55%]"
-                placeholder="Player's Name"
+                placeholder={"Enter Player Name"}
                 placeholderTextColor={"gray"}
                 value={player1}
                 onChangeText={setPlayer1}
@@ -253,7 +261,7 @@ export default function Adding() {
               }}
             >
               <Text className="mt-5  text-green-300 text-center text-[18px] bg-slate-800 p-5 rounded-xl font-semibold">
-                Add Match
+                Edit
               </Text>
             </TouchableOpacity>
           </View>

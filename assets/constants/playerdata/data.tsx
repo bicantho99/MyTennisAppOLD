@@ -24,13 +24,13 @@ export const usePlayerStore = create<Store>((set) => ({
       set({ playerData: JSON.parse(updatedPlayersInfos) });
     }
   },
-  deletePlayerInfo: async (matchId) => {
+  deletePlayerInfo: async (playerId) => {
     set((state) => {
-      const updatedPlayersInfos = state.playerData.filter(
-        (matchInfo: any) => matchInfo.matchId !== matchId
+      const updatedPlayerData = state.playerData.filter(
+        (playerInfo: any) => playerInfo.playerId !== playerId
       );
-      AsyncStorage.setItem("playerInfo", JSON.stringify(updatedPlayersInfos));
-      return { playerData: updatedPlayersInfos };
+      AsyncStorage.setItem("playerData", JSON.stringify(updatedPlayerData));
+      return { playerData: updatedPlayerData };
     });
   },
   clearStorage: async () => {

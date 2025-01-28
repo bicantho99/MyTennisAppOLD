@@ -7,7 +7,7 @@ type Store = {
   loadMatchInfos: () => void;
   clearStorage: () => void;
   deleteMatchInfo: (matchId: string) => void;
-  // editMatch: (matchId: any) => void;
+  editMatchInfo: (updatedMatchInfo: any) => void;
 };
 
 export const useMatchStore = create<Store>((set) => ({
@@ -38,14 +38,22 @@ export const useMatchStore = create<Store>((set) => ({
     await AsyncStorage.clear();
     set({ matchInfos: null });
   },
-  // editMatch: async (newMatchInfo) => {
-  //   set((state) => {
-  //     const editedMatchInfo = state.matchInfos.map((match) =>
-  //       match.matchId == newMatchInfo.matchId
-  //         ? { ...newMatchInfo, editedMatchInfo }
-  //         : matchInfo
-  //     );
-  //     ret
-  //   });
-  // },
+  editMatchInfo: async (updatedMatch) => {
+    set((state) => {
+      const index = state.matchInfos.findIndex(
+        (match: any) => match.matchId === updatedMatch.matchId
+      );
+
+      if (index !== -1) {
+        // Replace the existing match at the found index
+        const updatedMatchInfos = [...state.matchInfos];
+        updatedMatchInfos.splice(index, 1, updatedMatch); // Replaces the match at that index
+        AsyncStorage.setItem("matchInfos", JSON.stringify(updatedMatchInfos));
+        return { matchInfos: updatedMatchInfos };
+      } else {
+        // If match not found, return the current state
+        return { matchInfos: state.matchInfos };
+      }
+    });
+  },
 }));

@@ -24,7 +24,7 @@ export default function tourneypage() {
             <AntDesign name="arrowleft" size={24} color="white" />
           </TouchableOpacity>
           <Text className="text-slate-300 text-center text-2xl font-medium mt-2 flex-1">
-            {actualPlayer.name}
+            {/* {actualPlayer.name} */}James Bui
           </Text>
           <Text className="text-slate-400 text-[15px] mt-3 font-medium">
             Edit
@@ -37,7 +37,7 @@ export default function tourneypage() {
           </Text>
           <View className="flex-row gap-3 pl-3 mt-3">
             <Text className="text-slate-400 text-lg">
-              {actualPlayer.weaknesses}
+              Too much ball hogging
             </Text>
           </View>
         </View>
@@ -47,33 +47,30 @@ export default function tourneypage() {
           </Text>
           <View className="flex-row gap-3 pl-3 mt-3">
             <Text className="text-slate-400 text-lg">
-              {actualPlayer.strength}
+              Hit the ball with loud noises
             </Text>
           </View>
         </View>
         <View className="bg-slate-800 mt-5 gap-1 p-3 rounded-lg">
           <View className="flex-row justify-between">
             <Text className="text-blue-300 text-xl pl-3">Rating</Text>
-            <Text className="text-slate-400 text-lg pr-2">
-              {actualPlayer.rating}
-            </Text>
+            <Text className="text-slate-400 text-lg pr-2">5.0 USTA</Text>
           </View>
           <View className="flex-row justify-between">
             <Text className="text-blue-300 text-xl pl-3">Group</Text>
             <Text className="text-slate-400 text-lg pr-2">
-              {actualPlayer.group}
+              14's Under Girls
             </Text>
           </View>
         </View>
         <View className="bg-slate-800 mt-5 p-3 rounded-lg">
           <Text className="text-blue-300 text-xl pl-3 font-semibold">Note</Text>
           <View className="flex-row gap-3 pl-3 mt-3">
-            <Text className="text-slate-400 text-lg">{actualPlayer.notes}</Text>
+            <Text className="text-slate-400 text-lg">He's alright</Text>
           </View>
         </View>
         <TouchableOpacity
           onPress={() => {
-            deletePlayerInfo(actualPlayer.playerId);
             router.back();
           }}
         >

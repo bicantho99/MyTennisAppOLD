@@ -16,49 +16,55 @@ export default function Layout() {
 
   return (
     // <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
-      <TrainingDataProvider>
-        {/* <ClerkLoaded> */}
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              headerShadowVisible: false,
-            }}
-          >
-            <Stack.Screen name="(root)" />
-            <Stack.Screen
-              name="(edit)/addprogram"
-              options={{
-                presentation: "modal",
-              }}
-            />
-            <Stack.Screen
-              name="(edit)/training-page"
-              options={{
-                presentation: "modal",
-              }}
-            />
-            <Stack.Screen name="(edit)/program-page" />
+    <TrainingDataProvider>
+      {/* <ClerkLoaded> */}
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          headerShadowVisible: false,
+        }}
+      >
+        <Stack.Screen name="(root)" />
+        <Stack.Screen
+          name="(edit)/addprogram"
+          options={{
+            presentation: "modal",
+          }}
+        />
+        <Stack.Screen
+          name="(edit)/training-page"
+          options={{
+            presentation: "modal",
+          }}
+        />
+        <Stack.Screen name="(edit)/program-page" />
             <Stack.Screen name="(training)/training" />
             <Stack.Screen name="(program)/examplePage" />
             <Stack.Screen name="(edit)/profile" />
             <Stack.Screen name="(program)/trainingPage" />
-            <Stack.Screen
-              name="(journal)/addmatch"
-              options={{
-                presentation: "modal",
-              }}
-            />
-            <Stack.Screen
-              name="(journal)/addtourney"
-              options={{
-                presentation: "modal",
-              }}
-            />
-            <Stack.Screen name="(journal)/matchpage" />
+        <Stack.Screen
+          name="(journal)/addmatch"
+          options={{
+            presentation: "modal",
+          }}
+        />
+        <Stack.Screen
+          name="(journal)/addtourney"
+          options={{
+            presentation: "modal",
+          }}
+        />
+        <Stack.Screen
+          name="(editingPages)/matchEdit"
+          options={{
+            presentation: "modal",
+          }}
+        />
+        <Stack.Screen name="(journal)/matchpage" />
             <Stack.Screen name="(journal)/tourneypage" />
-          </Stack>
-        {/* </ClerkLoaded> */}
-      </TrainingDataProvider>
+      </Stack>
+      {/* </ClerkLoaded> */}
+    </TrainingDataProvider>
     // </ClerkProvider>
   );
 }

@@ -86,7 +86,6 @@ export default function Adding() {
     addTraining(newProgram);
   };
 
-
   const handleSubmit = () => {
     if (!drillName) {
       setError(true);
@@ -139,21 +138,21 @@ export default function Adding() {
           <View className="section-view gap-3">
             <Text className="text-teal-50">Description</Text>
             <TextInput
-              className="bg-gray-800 py-5 px-4 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
+              className="bg-gray-800  pt-5 pb-6 px-4 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
               placeholder="Write Your Practice Name"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTitle(text)}
               value={title}
             />
             <TextInput
-              className="bg-gray-800 py-5 px-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
+              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-teal-500 border-[0.4px] text-textColor "
               placeholder="Time. Ex: 4:00 PM "
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTDur(text)}
               value={TDur}
             />
             <TextInput
-              className="bg-gray-800 py-5 px-4 rounded-md   border-teal-500 border-[0.4px] text-textColor "
+              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-teal-500 border-[0.4px] text-textColor "
               placeholder="Total Players. Ex: 2 Players"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTotalPlayer(text)}

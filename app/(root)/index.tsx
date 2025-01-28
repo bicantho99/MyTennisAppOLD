@@ -112,7 +112,7 @@ export default function Home() {
       <View className="mx-6 my-6">
         <View className="Header mb-5 flex-row justify-between">
           <Text className="text-textColor font-semibold text-[25px]">
-            Welcome
+            My Tennis App
           </Text>
           {/* {user ? (
             <Text className="text-sky-400 text-xl font-medium" onPress={()=> router.push("/(edit)/profile")}>

@@ -48,7 +48,7 @@ export default function Adding() {
     router.back();
   };
   return (
-    <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
+    <KeyboardAwareScrollView style={{ flex: 1 }} className="bg-bgColor">
       <View>
         {/* <SafeAreaView> */}
         <View className="mx-6  pb-10 pt-3 ">
@@ -69,7 +69,7 @@ export default function Adding() {
           <View className="section-view mt-2 ">
             <TextInput
               className="bg-gray-900 mt-3 p-4 py-5 rounded-xl text-white border-[0.8px] border-slate-400"
-              placeholder="Enter name..."
+              placeholder="Enter player name..."
               placeholderTextColor={"gray"}
               value={name}
               onChangeText={(text) => setName(text)}
@@ -77,21 +77,21 @@ export default function Adding() {
 
             <View className="bg-slate-900 mt-5 p-3 rounded-xl border border-slate-500">
               <Text className="text-blue-300 text-xl pl-2 font-semibold">
-                Group/Rating
+                Group and Rating
               </Text>
               <TextInput
                 className="bg-gray-800 mt-3 p-4 py-5 rounded-xl text-white"
-                placeholder="Enter..."
+                placeholder="Team or Age Group..."
                 placeholderTextColor={"gray"}
                 value={group}
                 onChangeText={(text) => setGroup(text)}
               />
               <TextInput
                 className="bg-gray-800 mt-3 p-4 py-5 rounded-xl text-white"
-                placeholder="Enter..."
+                placeholder="Enter Rating UTR or USTA"
                 placeholderTextColor={"gray"}
-                value={group}
-                onChangeText={(text) => setGroup(text)}
+                value={rating}
+                onChangeText={(text) => setRating(text)}
               />
             </View>
 
@@ -101,7 +101,7 @@ export default function Adding() {
               </Text>
               <TextInput
                 className="bg-gray-800 mt-3 p-4 py-5 rounded-xl text-white"
-                placeholder="Strength..."
+                placeholder="Strengths..."
                 placeholderTextColor={"gray"}
                 value={strength}
                 onChangeText={(text) => setStrength(text)}
@@ -144,6 +144,6 @@ export default function Adding() {
         </View>
         {/* </SafeAreaView> */}
       </View>
-    </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 }

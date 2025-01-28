@@ -1,29 +1,27 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
-import StarRating from "react-native-star-rating-widget";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useMatchStore } from "@/assets/constants/matchdata/storage";
-import { useLocalSearchParams } from "expo-router";
 import { Rating } from "@kolking/react-native-rating";
-export default function matchpage() {
-  const { matchId } = useLocalSearchParams();
+import React from "react";
 
-  const [text, setText] = useState(
-    "My forehand was good, everything I played good"
-  );
-  const [rating, setRating] = useState(5);
-  const { matchInfos, addMatchInfo, loadMatchInfos, deleteMatchInfo } =
-    useMatchStore();
-
-  const actualMatch = matchInfos.find((match: any) => match.matchId == matchId);
+export default function matchExample() {
+  const actualMatch = {
+    player1: "Roger Federer",
+    player2: "Rafael Nadal",
+    player1_1s: 6, // Player 1's score for set 1
+    player2_1s: 4, // Player 2's score for set 1
+    player1_2s: 3, // Player 1's score for set 2
+    player2_2s: 6, // Player 2's score for set 2
+    player1_3s: 7, // Player 1's score for set 3 (if exists)
+    player2_3s: 5, // Player 2's score for set 3 (if exists)
+    matchNote:
+      "An intense match with incredible rallies and great sportsmanship.",
+    strat: 4.5, // Strategies rating (out of 5)
+    techni: 4.8, // Techniques rating (out of 5)
+    mental: 4.2, // Mental rating (out of 5)
+    physical: 4.7, // Physical rating (out of 5)
+    matchId: "12345", // Unique match identifier
+  };
 
   return (
     <SafeAreaView className="bg-bgColor flex-1">
@@ -35,14 +33,7 @@ export default function matchpage() {
           <Text className="text-cyan-300 text-center text-2xl font-medium mt-2 flex-1">
             Match Info
           </Text>
-          <TouchableOpacity
-            // onPress={() =>
-            //   router.push({
-            //     pathname: "/(editingPages)/matchEdit",
-            //     params: { editingMatchID: actualMatch.matchId },
-            //   })
-            // }
-          >
+          <TouchableOpacity>
             <Text className="text-slate-400 text-[15px] mt-3 font-medium">
               Edit
             </Text>
@@ -68,27 +59,27 @@ export default function matchpage() {
             </View>
             <View className="SCORE_SECTION gap-5 flex-row pr-2">
               <View className="1 flex-col  gap-2">
-                <Text className="text-slate-900 text-[20px] text-center font-bold p-1 bg-cyan-300 rounded-xl">
+                <Text className="text-slate-900 text-[20px] text-center font-bold p-1  px-2 bg-cyan-300 rounded-xl">
                   {actualMatch.player1_1s}
                 </Text>
-                <Text className="text-slate-900 text-[20px] text-center font-bold p-1 bg-cyan-300 rounded-xl">
+                <Text className="text-slate-900 text-[20px] text-center font-bold p-1 px-2 bg-cyan-300 rounded-xl">
                   {actualMatch.player2_1s}
                 </Text>
               </View>
               <View className="2 flex-col gap-2">
-                <Text className="text-slate-900 text-[20px] text-center font-bold p-1 bg-cyan-300 rounded-xl">
+                <Text className="text-slate-900 text-[20px] text-center font-bold p-1 px-2 bg-cyan-300 rounded-xl">
                   {actualMatch.player1_2s}
                 </Text>
-                <Text className="text-slate-900 text-[20px] text-center font-bold p-1 bg-cyan-300 rounded-xl">
+                <Text className="text-slate-900 text-[20px] text-center font-bold p-1 px-2 bg-cyan-300 rounded-xl">
                   {actualMatch.player2_2s}
                 </Text>
               </View>
               {!actualMatch.player1_3s && !actualMatch.player2_3s ? null : (
                 <View className="3 flex-col gap-2">
-                  <Text className="text-slate-900 text-[20px] text-center font-bold p-1 bg-cyan-300 rounded-xl">
+                  <Text className="text-slate-900 text-[20px] text-center font-bold p-1 px-2 bg-cyan-300 rounded-xl">
                     {actualMatch.player1_3s}
                   </Text>
-                  <Text className="text-slate-900 text-[20px] text-center font-bold p-1 bg-cyan-300 rounded-xl">
+                  <Text className="text-slate-900 text-[20px] text-center font-bold p-1 px-2 bg-cyan-300 rounded-xl">
                     {actualMatch.player2_3s}
                   </Text>
                 </View>
@@ -96,14 +87,7 @@ export default function matchpage() {
             </View>
           </View>
         </View>
-        {/* <Text className="text-blue-300 text-[16px] mt-6 font-medium ">
-          Match Notes:
-        </Text>
-        <View className="mt-4 bg-slate-800 p-2 rounded-lg pl-4 py-4 border-slate-600 border ">
-          <Text className="text-slate-300 text-[15px]">
-            {actualMatch.matchNote}
-          </Text>
-        </View> */}
+
         <View className="bg-slate-800 mt-5 p-3 rounded-lg">
           <Text className="text-blue-300 text-xl pl-3">Match Notes</Text>
           <View className="flex-row gap-3 pl-3 mt-3">
@@ -188,7 +172,7 @@ export default function matchpage() {
           </View>
         </View>
         <View className="flex-row gap-4">
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => {
               deleteMatchInfo(actualMatch.matchId);
               router.back();
@@ -197,7 +181,7 @@ export default function matchpage() {
             <Text className="text-red-500 mt-5 text-[15px] font-medium ml-1">
               Delete
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     </SafeAreaView>

@@ -89,14 +89,14 @@ export default function tourneypage() {
           </View>
         </View>
 
-        <View>
+        <TouchableOpacity>
           <Text
             onPress={() => router.back()}
             className="text-center bg-teal-500 rounded-xl p-4 mt-6 text-white font-bold text-xl"
           >
             Complete
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

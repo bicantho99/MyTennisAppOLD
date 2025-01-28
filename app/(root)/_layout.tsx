@@ -38,7 +38,7 @@ export default function TabLayout() {
         options={{
           title: "Programs",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="fitness-center" size={24} color={color} />
+            <MaterialIcons name="sports-tennis" size={24} color={color} />
           ),
         }}
       />
