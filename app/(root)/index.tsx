@@ -244,8 +244,8 @@ export default function Home() {
         </View>
 
         <View className="gap-2 mb-2">
-          <TouchableOpacity>
-            <View className="box-view   bg-slate-900  rounded-xl  border-slate-700  border-[0.4px] p-3 ">
+          <TouchableOpacity onPress={() => router.push("/program")}>
+            <View className="box-view   bg-slate-800  rounded-xl  border-slate-700  border-[0.4px] p-3 ">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
                   <Text className="text-lg font-semibold ">
@@ -260,8 +260,8 @@ export default function Home() {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <View className="box-view  bg-slate-900  border-slate-700  rounded-xl  border-[0.4px]  p-3">
+          <TouchableOpacity onPress={() => router.push("/program")}>
+            <View className="box-view  bg-slate-800  border-slate-700  rounded-xl  border-[0.4px]  p-3">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
                   <Text className="text-lg font-semibold text-slate-900">
