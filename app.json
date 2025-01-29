@@ -7,8 +7,9 @@
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/icon.png",
-      "imageWidth": 200,
-      "resizeMode": "contain"
+      "imageWidth": 400,
+      "resizeMode": "contain",
+      "backgroundColor": "#02102B"
     },
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
@@ -39,7 +40,7 @@
           "image": "./assets/images/adaptive-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#38bdf8"
+          "backgroundColor": "#02102B"
         }
       ]
     ],

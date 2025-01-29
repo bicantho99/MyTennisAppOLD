@@ -43,7 +43,7 @@ export default function profile() {
             {sections["Warm Up"].drills.map((drill: any, index: any) => (
               <Text
                 key={index}
-                className="text-slate-300 text-[15px] mb-2 leading-5 bg-gray-800 py-5 px-4 rounded-md"
+                className="text-slate-300 text-[15px] mb-2 leading-5 py-5 px-4 rounded-md"
               >
                 - {drill}
               </Text>
@@ -87,7 +87,7 @@ export default function profile() {
           </View>
         </View> */}
 
-        <View className="bg-slate-800 mt-8 p-3 rounded-xl border border-slate-500 ">
+        <View className=" mt-8 p-3 rounded-xl border border-slate-600 ">
           <Text className="text-blue-300 text-xl pl-3 font-semibold">
             Warm Up
           </Text>
@@ -95,7 +95,7 @@ export default function profile() {
             {sections["Warm Up"].drills.map((drill: any, index: any) => (
               <Text
                 key={index}
-                className="text-slate-300 text-lg"
+                className="text-slate-300 text-lg font-medium"
                 style={{ marginVertical: 5 }}
               >
                 {index + 1}. {drill}
@@ -104,15 +104,15 @@ export default function profile() {
           </View>
         </View>
 
-        <View className="bg-slate-800 mt-5 p-3 rounded-xl border border-slate-500">
-          <Text className="text-blue-300 text-xl pl-3 font-semibold">
+        <View className=" mt-5 p-3 rounded-xl border border-slate-600">
+          <Text className="text-teal-300 text-xl pl-3 font-semibold">
             Main Drills
           </Text>
           <View className="flex-col gap-3 pl-3 mt-3">
             {sections["Main Drills"].drills.map((drill: any, index: any) => (
               <Text
                 key={index}
-                className="text-slate-300 text-lg"
+                className="text-slate-300 text-lg font-medium"
                 style={{ marginVertical: 5 }}
               >
                 - {drill}
@@ -120,15 +120,15 @@ export default function profile() {
             ))}
           </View>
         </View>
-        <View className="bg-slate-800 mt-5 p-3 rounded-xl border border-slate-500">
-          <Text className="text-blue-300 text-xl pl-3 font-semibold">
+        <View className=" mt-5 p-3 rounded-xl border border-slate-700">
+          <Text className="text-fuchsia-300 text-xl pl-3 font-semibold">
             Notes
           </Text>
           <View className="flex-col gap-3 pl-3 mt-3">
             {sections["Main Drills"].notes.map((drill: any, index: any) => (
               <Text
                 key={index}
-                className="text-slate-300 text-lg"
+                className="text-slate-300 text-lg font-medium"
                 style={{ marginVertical: 5 }}
               >
                 {drill}

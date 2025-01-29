@@ -36,12 +36,12 @@ export default function matchpage() {
             Match Info
           </Text>
           <TouchableOpacity
-            // onPress={() =>
-            //   router.push({
-            //     pathname: "/(editingPages)/matchEdit",
-            //     params: { editingMatchID: actualMatch.matchId },
-            //   })
-            // }
+            onPress={() =>
+              router.push({
+                pathname: "/(editingPages)/matchEdit",
+                params: { editingMatchID: actualMatch.matchId },
+              })
+            }
           >
             <Text className="text-slate-400 text-[15px] mt-3 font-medium">
               Edit

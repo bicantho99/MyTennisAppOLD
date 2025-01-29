@@ -64,19 +64,8 @@ export default function matchEdit() {
       editingMatchID,
       player1,
       player2,
-      player1_1s,
-      player1_2s,
-      player1_3s,
-      player2_1s,
-      player2_2s,
-      player2_3s,
-      matchNote,
-      techni,
-      mental,
-      strate,
-      physical,
     };
-
+    console.log(updatedMatchInfo);
     editMatchInfo(updatedMatchInfo);
     router.back();
   };
@@ -88,7 +77,7 @@ export default function matchEdit() {
         <View className="mx-6 gap-5 pb-10 ">
           <View className="flex-row justify-between items-center">
             <Text className="text-textColor text-3xl font-bold mt-5">
-              New Match
+              Edit Match
             </Text>
           </View>
           <View className="section-view gap-3">
@@ -257,7 +246,8 @@ export default function matchEdit() {
             <TouchableOpacity
               onPress={() => {
                 // handleSaveRating();
-                handleAddMatchInfo();
+                handleEditMatchInfo();
+                router.push("/(root)/prep");
               }}
             >
               <Text className="mt-5  text-green-300 text-center text-[18px] bg-slate-800 p-5 rounded-xl font-semibold">

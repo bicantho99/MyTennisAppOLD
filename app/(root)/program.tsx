@@ -32,7 +32,7 @@ export default function program() {
     },
     {
       id: 1,
-      coach: "Coach Cecile",
+      coach: "Coach Jakub",
       totalWeeks: 3,
       title: "Double The Trouble",
       description: "Trainings focusing on double wizard-ry",
@@ -109,10 +109,10 @@ export default function program() {
                     </Text>
                   </View>
                   <Text className="text-blue-300 font-bold text-[20px]">
-                    Backhand Training
+                    Example Training
                   </Text>
                   <Text className="text-white text-md">
-                    Focus on aggressive backhand offense
+                    Create your own trainings above
                   </Text>
                 </View>
               </TouchableOpacity>

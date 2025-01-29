@@ -42,7 +42,7 @@ export default function tourneypage() {
             {titleName}
           </Text>
         </View>
-        <View className="bg-slate-800 mt-5 p-3 rounded-xl border border-slate-500">
+        <View className="bg-800 mt-5 p-3 rounded-xl border border-slate-600">
           <Text className="text-blue-300 text-xl pl-3 font-semibold">
             Warm Up
           </Text>
@@ -50,7 +50,7 @@ export default function tourneypage() {
             {warmUpDrills.map((item, index) => (
               <Text
                 key={index}
-                className="text-slate-300 text-lg"
+                className="text-slate-300 text-lg font-medium"
                 style={{ marginVertical: 5 }}
               >
                 {index + 1}. {item}
@@ -58,15 +58,15 @@ export default function tourneypage() {
             ))}
           </View>
         </View>
-        <View className="bg-slate-800 mt-5 p-3 rounded-xl border border-slate-500">
-          <Text className="text-blue-300 text-xl pl-3 font-semibold">
+        <View className="bg--800 mt-5 p-3 rounded-xl border border-slate-600">
+          <Text className="text-teal-300 text-xl pl-3 font-semibold">
             Main Drill
           </Text>
           <View className="flex-col gap-3 pl-3 mt-3">
             {mainDrills.map((item, index) => (
               <Text
                 key={index}
-                className="text-slate-300 text-lg"
+                className="text-slate-300 font-medium text-lg"
                 style={{ marginVertical: 5 }}
               >
                 - {item}
@@ -74,13 +74,13 @@ export default function tourneypage() {
             ))}
           </View>
         </View>
-        <View className="bg-slate-800 mt-5 p-3 rounded-xl border border-slate-500">
-          <Text className="text-blue-300 text-xl pl-3 font-bold">Note</Text>
+        <View className="bg--800 mt-5 p-3 rounded-xl border border-slate-700">
+          <Text className="text-fuchsia-300 text-xl pl-3 font-bold">Note</Text>
           <View className="flex-row gap-3 pl-3 mt-3 pb-2">
             {notes.map((item, index) => (
               <Text
                 key={index}
-                className="text-slate-300 text-[15px] leading-[20px]"
+                className="text-slate-300 text-[15px] font-medium leading-[20px]"
                 style={{ marginVertical: 5 }}
               >
                 {item}
@@ -92,7 +92,7 @@ export default function tourneypage() {
         <TouchableOpacity>
           <Text
             onPress={() => router.back()}
-            className="text-center bg-teal-500 rounded-xl p-4 mt-6 text-white font-bold text-xl"
+            className="text-center bg-teal-600 rounded-xl p-4 mt-6 text-white font-bold text-xl"
           >
             Complete
           </Text>

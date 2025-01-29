@@ -51,9 +51,15 @@ export default function ProgramPage() {
     setProgramData(updatedProgramData);
   };
 
+  const renderOut = [
+
+  ]
   const fullText =
     "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";
   const truncatedText = "This practice focuses on solid...";
+  const fullText1 = ''
+  const truncatedText2 = ""
+  const coach = ["Cecile", "Jakub"]
   const [showFullText, setShowFullText] = useState(false);
 
   return (

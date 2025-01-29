@@ -19,7 +19,6 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import DrillForm from "@/hooks/drillForm";
 import { useProgramData } from "@/assets/constants/programs";
 import { router } from "expo-router";
-import { useTrainingData } from "@/assets/constants/dataContext";
 import { v4 as uuidv4 } from "uuid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTrainingStore } from "@/assets/constants/trainingsData/data";
@@ -27,7 +26,6 @@ export default function Adding() {
   const { addTraining, trainingData } = useTrainingStore();
   const [trainings, setTraining] = useState<any>([]);
   const trainingID = uuidv4();
-  const { programData, setProgramData } = useTrainingData();
 
   const [selected, setSelected] = useState<number>(0);
   const activeBackgroundColor = "#b5f36b";
@@ -37,8 +35,7 @@ export default function Adding() {
   const [TDur, setTDur] = useState<string>("");
   const [TDef, setTDef] = useState<string>("");
 
-  // the lower part
-  const items = ["Warm Up", "Main Drills", "Fitness", "Recovery"];
+  const items = ["Warm Up", "Main Drills", "Notes"];
   const [tabName, setTabName] = useState<keyof Drills>("Warm Up");
   const [drillName, setDrillName] = useState("");
   const [totalPlayer, setTotalPlayer] = useState("");
@@ -48,27 +45,13 @@ export default function Adding() {
   const [drills, setDrills] = useState<Drills>({
     "Warm Up": [],
     "Main Drills": [],
-    Fitness: [],
-    Recovery: [],
+    Notes: [],
   });
 
   interface Drills {
     "Warm Up": string[];
     "Main Drills": string[];
-    Fitness: string[];
-    Recovery: string[];
-  }
-
-  interface Program {
-    title: string;
-    description: string;
-    numDrills?: number;
-    time?: string;
-    focuses?: { focus: string }[] | null;
-    warmUp?: string[];
-    mainDrills?: string[];
-    fitness?: string[];
-    Recovery?: string[];
+    Notes: string[];
   }
 
   const newProgram = {
@@ -79,10 +62,10 @@ export default function Adding() {
     time: TDur,
     warmUp: drills["Warm Up"] || [],
     mainDrills: drills["Main Drills"] || [],
-    fitness: drills.Fitness || [],
-    recovery: drills.Recovery || [],
+    Notes: drills.Notes || [],
   };
   const saveTraining = () => {
+    console.log(newProgram);
     addTraining(newProgram);
   };
 
@@ -138,28 +121,28 @@ export default function Adding() {
           <View className="section-view gap-3">
             <Text className="text-teal-50">Description</Text>
             <TextInput
-              className="bg-gray-800  pt-5 pb-6 px-4 mb-1 rounded-md text-white   border-teal-500 border-[0.4px]"
+              className="bg-gray-800  pt-5 pb-6 px-4 mb-1 rounded-md text-white   border-blue-800 border-[0.4px]"
               placeholder="Write Your Practice Name"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTitle(text)}
               value={title}
             />
             <TextInput
-              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-teal-500 border-[0.4px] text-textColor "
+              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-blue-800 border-[0.4px] text-textColor "
               placeholder="Time. Ex: 4:00 PM "
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTDur(text)}
               value={TDur}
             />
             <TextInput
-              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-teal-500 border-[0.4px] text-textColor "
+              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-blue-800 border-[0.4px] text-textColor "
               placeholder="Total Players. Ex: 2 Players"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTotalPlayer(text)}
               value={totalPlayer}
             />
             <TextInput
-              className="bg-gray-800 px-3 pb-10 pt-5 rounded-lg   border-teal-500 border-[0.4px] text-white"
+              className="bg-gray-800 px-3 pb-10 pt-5 rounded-lg   border-blue-800 border-[0.4px] text-white"
               placeholder="Write Your Practice Description"
               placeholderTextColor={"gray"}
               editable
@@ -182,9 +165,9 @@ export default function Adding() {
                     <Text
                       className={`${
                         selected === index
-                          ? " text-[15px] border border-teal-400 font-medium px-[6px] text-white rounded-md py-[9.5px]"
-                          : "text-white text-[15px] px-[6px] py-[9.5px]"
-                      } transition ease-in duration-900 `}
+                          ? " text-[15px] border-2 border-teal-400 font-semibold flex-1 px-[10px] text-white rounded-md py-[11px]"
+                          : "text-white text-[15px] px-[10px] font-semibold py-[11px] flex-1"
+                      } transition ease-in duration-900  `}
                     >
                       {item}
                     </Text>
@@ -192,7 +175,7 @@ export default function Adding() {
                 );
               })}
             </View>
-            <View className="NO  flex  gap-2  mb-3  min-h-[160px]  rounded border-b-2 border-gray-500 transition duration-500 ease-in pb-10">
+            <View className="NO  flex  gap-2  mb-3  min-h-[140px]  rounded border-b-2 border-gray-500 transition duration-500 ease-in pb-10">
               {drills[tabName]?.length === 0 ? (
                 <Text className="text-gray-600 mt-3 font-medium text-[19px] text-center w-[200px] mb-2 transition ease-in duration-500">
                   Add {tabName} Below
@@ -242,13 +225,12 @@ export default function Adding() {
                 handleSubmit();
               }}
             >
-              <Text className="mt-5 font-medium text-green-300 text-center text-[17px]">
+              <Text className="mt-5 font-bold text-green-300 text-center text-[19px]">
                 Add Drill
               </Text>
             </TouchableOpacity>
           </View>
         </View>
-        {/* </SafeAreaView> */}
       </View>
     </KeyboardAwareScrollView>
   );

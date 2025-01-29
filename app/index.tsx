@@ -18,10 +18,10 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
-SplashScreen.setOptions({
-  duration: 1000,
-  fade: true,
-});
+// SplashScreen.setOptions({
+//   duration: 3000,
+//   fade: true,
+// });
 
 export default function GuestLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -55,7 +55,7 @@ export default function GuestLayout() {
   }
   return (
     <View
-      className="flex-1  justify-center items-center bg-[#bae4fd]"
+      className="flex-1  justify-center items-center bg-[#02102B]"
       onLayout={onLayoutRootView}
     >
       <LottieView
@@ -68,10 +68,14 @@ export default function GuestLayout() {
         loop
       />
       <View className="gap-4">
-        <Text className="text-2xl font-bold">Welcome to My Tennis App</Text>
-        <Text>Managing your trainings and exploring drills</Text>
+        <Text className="text-2xl font-bold text-textColor">
+          Welcome to My Tennis App
+        </Text>
+        <Text className="text-textColor">
+          Managing your trainings and exploring drills
+        </Text>
         <TouchableOpacity onPress={() => router.push("/(root)")}>
-          <Text className="text-center text-textColor p-2 bg-bgColor mt-2 rounded-md">
+          <Text className="text-center text-blue-900 font-bold p-3 bg-sky-300 mt-2 rounded-md text-lg">
             Get Started
           </Text>
         </TouchableOpacity>

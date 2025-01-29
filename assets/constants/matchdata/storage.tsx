@@ -39,21 +39,6 @@ export const useMatchStore = create<Store>((set) => ({
     set({ matchInfos: null });
   },
   editMatchInfo: async (updatedMatch) => {
-    set((state) => {
-      const index = state.matchInfos.findIndex(
-        (match: any) => match.matchId === updatedMatch.matchId
-      );
-
-      if (index !== -1) {
-        // Replace the existing match at the found index
-        const updatedMatchInfos = [...state.matchInfos];
-        updatedMatchInfos.splice(index, 1, updatedMatch); // Replaces the match at that index
-        AsyncStorage.setItem("matchInfos", JSON.stringify(updatedMatchInfos));
-        return { matchInfos: updatedMatchInfos };
-      } else {
-        // If match not found, return the current state
-        return { matchInfos: state.matchInfos };
-      }
-    });
+    return console.log("hi");
   },
 }));

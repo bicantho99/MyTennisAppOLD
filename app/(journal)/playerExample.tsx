@@ -31,7 +31,7 @@ export default function tourneypage() {
           </Text>
         </View>
 
-        <View className="bg-slate-800 mt-8 p-3 rounded-lg border-blue-300 border">
+        <View className="bg-slate-800 mt-8 p-3 rounded-lg border-blue-400 border">
           <Text className="text-slate-300 text-xl pl-3 font-semibold">
             Weakness
           </Text>
@@ -41,7 +41,7 @@ export default function tourneypage() {
             </Text>
           </View>
         </View>
-        <View className="bg-slate-800 mt-5 p-3 rounded-lg border-blue-300 border">
+        <View className="bg-slate-800 mt-5 p-3 rounded-lg border-blue-400 border">
           <Text className="text-slate-300 text-xl pl-3 font-semibold">
             Strength
           </Text>
@@ -51,7 +51,7 @@ export default function tourneypage() {
             </Text>
           </View>
         </View>
-        <View className="bg-slate-800 mt-5 gap-1 p-3 rounded-lg">
+        <View className="bg-slate-800 mt-5 gap-2 p-3 rounded-lg border border-slate-700">
           <View className="flex-row justify-between">
             <Text className="text-blue-300 text-xl pl-3">Rating</Text>
             <Text className="text-slate-400 text-lg pr-2">5.0 USTA</Text>
@@ -63,7 +63,7 @@ export default function tourneypage() {
             </Text>
           </View>
         </View>
-        <View className="bg-slate-800 mt-5 p-3 rounded-lg">
+        <View className="bg-slate-800 mt-5 p-3 rounded-lg border border-slate-700">
           <Text className="text-blue-300 text-xl pl-3 font-semibold">Note</Text>
           <View className="flex-row gap-3 pl-3 mt-3">
             <Text className="text-slate-400 text-lg">He's alright</Text>

@@ -26,7 +26,6 @@ export default function Logs() {
     setSelected(index);
     setToggle((prev) => !prev);
   };
-
   const switchComponent = () => {
     switch (selected) {
       case 1:
@@ -126,7 +125,7 @@ export default function Logs() {
                   router.push("/(journal)/matchExample");
                 }}
               >
-                <View className="bg-slate-800 pl-5 pr-3 pt-5 border-blue-800 border-dash rounded-xl gap-[9px] border-[0.4px] h-[165px] mb-4 shadow-sm shadow-slate-300">
+                <View className="bg-slate-800 pl-5 pr-3 pt-4 pb-4 border-blue-800 border-dash rounded-xl gap-[9px] border-[0.4px]  mb-4 shadow-sm shadow-slate-300">
                   <View>
                     <View className="flex-row justify-between items-center">
                       <View className="NAME_SECTION gap-4">
@@ -184,7 +183,7 @@ export default function Logs() {
                     });
                   }}
                 >
-                  <View className="bg-slate-800 pl-5 pr-3 pt-5 border-blue-800 border-dash rounded-xl gap-[9px] border-[0.4px] h-[165px] mb-4 shadow-sm shadow-slate-300">
+                  <View className="bg-slate-800 pl-5 pr-3 pt-5 border-blue-800 border-dash rounded-xl gap-[9px] border-[0.4px] pb-2 mb-4 shadow-sm shadow-slate-300">
                     <View>
                       <View className="flex-row justify-between items-center">
                         <View className="NAME_SECTION gap-4">
