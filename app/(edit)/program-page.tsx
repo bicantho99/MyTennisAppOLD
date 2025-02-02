@@ -51,15 +51,13 @@ export default function ProgramPage() {
     setProgramData(updatedProgramData);
   };
 
-  const renderOut = [
-
-  ]
+  const renderOut = [];
   const fullText =
     "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";
   const truncatedText = "This practice focuses on solid...";
-  const fullText1 = ''
-  const truncatedText2 = ""
-  const coach = ["Cecile", "Jakub"]
+  const fullText1 = "";
+  const truncatedText2 = "";
+  const coach = ["Cecile", "Jakub"];
   const [showFullText, setShowFullText] = useState(false);
 
   return (
@@ -110,7 +108,9 @@ export default function ProgramPage() {
 
           <View className="coach flex-row mt-5 gap-4">
             <View className="flex items-center justify-center bg-slate-400 h-14 w-14 rounded-[19px]">
-              <Text className=" rounded-[50px] text-center">Cecile</Text>
+              <Text className=" rounded-[50px] text-center">
+                {Number(trainingId) === 0 ? "Cecile" : "Jakub"}
+              </Text>
             </View>
             <View className="flex-col">
               <Text className="text-slate-100 font-medium">Coach Cecile</Text>

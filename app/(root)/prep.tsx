@@ -44,10 +44,10 @@ export default function Logs() {
                     <View className=" bg-slate-800 pl-5 pr-3 pt-2 pb-4 border-blue-800 border-dash rounded-xl gap-[12px] border-[0.4px] mb-4 shadow-sm shadow-slate-300">
                       <View className="flex-row gap-2 justify-between items-center mt-2">
                         <Text className="text-slate-200 text-[19px]">
-                          James Bui
+                          Jakub Novak
                         </Text>
                         <Text className="text-slate-400 text-[15px]">
-                          4.5 USTA
+                          5.0 USTA
                         </Text>
                       </View>
 
@@ -57,12 +57,12 @@ export default function Logs() {
                             Notes:
                           </Text>
                           <Text className="text-[15px] text-sky-400">
-                            Team Houston
+                            Team Slovak
                           </Text>
                         </View>
 
                         <Text className="text-[15px] text-slate-400 ">
-                          This is an example data, add your own above...
+                          Plan: Target his backhand and footwork and..
                         </Text>
                       </View>
                     </View>
@@ -130,7 +130,7 @@ export default function Logs() {
                     <View className="flex-row justify-between items-center">
                       <View className="NAME_SECTION gap-4">
                         <Text className="text-textColor text-[19px] font-semibold">
-                          Novak Djokovic
+                         Jakub Novak
                         </Text>
                         <Text className="text-textColor text-[19px] font-semibold">
                           Khanh Nguyen
@@ -167,7 +167,7 @@ export default function Logs() {
                       </Text>
                     </View>
                     <Text className="text-slate-300 text-[14px]">
-                      This is an example match, add your own above....
+                      Solid win against Jakub, his backhand was weaker today..
                     </Text>
                   </View>
                 </View>
@@ -183,7 +183,7 @@ export default function Logs() {
                     });
                   }}
                 >
-                  <View className="bg-slate-800 pl-5 pr-3 pt-5 border-blue-800 border-dash rounded-xl gap-[9px] border-[0.4px] pb-2 mb-4 shadow-sm shadow-slate-300">
+                  <View className="bg-slate-800 pl-5 pr-3 pt-4 pb-3 border-blue-800 border-dash rounded-xl gap-[9px] border-[0.4px] mb-4 shadow-sm shadow-slate-300">
                     <View>
                       <View className="flex-row justify-between items-center">
                         <View className="NAME_SECTION gap-4">

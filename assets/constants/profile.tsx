@@ -56,8 +56,11 @@ export default function profile() {
             Connect with The Coaches
           </Text>
         </TouchableOpacity>
-
-
+        <TouchableOpacity>
+          <Text className="mt-5 text-textColor rounded-lg p-4 text-xl font-medium pl-6 border border-blue-400">
+            Feature Request
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

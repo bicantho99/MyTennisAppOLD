@@ -18,10 +18,10 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
-// SplashScreen.setOptions({
-//   duration: 3000,
-//   fade: true,
-// });
+SplashScreen.setOptions({
+  duration: 3000,
+  fade: true,
+});
 
 export default function GuestLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -75,9 +75,11 @@ export default function GuestLayout() {
           Managing your trainings and exploring drills
         </Text>
         <TouchableOpacity onPress={() => router.push("/(root)")}>
-          <Text className="text-center text-blue-900 font-bold p-3 bg-sky-300 mt-2 rounded-md text-lg">
-            Get Started
-          </Text>
+          <View className="rounded-lg bg-sky-300 mt-2 ">
+            <Text className="text-center text-blue-900 font-bold p-3  text-lg">
+              Get Started
+            </Text>
+          </View>
         </TouchableOpacity>
       </View>
     </View>

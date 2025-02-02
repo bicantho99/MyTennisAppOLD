@@ -1,51 +1,48 @@
 {
   "expo": {
     "name": "MyTennisApp",
-    "slug": "MyTennisApp",
+    "slug": "mytennisapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/icon.png",
-      "imageWidth": 400,
       "resizeMode": "contain",
-      "backgroundColor": "#02102B"
+      "backgroundColor": "#02102B",
+      "imageWidth": 200
     },
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.MyTennisApp"
+      "bundleIdentifier": "com.anonymous.MyTennisApp",
+      "icon": "./assets/images/icon.png"
     },
-
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.MyTennisApp"
     },
-
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/adaptive-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#02102B"
-        }
-      ]
-    ],
+
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "12b8fbdc-9376-4fe0-a6af-366b56fc34da"
+      }
+    },
+    "owner": "greenday_99"
   }
 }

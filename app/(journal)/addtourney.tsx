@@ -123,8 +123,6 @@ export default function Adding() {
                 className=" bg-slate-800 mt-3 px-3 pb-10 pt-4 rounded-lg text-white "
                 placeholder="Good to know..."
                 placeholderTextColor={"gray"}
-                editable
-                multiline
                 value={notes}
                 onChangeText={(text) => setNotes(text)}
               />

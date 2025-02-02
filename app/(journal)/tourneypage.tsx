@@ -26,9 +26,9 @@ export default function tourneypage() {
           <Text className="text-slate-300 text-center text-2xl font-medium mt-2 flex-1">
             {actualPlayer.name}
           </Text>
-          <Text className="text-slate-400 text-[15px] mt-3 font-medium">
+          {/* <Text className="text-slate-400 text-[15px] mt-3 font-medium">
             Edit
-          </Text>
+          </Text> */}
         </View>
 
         <View className="bg-slate-800 mt-8 p-3 rounded-lg border-blue-300 border">

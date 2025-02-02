@@ -43,9 +43,9 @@ export default function matchpage() {
               })
             }
           >
-            <Text className="text-slate-400 text-[15px] mt-3 font-medium">
+            {/* <Text className="text-slate-400 text-[15px] mt-3 font-medium">
               Edit
-            </Text>
+            </Text> */}
           </TouchableOpacity>
         </View>
 

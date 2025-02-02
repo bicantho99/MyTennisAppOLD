@@ -6,8 +6,12 @@ import { useLocalSearchParams } from "expo-router";
 import { singleDataWeek1 } from "@/assets/constants/singledata/data1";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useTrainingStore } from "@/assets/constants/trainingsData/data";
+import Checkbox from "expo-checkbox";
 
 export default function Profile() {
+  const [warmCheck, setWarmCheck] = useState(false);
+  const [mainCheck, setMainCheck] = useState(false);
+  const [noteCheck, setNoteCheck] = useState(false);
   const { trainingIDX } = useLocalSearchParams();
   const { loadTrainings, trainingData, deleteTraining } = useTrainingStore();
   const actualTraining = trainingData.find(
@@ -36,21 +40,25 @@ export default function Profile() {
         {/* Warm-up */}
         {actualTraining?.warmUp.length > 0 && (
           <View className="p-3 rounded-xl border border-slate-500">
-            <View className="flex-row items-center gap-4 mb-4">
-              <Text className="text-textColor font-bold text-lg bg-slate-700 px-3 py-1 rounded-lg flex-shrink-0">
-                1
-              </Text>
-              <Text className="text-blue-300 font-bold text-[17px]">
-                Warm Up
-              </Text>
+            <View className="gap-4 mb-4">
+              <View className="flex-row justify-between">
+                <Text className="text-blue-300 text-xl pl-3 font-semibold">
+                  Warm Up
+                </Text>
+                <Checkbox
+                  value={warmCheck}
+                  onValueChange={() => setWarmCheck((prev) => !prev)}
+                  color={warmCheck ? "#4630EB" : undefined}
+                />
+              </View>
             </View>
             <View className="drills mb-4 gap-2">
-              {actualTraining.warmUp.map((drill: any, index: any) => (
+              {actualTraining?.warmUp.map((drill: any, index: any) => (
                 <Text
                   key={index}
                   className="text-slate-300 text-lg font-medium pl-2"
                 >
-                  {index + 1}.  {drill}
+                  {index + 1}. {drill}
                 </Text>
               ))}
             </View>
@@ -60,16 +68,20 @@ export default function Profile() {
         {/* Main Drills */}
         {actualTraining?.mainDrills.length > 0 && (
           <View className="p-3 rounded-xl border border-slate-500">
-            <View className="flex-row items-center gap-4 mb-4">
-              <Text className="text-textColor font-bold text-xl bg-slate-700 px-3 py-1 rounded-lg flex-shrink-0">
-                2
-              </Text>
-              <Text className="text-blue-300 font-bold text-[16px]">
-                Main Drills
-              </Text>
+            <View className="gap-4 mb-4">
+              <View className="flex-row justify-between">
+                <Text className="text-teal-300 text-xl pl-3 font-semibold">
+                  Main Drills
+                </Text>
+                <Checkbox
+                  value={mainCheck}
+                  onValueChange={() => setMainCheck((prev) => !prev)}
+                  color={mainCheck ? "#4630EB" : undefined}
+                />
+              </View>
             </View>
             <View className="drills mb-4 pl-2">
-              {actualTraining.mainDrills.map((drill: any, index: any) => (
+              {actualTraining?.mainDrills.map((drill: any, index: any) => (
                 <Text
                   key={index}
                   className="text-slate-300 text-lg font-medium"
@@ -91,7 +103,7 @@ export default function Profile() {
               <Text className="text-blue-300 font-bold text-[16px]">Notes</Text>
             </View>
             <View className="drills mb-4 pl-2">
-              {actualTraining.Notes.map((drill: any, index: any) => (
+              {actualTraining?.Notes.map((drill: any, index: any) => (
                 <Text
                   key={index}
                   className="text-slate-300 text-lg font-medium"

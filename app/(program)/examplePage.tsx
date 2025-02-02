@@ -1,9 +1,12 @@
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
-
+import Checkbox from "expo-checkbox";
 export default function tourneypage() {
+  const [warmCheck, setWarmCheck] = useState(false);
+  const [mainCheck, setMainCheck] = useState(false);
+  const [noteCheck, setNoteCheck] = useState(false);
   const exampleTraining = {
     "Baseline Patterns": {
       "Warm Up": {
@@ -43,9 +46,16 @@ export default function tourneypage() {
           </Text>
         </View>
         <View className="bg-800 mt-5 p-3 rounded-xl border border-slate-600">
-          <Text className="text-blue-300 text-xl pl-3 font-semibold">
-            Warm Up
-          </Text>
+          <View className="flex-row justify-between">
+            <Text className="text-blue-300 text-xl pl-3 font-semibold">
+              Warm Up
+            </Text>
+            <Checkbox
+              value={warmCheck}
+              onValueChange={() => setWarmCheck((prev) => !prev)}
+              color={warmCheck ? "#4630EB" : undefined}
+            />
+          </View>
           <View className="flex-col gap-3 pl-3 mt-3">
             {warmUpDrills.map((item, index) => (
               <Text
@@ -59,9 +69,16 @@ export default function tourneypage() {
           </View>
         </View>
         <View className="bg--800 mt-5 p-3 rounded-xl border border-slate-600">
-          <Text className="text-teal-300 text-xl pl-3 font-semibold">
-            Main Drill
-          </Text>
+          <View className="flex-row justify-between">
+            <Text className="text-teal-300 text-xl pl-3 font-semibold">
+              Main Drills
+            </Text>
+            <Checkbox
+              value={mainCheck}
+              onValueChange={() => setMainCheck((prev) => !prev)}
+              color={mainCheck ? "#4630EB" : undefined}
+            />
+          </View>
           <View className="flex-col gap-3 pl-3 mt-3">
             {mainDrills.map((item, index) => (
               <Text
@@ -75,7 +92,16 @@ export default function tourneypage() {
           </View>
         </View>
         <View className="bg--800 mt-5 p-3 rounded-xl border border-slate-700">
-          <Text className="text-fuchsia-300 text-xl pl-3 font-bold">Note</Text>
+          <View className="flex-row justify-between">
+            <Text className="text-fuchsia-300 text-xl pl-3 font-semibold">
+              Notes
+            </Text>
+            <Checkbox
+              value={noteCheck}
+              onValueChange={() => setNoteCheck((prev) => !prev)}
+              color={noteCheck ? "#4630EB" : undefined}
+            />
+          </View>
           <View className="flex-row gap-3 pl-3 mt-3 pb-2">
             {notes.map((item, index) => (
               <Text

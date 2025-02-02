@@ -166,7 +166,7 @@ export default function Adding() {
               placeholder="Note..."
               placeholderTextColor={"gray"}
               editable
-              multiline
+              // multiline
               value={matchNote}
               onChangeText={setmatchNote}
             />

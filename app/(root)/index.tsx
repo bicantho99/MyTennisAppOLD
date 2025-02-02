@@ -35,6 +35,7 @@ export default function Home() {
   const cardWidth = screenWidth * 0.8;
   const [progress, setProgress] = useState(0);
   useEffect(() => {
+    // AsyncStorage.clear();
     const loadProgress = async () => {
       try {
         const savedTasks = await AsyncStorage.getItem("completedTasks");
@@ -186,7 +187,7 @@ export default function Home() {
                           />
                         </View>
                         <Text className="text-[16px] font-semibold">
-                          Approach the net 10 times
+                          {item.text}
                         </Text>
                       </View>
                     </Animated.View>
@@ -265,7 +266,7 @@ export default function Home() {
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
                   <Text className="text-lg font-semibold text-slate-900">
-                    Double Wizard-ry
+                    Double Strategies
                   </Text>
                   <Text className="text-[14px] font-bold mt-[4px] text-slate-900">
                     Coach Jakub

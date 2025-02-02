@@ -6,7 +6,11 @@ import { useLocalSearchParams } from "expo-router";
 import { singleDataWeek1 } from "@/assets/constants/singledata/data1";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { doubleData } from "@/assets/constants/doubledata/data1";
+import Checkbox from "expo-checkbox";
 export default function profile() {
+  const [warmCheck, setWarmCheck] = useState(false);
+  const [mainCheck, setMainCheck] = useState(false);
+  const [noteCheck, setNoteCheck] = useState(false);
   const { title, id } = useLocalSearchParams();
   let sections;
   if (Number(id) == 0) {
@@ -32,65 +36,18 @@ export default function profile() {
             </Text>
           </View>
         </View>
-        {/* <View className="Warm-up mt-7">
-          <View className="flex-row items-center gap-4 mb-4">
-            <Text className="text-textColor font-bold text-xl bg-slate-700 px-3 py-1 rounded-lg flex-shrink-0">
-              1
-            </Text>
-            <Text className="text-blue-300 font-bold text-[16px]">Warm Up</Text>
-          </View>
-          <View className="drills mb-4">
-            {sections["Warm Up"].drills.map((drill: any, index: any) => (
-              <Text
-                key={index}
-                className="text-slate-300 text-[15px] mb-2 leading-5 py-5 px-4 rounded-md"
-              >
-                - {drill}
-              </Text>
-            ))}
-            {sections["Warm Up"].notes.map((drill: any, index: any) => (
-              <Text
-                key={index}
-                className="text-slate-400 text-[13px] mb-2 leading-5  py-4 px-4 rounded-md"
-              >
-                Note: {drill}
-              </Text>
-            ))}
-          </View>
-        </View> */}
-        {/* <View className="Warm-up">
-          <View className="flex-row items-center gap-4 mb-4">
-            <Text className="text-textColor font-bold text-xl bg-slate-700 px-3 py-1 rounded-lg flex-shrink-0">
-              2
-            </Text>
-            <Text className="text-blue-300 font-bold text-[16px]">
-              Main Drills
-            </Text>
-          </View>
-          <View className="drills mb-4">
-            {sections["Main Drills"].drills.map((drill: any, index: any) => (
-              <Text
-                key={index}
-                className="text-slate-300 text-[15px] mb-2 leading-5 bg-slate-800 py-5 px-4 rounded-md"
-              >
-                - {drill}
-              </Text>
-            ))}
-            {sections["Main Drills"].notes.map((drill: any, index: any) => (
-              <Text
-                key={index}
-                className="text-slate-400 text-[13px] mb-2 leading-5  py-4 px-4 rounded-md"
-              >
-                Note: {drill}
-              </Text>
-            ))}
-          </View>
-        </View> */}
 
         <View className=" mt-8 p-3 rounded-xl border border-slate-600 ">
-          <Text className="text-blue-300 text-xl pl-3 font-semibold">
-            Warm Up
-          </Text>
+          <View className="flex-row justify-between">
+            <Text className="text-blue-300 text-xl pl-3 font-semibold">
+              Warm Up
+            </Text>
+            <Checkbox
+              value={warmCheck}
+              onValueChange={() => setWarmCheck((prev) => !prev)}
+              color={warmCheck ? "#4630EB" : undefined}
+            />
+          </View>
           <View className="flex-col gap-3 pl-3 mt-3">
             {sections["Warm Up"].drills.map((drill: any, index: any) => (
               <Text
@@ -105,9 +62,16 @@ export default function profile() {
         </View>
 
         <View className=" mt-5 p-3 rounded-xl border border-slate-600">
-          <Text className="text-teal-300 text-xl pl-3 font-semibold">
-            Main Drills
-          </Text>
+          <View className="flex-row justify-between">
+            <Text className="text-teal-300 text-xl pl-3 font-semibold">
+              Main Drills
+            </Text>
+            <Checkbox
+              value={mainCheck}
+              onValueChange={() => setMainCheck((prev) => !prev)}
+              color={mainCheck ? "#4630EB" : undefined}
+            />
+          </View>
           <View className="flex-col gap-3 pl-3 mt-3">
             {sections["Main Drills"].drills.map((drill: any, index: any) => (
               <Text
@@ -121,9 +85,16 @@ export default function profile() {
           </View>
         </View>
         <View className=" mt-5 p-3 rounded-xl border border-slate-700">
-          <Text className="text-fuchsia-300 text-xl pl-3 font-semibold">
-            Notes
-          </Text>
+          <View className="flex-row justify-between">
+            <Text className="text-fuchsia-300 text-xl pl-3 font-semibold">
+              Notes
+            </Text>
+            <Checkbox
+              value={noteCheck}
+              onValueChange={() => setNoteCheck((prev) => !prev)}
+              color={noteCheck ? "#4630EB" : undefined}
+            />
+          </View>
           <View className="flex-col gap-3 pl-3 mt-3">
             {sections["Main Drills"].notes.map((drill: any, index: any) => (
               <Text

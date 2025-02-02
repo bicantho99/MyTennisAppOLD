@@ -24,10 +24,7 @@ export default function tourneypage() {
             <AntDesign name="arrowleft" size={24} color="white" />
           </TouchableOpacity>
           <Text className="text-slate-300 text-center text-2xl font-medium mt-2 flex-1">
-            {/* {actualPlayer.name} */}James Bui
-          </Text>
-          <Text className="text-slate-400 text-[15px] mt-3 font-medium">
-            Edit
+            Jakub Novak
           </Text>
         </View>
 
@@ -58,15 +55,16 @@ export default function tourneypage() {
           </View>
           <View className="flex-row justify-between">
             <Text className="text-blue-300 text-xl pl-3">Group</Text>
-            <Text className="text-slate-400 text-lg pr-2">
-              14's Under Girls
-            </Text>
+            <Text className="text-slate-400 text-lg pr-2">Men's</Text>
           </View>
         </View>
         <View className="bg-slate-800 mt-5 p-3 rounded-lg border border-slate-700">
           <Text className="text-blue-300 text-xl pl-3 font-semibold">Note</Text>
           <View className="flex-row gap-3 pl-3 mt-3">
-            <Text className="text-slate-400 text-lg">He's alright</Text>
+            <Text className="text-slate-400 text-lg">
+              He's alright, strong and flashy forehand, target his backhand
+              instead.
+            </Text>
           </View>
         </View>
         <TouchableOpacity
