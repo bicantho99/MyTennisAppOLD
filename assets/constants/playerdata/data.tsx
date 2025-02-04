@@ -29,7 +29,7 @@ export const usePlayerStore = create<Store>((set) => ({
       const updatedPlayerData = state.playerData.filter(
         (playerInfo: any) => playerInfo.playerId !== playerId
       );
-      AsyncStorage.setItem("playerData", JSON.stringify(updatedPlayerData));
+      AsyncStorage.setItem("playerInfo", JSON.stringify(updatedPlayerData));
       return { playerData: updatedPlayerData };
     });
   },

@@ -16,8 +16,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.MyTennisApp",
-      "icon": "./assets/images/icon.png"
+      "bundleIdentifier": "com.anonymous.MyTennisApp"
     },
     "android": {
       "adaptiveIcon": {

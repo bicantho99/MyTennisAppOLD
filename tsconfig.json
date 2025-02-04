@@ -12,5 +12,5 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "nativewind-env.d.ts"
-, "app/(root)/resources.tsx", "app/attendance/index.jsx"  ]
+, "app/(tab)/resources.tsx", "app/attendance/index.jsx"  ]
 }
