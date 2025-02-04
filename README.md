@@ -1,50 +1,93 @@
-# Welcome to your Expo app 👋
+# MyTennisApp
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+One Paragraph of the project description
 
-## Get started
+Initially appeared on
+[gist](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2). But the page cannot open anymore so that is why I have moved it here.
 
-1. Install dependencies
+## Getting Started
 
-   ```bash
-   npm install
-   ```
+These instructions will give you a copy of the project up and running on
+your local machine for development and testing purposes. See deployment
+for notes on deploying the project on a live system.
 
-2. Start the app
+### Prerequisites
 
-   ```bash
-    npx expo start
-   ```
+Requirements for the software and other tools to build, test and push 
+- [Example 1](https://www.example.com)
+- [Example 2](https://www.example.com)
 
-In the output, you'll find options to open the app in a
+### Installing
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+A step by step series of examples that tell you how to get a development
+environment running
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Say what the step will be
 
-## Get a fresh project
+    Give the example
 
-When you're ready, run:
+And repeat
 
-```bash
-npm run reset-project
-```
+    until finished
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+End with an example of getting some data out of the system or using it
+for a little demo
 
-## Learn more
+## Running the tests
 
-To learn more about developing your project with Expo, look at the following resources:
+Explain how to run the automated tests for this system
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Sample Tests
 
-## Join the community
+Explain what these tests test and why
 
-Join our community of developers creating universal apps.
+    Give an example
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Style test
+
+Checks if the best practices and the right coding style has been used.
+
+    Give an example
+
+## Deployment
+
+Add additional notes to deploy this on a live system
+
+## Built With
+
+  - [Contributor Covenant](https://www.contributor-covenant.org/) - Used
+    for the Code of Conduct
+  - [Creative Commons](https://creativecommons.org/) - Used to choose
+    the license
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
+of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [Semantic Versioning](http://semver.org/) for versioning. For the versions
+available, see the [tags on this
+repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
+
+## Authors
+
+  - **Billie Thompson** - *Provided README Template* -
+    [PurpleBooth](https://github.com/PurpleBooth)
+
+See also the list of
+[contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
+who participated in this project.
+
+## License
+
+This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
+Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
+details
+
+## Acknowledgments
+
+  - Hat tip to anyone whose code is used
+  - Inspiration
+  - etc
