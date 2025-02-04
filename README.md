@@ -2,7 +2,7 @@
 
 a note taking / organizing app for tennis players and coaches. 
 
-Main features:
+## Main features:
 
 Create trainings, matches and player infos, complete tennis challenges
    
