@@ -35,7 +35,6 @@ export default function Home() {
   const cardWidth = screenWidth * 0.8;
   const [progress, setProgress] = useState(0);
   useEffect(() => {
-    // AsyncStorage.clear();
     const loadProgress = async () => {
       try {
         const savedTasks = await AsyncStorage.getItem("completedTasks");
@@ -111,18 +110,16 @@ export default function Home() {
             <Text className="text-blue-300 font-bold text-[21px] mb-4">
               Weekly's Challenges
             </Text>
-            <View className="mb-1">
-              <Progress.Bar
-                progress={progress}
-                borderColor={""}
-                width={cardWidth}
-                animated={true}
-                useNativeDriver={true}
-                animationConfig={{ bounciness: 0 }}
-                animationType={"timing"}
-              />
-            </View>
-            <View className="h-[90px] flex justify-between ">
+            <Progress.Bar
+              progress={progress}
+              borderColor={""}
+              width={cardWidth}
+              animated={true}
+              useNativeDriver={true}
+              animationConfig={{ bounciness: 0 }}
+              animationType={"timing"}
+            />
+            <View className="h-[90px] ">
               <Animated.FlatList
                 ref={scrollViewRef} // Attach the FlatList reference
                 onScroll={Animated.event(
@@ -169,8 +166,11 @@ export default function Home() {
 
                   return (
                     <Animated.View
-                      className="w-[320px]"
-                      style={{ transform: [{ scale }], opacity }}
+                      style={{
+                        transform: [{ scale }],
+                        opacity,
+                        width: cardWidth,
+                      }}
                     >
                       <View
                         className="bg-blue-400 rounded-xl gap-3 p-[15px] mt-[8.3px] "

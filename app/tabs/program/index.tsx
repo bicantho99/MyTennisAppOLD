@@ -32,7 +32,7 @@ export default function program() {
     },
     {
       id: 1,
-      coach: "Coach Cecile",
+      coach: "Coach Jakub",
       totalWeeks: 3,
       title: "Double Strategies",
       description: "Training focusing on solid double strategies",
@@ -61,8 +61,8 @@ export default function program() {
   useEffect(() => {}, [loadTrainings()]);
   // useEffect(() => {}, [AsyncStorage.clear()]);
   return (
-    <SafeAreaView className="flex-1 bg-bgColor">
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <View className="flex-1 bg-bgColor">
+      <ScrollView showsVerticalScrollIndicator={false} className="mt-[50px]">
         <StatusBar style="light" />
         <View className="mx-6 my-2 ">
           <View className="flex-row items-center justify-between mb-6">
@@ -83,66 +83,62 @@ export default function program() {
             </TouchableOpacity>
           </View>
           <View className="gap-5">
-            {trainingData.length === 0 ? (
-              <TouchableOpacity
-                onPress={() => {
-                  router.push({
-                    pathname: "/tabs/program/examplePage",
-                  });
-                }}
+            <TouchableOpacity
+              onPress={() => {
+                router.push({
+                  pathname: "/tabs/program/examplePage",
+                });
+              }}
+            >
+              <View
+                // key={index}
+                className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300"
               >
-                <View
-                  // key={index}
-                  className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300"
-                >
-                  <View className="flex-row justify-between">
-                    <Text className="text-textColor text-md">
-                      Time: 4:00 PM
-                    </Text>
-                    <Text className="text-gray-400 text-md">
-                      Total Players: 2
-                    </Text>
-                  </View>
-                  <Text className="text-blue-300 font-bold text-[20px]">
-                    Example Training
-                  </Text>
-                  <Text className="text-white text-md">
-                    Create your own trainings above
+                <View className="flex-row justify-between">
+                  <Text className="text-textColor text-md">Time: 4:00 PM</Text>
+                  <Text className="text-gray-400 text-md">
+                    Total Players: 2
                   </Text>
                 </View>
-              </TouchableOpacity>
-            ) : (
-              trainingData.map((item: any, index: any) => {
-                return (
-                  <TouchableOpacity
-                    key={item.id}
-                    onPress={() => {
-                      router.push({
-                        pathname: "/tabs/program/trainingPage",
-                        params: { trainingIDX: item.id },
-                      });
-                    }}
-                  >
-                    <View className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300">
-                      <View className="flex-row justify-between">
-                        <Text className="text-textColor text-md">
-                          Time: {item.time}
-                        </Text>
-                        <Text className="text-gray-400 text-md">
-                          Players: {item.totalPlayers}
-                        </Text>
-                      </View>
-                      <Text className="text-blue-300 font-bold text-[20px]">
-                        {item.title}
+                <Text className="text-blue-300 font-bold text-[20px]">
+                  Baseline Pattern
+                </Text>
+                <Text className="text-white text-md">
+                  This training focus on baseline patterns
+                </Text>
+              </View>
+            </TouchableOpacity>
+
+            {trainingData.map((item: any, index: any) => {
+              return (
+                <TouchableOpacity
+                  key={item.id}
+                  onPress={() => {
+                    router.push({
+                      pathname: "/tabs/program/trainingPage",
+                      params: { trainingIDX: item.id },
+                    });
+                  }}
+                >
+                  <View className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300">
+                    <View className="flex-row justify-between">
+                      <Text className="text-textColor text-md">
+                        Time: {item.time}
                       </Text>
-                      <Text className="text-white text-md">
-                        {item.description}
+                      <Text className="text-gray-400 text-md">
+                        Players: {item.totalPlayers}
                       </Text>
                     </View>
-                  </TouchableOpacity>
-                );
-              })
-            )}
+                    <Text className="text-blue-300 font-bold text-[20px]">
+                      {item.title}
+                    </Text>
+                    <Text className="text-white text-md">
+                      {item.description}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
             {programs.map((program, index) => (
               <TouchableOpacity
                 key={index}
@@ -199,6 +195,6 @@ export default function program() {
           <View className="mt-8 gap-2"></View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

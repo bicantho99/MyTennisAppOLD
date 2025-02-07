@@ -18,11 +18,11 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
-SplashScreen.setOptions({
-  duration: 3000,
+`SplashScreen.setOptions({
+  duration: 1000,
   fade: true,
 });
-
+`
 export default function GuestLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
 
@@ -33,7 +33,7 @@ export default function GuestLayout() {
         await Font.loadAsync(Entypo.font);
         // Artificially delay for two seconds to simulate a slow loading
         // experience. Remove this if you copy and paste the code!
-        await new Promise((resolve) => setTimeout(resolve, 600));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       } catch (e) {
         console.warn(e);
       } finally {

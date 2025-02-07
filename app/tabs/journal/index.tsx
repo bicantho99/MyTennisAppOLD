@@ -49,10 +49,10 @@ export default function Logs() {
                     <View className=" bg-slate-800 pl-5 pr-3 pt-2 pb-4 border-blue-800 border-dash rounded-xl gap-[12px] border-[0.4px] mb-4 shadow-sm shadow-slate-300">
                       <View className="flex-row gap-2 justify-between items-center mt-2">
                         <Text className="text-slate-200 text-[19px]">
-                          Example Player
+                          Jakub Novak
                         </Text>
                         <Text className="text-slate-400 text-[15px]">
-                          5.0 USTA
+                          14 UTR
                         </Text>
                       </View>
 
@@ -135,10 +135,10 @@ export default function Logs() {
                     <View className="flex-row justify-between items-center">
                       <View className="NAME_SECTION gap-4">
                         <Text className="text-textColor text-[19px] font-semibold">
-                          Example Match
+                          Khanh Nguyen
                         </Text>
                         <Text className="text-textColor text-[19px] font-semibold">
-                          Example Match
+                          Jakub Novak
                         </Text>
                       </View>
                       <View className="SCORE_SECTION gap-4 flex-row pr-2">
@@ -147,7 +147,7 @@ export default function Logs() {
                             6
                           </Text>
                           <Text className="text-slate-900 text-[21px] text-center font-bold bg-sky-400 p-1 px-2 rounded-xl">
-                            2
+                            4
                           </Text>
                         </View>
                         <View className="2 flex-col gap-2">
@@ -155,7 +155,7 @@ export default function Logs() {
                             6
                           </Text>
                           <Text className="text-slate-900 text-[21px] text-center font-bold bg-sky-400 p-1 px-2 rounded-xl">
-                            2
+                            4
                           </Text>
                         </View>
                       </View>
@@ -172,7 +172,7 @@ export default function Logs() {
                       </Text>
                     </View>
                     <Text className="text-slate-300 text-[14px]">
-                      This is an example match data, add your own...
+                      My serve and forehand worked great today...
                     </Text>
                   </View>
                 </View>
@@ -248,14 +248,26 @@ export default function Logs() {
                 </TouchableOpacity>
               ))
             )}
+            <TouchableOpacity
+              onPress={() => {
+                router.push("/tabs/journal/addmatch");
+              }}
+            >
+              <View className="box-view border-dotted border border-teal-300  bg-teal-900/20  rounded-xl gap-[15px]  h-[85px] mb-4   items-center justify-center mt-2">
+                <Text className="text-slate-200 text-[17px] font-medium">
+                  Create Your Own Matches
+                </Text>
+                <AntDesign name="addfile" size={22} color="white" />
+              </View>
+            </TouchableOpacity>
           </View>
         );
     }
   };
 
   return (
-    <SafeAreaView className="bg-bgColor flex-1">
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <View className="bg-bgColor flex-1">
+      <ScrollView showsVerticalScrollIndicator={false} className="mt-[50px]">
         <View className="mx-6 ">
           <View className="flex-row justify-between items-center">
             <Text className="text-textColor text-[25px] font-semibold mt-4">
@@ -307,6 +319,6 @@ export default function Logs() {
           <View className="mt-9 gap-2">{switchComponent()}</View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

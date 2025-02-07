@@ -24,7 +24,7 @@ export default function tourneypage() {
             <AntDesign name="arrowleft" size={24} color="white" />
           </TouchableOpacity>
           <Text className="text-slate-300 text-center text-2xl font-medium mt-2 flex-1">
-        Example Player
+            Jakub Novak
           </Text>
         </View>
 
@@ -51,7 +51,7 @@ export default function tourneypage() {
         <View className="bg-slate-800 mt-5 gap-2 p-3 rounded-lg border border-slate-700">
           <View className="flex-row justify-between">
             <Text className="text-blue-300 text-xl pl-3">Rating</Text>
-            <Text className="text-slate-400 text-lg pr-2">5.0 USTA</Text>
+            <Text className="text-slate-400 text-lg pr-2">14 UTR</Text>
           </View>
           <View className="flex-row justify-between">
             <Text className="text-blue-300 text-xl pl-3">Group</Text>
@@ -73,7 +73,7 @@ export default function tourneypage() {
           }}
         >
           <Text className="text-orange-400 mt-5 pl-1 font-semibold text-lg ">
-            Delete
+            Back
           </Text>
         </TouchableOpacity>
       </View>

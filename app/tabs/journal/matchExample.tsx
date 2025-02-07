@@ -9,9 +9,9 @@ export default function matchExample() {
     player1: "Khanh Nguyen",
     player2: "Jakub Novak",
     player1_1s: 6, // Player 1's score for set 1
-    player2_1s: 6, // Player 2's score for set 1
-    player1_2s: 2, // Player 1's score for set 2
-    player2_2s: 2, // Player 2's score for set 2
+    player2_1s: 4, // Player 2's score for set 1
+    player1_2s: 6, // Player 1's score for set 2
+    player2_2s: 4, // Player 2's score for set 2
     // player1_3s: 7, // Player 1's score for set 3 (if exists)
     // player2_3s: , // Player 2's score for set 3 (if exists)
     matchNote: "I played insane today, keep on hitting bigger forehands.",

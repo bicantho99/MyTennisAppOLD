@@ -9,7 +9,7 @@
       "image": "./assets/images/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#02102B",
-      "imageWidth": 200
+      "imageWidth": 50
     },
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",

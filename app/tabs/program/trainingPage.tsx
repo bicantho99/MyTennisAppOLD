@@ -34,7 +34,6 @@ export default function Profile() {
               {actualTraining?.title}
             </Text>
           </View>
-          <Text className="text-slate-500 text-md font-bold mt-5">Edit</Text>
         </View>
 
         {/* Warm-up */}
@@ -97,10 +96,9 @@ export default function Profile() {
         {actualTraining?.Notes.length > 0 && (
           <View className="p-3 rounded-xl border border-slate-700">
             <View className="flex-row items-center gap-4 mb-4 pt-2">
-              <Text className="text-textColor font-bold text-xl bg-slate-700 px-3 py-1 rounded-lg flex-shrink-0">
-                3
+              <Text className="text-blue-300 font-bold text-xl pl-4">
+                Notes
               </Text>
-              <Text className="text-blue-300 font-bold text-[16px]">Notes</Text>
             </View>
             <View className="drills mb-4 pl-2">
               {actualTraining?.Notes.map((drill: any, index: any) => (
