@@ -25,7 +25,7 @@ export default function Profile() {
       extraHeight={10}
     >
       <View className="mx-6 mt-11 gap-4">
-        <View className="flex-row items-center pt-2 justify-between mb-5">
+        <View className="flex-row items-center pt-2 justify-between mb-4">
           <TouchableOpacity onPress={() => router.back()} className="mt-6">
             <AntDesign name="arrowleft" size={24} color="white" />
           </TouchableOpacity>
@@ -36,28 +36,50 @@ export default function Profile() {
           </View>
         </View>
 
+        {/* <View className=" mt-8 p-3 rounded-xl border border-slate-600 ">
+          <View className="flex-row justify-between">
+            <Text className="text-blue-300 text-xl pl-3 font-semibold">
+              Warm Up
+            </Text>
+            <Checkbox
+              value={warmCheck}
+              onValueChange={() => setWarmCheck((prev) => !prev)}
+              color={warmCheck ? "#4630EB" : undefined}
+            />
+          </View>
+          <View className="flex-col gap-3 pl-3 mt-3">
+            {sections["Warm Up"].drills.map((drill: any, index: any) => (
+              <Text
+                key={index}
+                className="text-slate-300 text-lg font-medium"
+                style={{ marginVertical: 5 }}
+              >
+                {index + 1}. {drill}
+              </Text>
+            ))}
+          </View>
+        </View> */}
         {/* Warm-up */}
         {actualTraining?.warmUp.length > 0 && (
-          <View className="p-3 rounded-xl border border-slate-500">
-            <View className="gap-4 mb-4">
-              <View className="flex-row justify-between">
-                <Text className="text-blue-300 text-xl pl-3 font-semibold">
-                  Warm Up
-                </Text>
-                <Checkbox
-                  value={warmCheck}
-                  onValueChange={() => setWarmCheck((prev) => !prev)}
-                  color={warmCheck ? "#4630EB" : undefined}
-                />
-              </View>
+          <View className="p-3 rounded-xl border border-slate-600">
+            <View className="flex-row justify-between">
+              <Text className="text-blue-300 text-xl pl-3 font-semibold">
+                Warm Up
+              </Text>
+              <Checkbox
+                value={warmCheck}
+                onValueChange={() => setWarmCheck((prev) => !prev)}
+                color={warmCheck ? "#4630EB" : undefined}
+              />
             </View>
-            <View className="drills mb-4 gap-2">
+            <View className="flex-col gap-3 pl-3 mt-3 pb-1">
               {actualTraining?.warmUp.map((drill: any, index: any) => (
                 <Text
                   key={index}
-                  className="text-slate-300 text-lg font-medium pl-2"
+                  style={{ marginVertical: 5 }}
+                  className="text-slate-300 text-lg font-medium "
                 >
-                  {index + 1}. {drill}
+                  - {drill}
                 </Text>
               ))}
             </View>
@@ -66,23 +88,22 @@ export default function Profile() {
 
         {/* Main Drills */}
         {actualTraining?.mainDrills.length > 0 && (
-          <View className="p-3 rounded-xl border border-slate-500">
-            <View className="gap-4 mb-4">
-              <View className="flex-row justify-between">
-                <Text className="text-teal-300 text-xl pl-3 font-semibold">
-                  Main Drills
-                </Text>
-                <Checkbox
-                  value={mainCheck}
-                  onValueChange={() => setMainCheck((prev) => !prev)}
-                  color={mainCheck ? "#4630EB" : undefined}
-                />
-              </View>
+          <View className="p-3 rounded-xl border border-slate-600">
+            <View className="flex-row justify-between">
+              <Text className="text-blue-300 text-xl pl-3 font-semibold">
+                Main Drills
+              </Text>
+              <Checkbox
+                value={mainCheck}
+                onValueChange={() => setMainCheck((prev) => !prev)}
+                color={mainCheck ? "#4630EB" : undefined}
+              />
             </View>
-            <View className="drills mb-4 pl-2">
+            <View className="flex-col gap-3 pl-3 mt-3 pb-1">
               {actualTraining?.mainDrills.map((drill: any, index: any) => (
                 <Text
                   key={index}
+                  style={{ marginVertical: 5 }}
                   className="text-slate-300 text-lg font-medium"
                 >
                   - {drill}
@@ -94,16 +115,17 @@ export default function Profile() {
 
         {/* Notes */}
         {actualTraining?.Notes.length > 0 && (
-          <View className="p-3 rounded-xl border border-slate-700">
-            <View className="flex-row items-center gap-4 mb-4 pt-2">
-              <Text className="text-blue-300 font-bold text-xl pl-4">
+          <View className="p-3 rounded-xl border border-slate-500">
+            <View className="flex-row justify-between">
+              <Text className="text-blue-300 text-xl pl-3 font-semibold">
                 Notes
               </Text>
             </View>
-            <View className="drills mb-4 pl-2">
+            <View className="flex-col gap-3 pl-3 mt-3 pb-1">
               {actualTraining?.Notes.map((drill: any, index: any) => (
                 <Text
                   key={index}
+                  style={{ marginVertical: 5 }}
                   className="text-slate-300 text-lg font-medium"
                 >
                   - {drill}
@@ -118,9 +140,9 @@ export default function Profile() {
           <View className="flex-row justify-between">
             <TouchableOpacity
               onPress={() => router.back()}
-              className="bg-teal-600 rounded-xl p-3 mt-6 flex-1 mx-2"
+              className="  bg-teal-600 rounded-xl p-3 mt-6 flex-1 mx-2"
             >
-              <Text className="text-center  text-white font-bold text-xl ">
+              <Text className="text-center  text-slate-100 font-bold text-xl ">
                 Complete
               </Text>
             </TouchableOpacity>
@@ -130,9 +152,9 @@ export default function Profile() {
                 router.back();
                 deleteTraining(actualTraining.id);
               }}
-              className="bg-orange-700 rounded-xl p-3 mt-6 flex-1 mx-2"
+              className="bg-red-600 rounded-xl p-3 mt-6 flex-1 mx-2 "
             >
-              <Text className="text-center text-white font-bold text-xl ">
+              <Text className="text-center text-slate-300 font-bold text-xl ">
                 Delete
               </Text>
             </TouchableOpacity>

@@ -58,15 +58,16 @@ export default function program() {
     });
   };
 
-  useEffect(() => {}, [loadTrainings()]);
-  // useEffect(() => {}, [AsyncStorage.clear()]);
+  useEffect(() => {
+    loadTrainings();
+  }, []);
   return (
     <View className="flex-1 bg-bgColor">
       <ScrollView showsVerticalScrollIndicator={false} className="mt-[50px]">
         <StatusBar style="light" />
         <View className="mx-6 my-2 ">
           <View className="flex-row items-center justify-between mb-6">
-            <Text className="text-textColor  text-[25px]  font-semibold mt-3  mb-1">
+            <Text className="text-white  text-[25px]  font-semibold mt-3  mb-1">
               Programs
             </Text>
             <TouchableOpacity
@@ -83,32 +84,6 @@ export default function program() {
             </TouchableOpacity>
           </View>
           <View className="gap-5">
-            <TouchableOpacity
-              onPress={() => {
-                router.push({
-                  pathname: "/tabs/program/examplePage",
-                });
-              }}
-            >
-              <View
-                // key={index}
-                className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300"
-              >
-                <View className="flex-row justify-between">
-                  <Text className="text-textColor text-md">Time: 4:00 PM</Text>
-                  <Text className="text-gray-400 text-md">
-                    Total Players: 2
-                  </Text>
-                </View>
-                <Text className="text-blue-300 font-bold text-[20px]">
-                  Baseline Pattern
-                </Text>
-                <Text className="text-white text-md">
-                  This training focus on baseline patterns
-                </Text>
-              </View>
-            </TouchableOpacity>
-
             {trainingData.map((item: any, index: any) => {
               return (
                 <TouchableOpacity
@@ -120,13 +95,13 @@ export default function program() {
                     });
                   }}
                 >
-                  <View className="bg-slate-800 p-5 gap-4 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300">
-                    <View className="flex-row justify-between">
-                      <Text className="text-textColor text-md">
-                        Time: {item.time}
+                  <View className="bg-slate-800 p-4 gap-3 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300">
+                    <View className="flex-row justify-between items-center mb-1">
+                      <Text className="text-blue-100 font-medium rounded-lg ">
+                        {item.time}
                       </Text>
-                      <Text className="text-gray-400 text-md">
-                        Players: {item.totalPlayers}
+                      <Text className="text-blue-400 font-bold rounded-lg">
+                        {item.datedate}
                       </Text>
                     </View>
                     <Text className="text-blue-300 font-bold text-[20px]">
@@ -139,45 +114,35 @@ export default function program() {
                 </TouchableOpacity>
               );
             })}
-            {programs.map((program, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => {
-                  handleClick(program.id);
-                }}
+
+            <TouchableOpacity
+              onPress={() => {
+                router.push({
+                  pathname: "/tabs/program/examplePage",
+                });
+              }}
+            >
+              <View
+                // key={index}
+                className="bg-slate-800 p-4 gap-3 rounded-xl border-blue-300 border-[0.4px] shadow-sm shadow-blue-300"
               >
-                <View className="box-view bg-slate-800 pl-5 pr-3 pt-5 border-blue-300  rounded-xl gap-[9px] border-[0.4px] h-[165px]   shadow-sm shadow-blue-300">
-                  <View className="text-view flex-col justify-between h-full">
-                    <View className="gap-2">
-                      <View className="flex-row justify-between">
-                        <Text className="text-textColor font-medium">
-                          {program.coach}
-                        </Text>
-                        <Text className="text-gray-400 font-semibold">
-                          Total Weeks: {program.totalWeeks}
-                        </Text>
-                      </View>
-
-                      <Text className="text-blue-300 font-bold text-[21px]">
-                        {program.title}
-                      </Text>
-                    </View>
-
-                    <Text className="text-white">{program.description}</Text>
-                    <View className="flex-row pb-5">
-                      {program.tags.map((tag, tagIndex) => (
-                        <Text
-                          key={tagIndex}
-                          className="mr-4 mt-[3.5px] px-2 py-1 bg-blue-200 rounded-md text-[12px] font-medium"
-                        >
-                          {tag}
-                        </Text>
-                      ))}
-                    </View>
-                  </View>
+                <View className="flex-row justify-between items-center mb-1">
+                  <Text className="text-blue-100 font-medium rounded-lg ">
+                    4:00 PM
+                  </Text>
+                  <Text className="text-blue-400 font-bold rounded-lg">
+                    Wednesday, July 12
+                  </Text>
+                  {/* <AntDesign name="right" size={18} color="gray" /> */}
                 </View>
-              </TouchableOpacity>
-            ))}
+                <Text className="text-blue-300 font-bold text-[20px]">
+                  Baseline Pattern
+                </Text>
+                <Text className="text-slate-200 text-md">
+                  This training focus on baseline patterns
+                </Text>
+              </View>
+            </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
                 router.push("/tabs/program/addprogram");

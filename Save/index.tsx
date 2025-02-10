@@ -244,3 +244,96 @@
 //     </View>
 //   );
 // };
+<View className="text-view gap-2">
+  <Text className="text-blue-300 font-bold text-[21px] mb-4">Note:</Text>
+  <Progress.Bar
+    progress={progress}
+    borderColor={""}
+    width={cardWidth}
+    animated={true}
+    useNativeDriver={true}
+    animationConfig={{ bounciness: 0 }}
+    animationType={"timing"}
+  />
+  <View className="h-[90px] ">
+    <Animated.FlatList
+      ref={scrollViewRef} // Attach the FlatList reference
+      onScroll={Animated.event(
+        [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+        { useNativeDriver: true }
+      )}
+      data={challenges}
+      keyExtractor={(item) => String(item.day)}
+      pagingEnabled
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ gap: 2 }}
+      scrollEventThrottle={10}
+      decelerationRate={0.2}
+      getItemLayout={(data, index) => ({
+        length: ITEM_SIZE,
+        offset: ITEM_SIZE * index,
+        index,
+      })}
+      initialNumToRender={1}
+      maxToRenderPerBatch={1}
+      renderItem={({ item, index }) => {
+        const inputRange = [-1, 0, ITEM_SIZE * index, ITEM_SIZE * (index + 2)];
+        const opacityRange = [
+          -1,
+          0,
+          ITEM_SIZE * index,
+          ITEM_SIZE * (index + 0.5),
+        ];
+
+        const scale = scrollY.interpolate({
+          inputRange,
+          outputRange: [1, 1, 1, 0],
+        });
+        const opacity = scrollY.interpolate({
+          inputRange: opacityRange,
+          outputRange: [1, 1, 1, 0],
+        });
+        const isChecked = completedTasks.includes(index);
+
+        return (
+          <Animated.View
+            style={{
+              transform: [{ scale }],
+              opacity,
+              width: cardWidth,
+            }}
+          >
+            <View
+              className="bg-blue-400 rounded-xl gap-3 p-[15px] mt-[8.3px] "
+              style={{}}
+            >
+              <View className="flex-row justify-between ">
+                <Text className="font-semibold opacity-[0.6px]">
+                  Day {item.day}
+                </Text>
+                <Checkbox
+                  value={isChecked}
+                  onValueChange={() => handleCheckboxChange(index)}
+                  color={isChecked ? "#2563eb" : "#334155"}
+                />
+              </View>
+              <Text className="text-[16px] font-semibold">{item.text}</Text>
+            </View>
+          </Animated.View>
+        );
+      }}
+    />
+  </View>
+</View>;
+
+
+
+{/* <Progress.Bar
+              progress={progress}
+              borderColor={""}
+              width={cardWidth}
+              animated={true}
+              useNativeDriver={true}
+              animationConfig={{ bounciness: 0 }}
+              animationType={"timing"}
+            /> */}

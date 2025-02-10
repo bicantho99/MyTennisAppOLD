@@ -25,7 +25,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="goal"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
@@ -37,7 +37,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="program"
         options={{
-          title: "Programs",
+          title: "Train",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="sports-tennis" size={24} color={color} />
           ),
@@ -52,6 +52,14 @@ export default function TabLayout() {
           ),
         }}
       />
+      {/* <Tabs.Screen
+        // Name of the route to hide.
+        name="goal"
+        options={{
+          // This tab will no longer show up in the tab bar.
+          href: null,
+        }}
+      /> */}
     </Tabs>
   );
 }

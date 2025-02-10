@@ -13,7 +13,6 @@ export default function Layout() {
         }}
       >
         <Stack.Screen name="tabs" />
-        {/* <Stack.Screen name="trainingPage2" /> */}
       </Stack>
     </TrainingDataProvider>
   );

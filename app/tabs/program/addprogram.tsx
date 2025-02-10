@@ -39,7 +39,7 @@ export default function Adding() {
   const items = ["Warm Up", "Main Drills", "Notes"];
   const [tabName, setTabName] = useState<keyof Drills>("Warm Up");
   const [drillName, setDrillName] = useState("");
-  const [totalPlayer, setTotalPlayer] = useState("");
+  const [datedate, SetDatedate] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
   const [error, setError] = useState(false);
@@ -58,7 +58,7 @@ export default function Adding() {
   const newProgram = {
     id: trainingID,
     title: title,
-    totalPlayers: totalPlayer,
+    datedate: datedate,
     description: TDef,
     time: TDur,
     warmUp: drills["Warm Up"] || [],
@@ -103,7 +103,7 @@ export default function Adding() {
     >
       <View>
         {/* <SafeAreaView> */}
-        <View className="mx-6 gap-5 pb-10 pt-3 ">
+        <View className="mx-6 gap-5 pb-10 pt-3">
           <View className="flex-row justify-between items-center">
             <Text className="text-textColor text-3xl font-bold mt-5">
               New Training
@@ -120,34 +120,52 @@ export default function Adding() {
             </TouchableOpacity>
           </View>
           <View className="section-view gap-3">
-            <Text className="text-teal-50">Description</Text>
+            {/* <Text className="text-teal-50">Title</Text> */}
+
+            {/* <View className="flex-row justify-between">
+              <TextInput
+                className="text-textColor text-md"
+                placeholder="Input Time Here"
+              />
+            </View> */}
+            {/* <TextInput
+              className="text-blue-300 font-bold text-[20px]"
+              placeholder="Training Name"
+            /> */}
+
+            {/* <Text className="text-white text-md">
+              This training focus on baseline patterns
+            </Text> */}
             <TextInput
-              className="bg-gray-800  pt-5 pb-6 px-4 mb-1 rounded-md text-white   border-blue-800 border-[0.4px]"
-              placeholder="Write Your Practice Name"
+              className="bg-gray-800  py-5 px-4 mb-1 rounded-lg text-white flex-[1.5]"
+              placeholder="Baseline Patterns"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setTitle(text)}
               value={title}
             />
+            <View className="flex-row gap-5 ">
+              <TextInput
+                className="bg-gray-800  py-5 px-4 mb-1 rounded-lg text-white flex-[1.5]"
+                placeholder="Wednesday, July 12"
+                placeholderTextColor={"gray"}
+                onChangeText={(text) => SetDatedate(text)}
+                value={datedate}
+              />
+              <TextInput
+                className="bg-gray-800 py-5 px-4 mb-1 rounded-md  flex-[1]   text-white"
+                placeholder="4:00 PM "
+                placeholderTextColor={"gray"}
+                onChangeText={(text) => setTDur(text)}
+                value={TDur}
+              />
+            </View>
+            <Text className="text-[15px] font-medium text-slate-400">
+              Description
+            </Text>
             <TextInput
-              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-blue-800 border-[0.4px] text-textColor "
-              placeholder="Time. Ex: 4:00 PM "
-              placeholderTextColor={"gray"}
-              onChangeText={(text) => setTDur(text)}
-              value={TDur}
-            />
-            <TextInput
-              className="bg-gray-800 pt-5 pb-6 px-4 mb-1 rounded-md   border-blue-800 border-[0.4px] text-textColor "
-              placeholder="Total Players. Ex: 2 Players"
-              placeholderTextColor={"gray"}
-              onChangeText={(text) => setTotalPlayer(text)}
-              value={totalPlayer}
-            />
-            <TextInput
-              className="bg-gray-800 px-3 pb-10 pt-5 rounded-lg   border-blue-800 border-[0.4px] text-white"
+              className="bg-gray-800 px-3 pb-10 pt-5 rounded-lg   text-white"
               placeholder="Write Your Practice Description"
               placeholderTextColor={"gray"}
-              editable
-              multiline
               onChangeText={(text) => setTDef(text)}
               value={TDef}
             />
@@ -167,7 +185,7 @@ export default function Adding() {
                       className={`${
                         selected === index
                           ? " text-[15px] border-2 border-teal-400 font-semibold flex-1 px-[10px] text-white rounded-md py-[11px]"
-                          : "text-white text-[15px] px-[10px] font-semibold py-[11px] flex-1"
+                          : "text-slate-400 text-[15px] px-[10px] font-semibold py-[11px] flex-1"
                       } transition ease-in duration-900  `}
                     >
                       {item}
@@ -176,7 +194,7 @@ export default function Adding() {
                 );
               })}
             </View>
-            <View className="NO  flex  gap-2  mb-3  min-h-[140px]  rounded border-b-2 border-gray-500 transition duration-500 ease-in pb-10">
+            <View className="NO  flex  gap-2  mb-3  min-h-[200px]  rounded border-b-2 border-gray-500 transition duration-500 ease-in pb-10">
               {drills[tabName]?.length === 0 ? (
                 <Text className="text-gray-600 mt-3 font-medium text-[19px] text-center w-[200px] mb-2 transition ease-in duration-500">
                   Add {tabName} Below
@@ -210,7 +228,7 @@ export default function Adding() {
             </View>
 
             <TextInput
-              className="bg-gray-800 py-5 px-4 rounded-md text-white border-gray-400 border-[0.2px]"
+              className="bg-gray-800 py-5 px-4  text-white rounded-xl"
               placeholder="Drill name"
               placeholderTextColor={"gray"}
               onChangeText={(text) => setDrillName(text)}

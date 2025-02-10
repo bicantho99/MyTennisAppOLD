@@ -7,16 +7,21 @@ import {
   Dimensions,
   Animated,
   ScrollView,
+  StyleSheet,
+  TextInput,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React, { useEffect, useState, useRef } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import * as Progress from "react-native-progress";
 import Checkbox from "expo-checkbox";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useWeeklyStore } from "../../tennis-backend/useWeeklyStore";
+import { useWeeklyStore } from "../../../tennis-backend/useWeeklyStore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";
 export default function Home() {
   type Challenge = {
@@ -24,101 +29,41 @@ export default function Home() {
     text: string;
     completed: boolean;
   };
-  const { challenges, toggleChallenge, loadChallenges } = useWeeklyStore();
-
-  const [completedTasks, setCompletedTasks] = React.useState<number[]>([]);
+  const { challenges } = useWeeklyStore();
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
   const scrollViewRef = React.useRef<FlatList>(null);
   const ITEM_SIZE = 90;
   const screenWidth = Dimensions.get("window").width;
   const cardWidth = screenWidth * 0.8;
-  const [progress, setProgress] = useState(0);
   useEffect(() => {
-    const loadProgress = async () => {
-      try {
-        const savedTasks = await AsyncStorage.getItem("completedTasks");
-        if (savedTasks) {
-          const parsedTasks = JSON.parse(savedTasks);
-          setCompletedTasks(parsedTasks);
-        }
-      } catch (error) {
-        console.error("Error loading progress:", error);
-      }
-    };
-
-    loadProgress();
-    loadChallenges();
+    // loadChallenges();
   }, []);
 
-  useEffect(() => {
-    if (challenges.length > 0) {
-      setProgress(completedTasks.length / challenges.length);
-    }
-  }, [completedTasks, challenges]);
-
-  useEffect(() => {
-    const saveProgress = async () => {
-      try {
-        await AsyncStorage.setItem(
-          "completedTasks",
-          JSON.stringify(completedTasks)
-        );
-      } catch (error) {
-        console.error("Error saving progress:", error);
-      }
-    };
-
-    saveProgress();
-  }, [completedTasks]);
-
-  const handleCheckboxChange = (index: number) => {
-    setCompletedTasks((prev) => {
-      const isChecked = prev.includes(index);
-      const updatedTasks = isChecked
-        ? prev.filter((task) => task !== index)
-        : [...prev, index];
-
-      setTimeout(() => {
-        if (!isChecked) {
-          const nextIndex = index + 1;
-          if (nextIndex < challenges.length && scrollViewRef.current) {
-            scrollViewRef.current.scrollToIndex({
-              index: nextIndex,
-              animated: true,
-            });
-          }
-        }
-      }, 130);
-
-      return updatedTasks;
-    });
-  };
-
+  const [editToggle, setEditToggle] = useState(false);
   return (
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
       <StatusBar style="light" />
-      <View className="mx-6 my-6">
+      <View className="mx-6 mt-3">
         <View className="Header mb-5 flex-row justify-between">
-          <Text className="text-textColor font-semibold text-[25px]">
+          <Text className="text-white font-semibold text-[25px]">
             My Tennis App
           </Text>
         </View>
 
-        <View className="box-view  bg-slate-800 pl-5  pr-3 pt-5  border-blue-800 rounded-xl gap-[5px]   border-[0.4px]  h-[190px] shadow-sm shadow-blue-400">
+        <View className="box-view  bg-slate-800 pl-5  pr-4 pt-5  border-blue-800 rounded-xl gap-[5px]   border-[0.4px]   shadow-sm shadow-blue-400 pb-3">
           <View className="text-view gap-2">
-            <Text className="text-blue-300 font-bold text-[21px] mb-4">
-              Weekly's Challenges
-            </Text>
-            <Progress.Bar
-              progress={progress}
-              borderColor={""}
-              width={cardWidth}
-              animated={true}
-              useNativeDriver={true}
-              animationConfig={{ bounciness: 0 }}
-              animationType={"timing"}
-            />
+            <View className="flex-row justify-between items-center">
+              <Text className="text-blue-300 font-semi text-[21px]">
+                I'm Working On:
+              </Text>
+              <MaterialCommunityIcons
+                name="arrow-up-down"
+                size={20}
+                color="gray"
+              />
+            </View>
+
             <View className="h-[90px] ">
               <Animated.FlatList
                 ref={scrollViewRef} // Attach the FlatList reference
@@ -127,10 +72,10 @@ export default function Home() {
                   { useNativeDriver: true }
                 )}
                 data={challenges}
-                keyExtractor={(item) => String(item.day)}
+                keyExtractor={(item) => String(item.text)}
                 pagingEnabled
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ gap: 2 }}
+                contentContainerStyle={{ gap: 5 }}
                 scrollEventThrottle={10}
                 decelerationRate={0.2}
                 getItemLayout={(data, index) => ({
@@ -162,14 +107,12 @@ export default function Home() {
                     inputRange: opacityRange,
                     outputRange: [1, 1, 1, 0],
                   });
-                  const isChecked = completedTasks.includes(index);
 
                   return (
                     <Animated.View
                       style={{
                         transform: [{ scale }],
                         opacity,
-                        width: cardWidth,
                       }}
                     >
                       <View
@@ -177,17 +120,13 @@ export default function Home() {
                         style={{}}
                       >
                         <View className="flex-row justify-between ">
-                          <Text className="font-semibold opacity-[0.6px]">
-                            Day {item.day}
+                          <Text className="text-[16px] font-semibold">
+                            {item.text}
                           </Text>
-                          <Checkbox
-                            value={isChecked}
-                            onValueChange={() => handleCheckboxChange(index)}
-                            color={isChecked ? "#2563eb" : "#334155"}
-                          />
                         </View>
-                        <Text className="text-[16px] font-semibold">
-                          {item.text}
+
+                        <Text className="font-semibold opacity-[0.6px]">
+                          {item.descr}
                         </Text>
                       </View>
                     </Animated.View>
@@ -195,6 +134,13 @@ export default function Home() {
                 }}
               />
             </View>
+            <TouchableOpacity
+              onPress={() => router.push("/tabs/goal/strategies")}
+            >
+              <Text className="text-center text-white font-semibold text-md bg-slate-700 rounded-lg p-4">
+                SEE ALL
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -221,7 +167,7 @@ export default function Home() {
           </TouchableOpacity>
           <TouchableOpacity
             className="bg-teal-300 rounded-md h-[90px]  flex-col gap-4 pl-3 pt-[12px]  flex-1"
-            onPress={() => router.push("/tabs/journal")}
+            onPress={() => router.push("/tabs/program")}
           >
             <Ionicons
               name="tennisball"
@@ -237,15 +183,17 @@ export default function Home() {
           <Text className="text-textColor font-semibold text-[25px]">
             Programs
           </Text>
-          <TouchableOpacity onPress={() => router.push("/tabs/program")}>
-            <Text className="text-green-400 font-[500] text-[15px] p-2">
-              See All
-            </Text>
-          </TouchableOpacity>
         </View>
 
         <View className="gap-2 mb-2">
-          <TouchableOpacity onPress={() => router.push("/tabs/program")}>
+          <TouchableOpacity
+            onPress={() =>
+              router.push({
+                pathname: "/programOverview",
+                params: { trainingId: 0 },
+              })
+            }
+          >
             <View className="box-view   bg-slate-800  rounded-xl  border-slate-700  border-[0.4px] p-3 ">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
@@ -256,12 +204,21 @@ export default function Home() {
                     Coach Cecile
                   </Text>
                 </View>
-                <Text>Training focusing on solid single strategies</Text>
+                <Text className="text-[15px]">
+                  Training focusing on solid single strategies
+                </Text>
               </View>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => router.push("/tabs/program")}>
+          <TouchableOpacity
+            onPress={() =>
+              router.push({
+                pathname: "/programOverview",
+                params: { trainingId: 1 },
+              })
+            }
+          >
             <View className="box-view  bg-slate-800  border-slate-700  rounded-xl  border-[0.4px]  p-3">
               <View className="bg-blue-400 rounded-md gap-3 p-3 ">
                 <View className="flex-row justify-between">
@@ -273,7 +230,9 @@ export default function Home() {
                   </Text>
                 </View>
 
-                <Text>Training focusing on solid double strategies</Text>
+                <Text className="text-[15px]">
+                  Training focusing on solid double strategies
+                </Text>
               </View>
             </View>
           </TouchableOpacity>

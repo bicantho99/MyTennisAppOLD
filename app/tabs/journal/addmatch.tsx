@@ -125,7 +125,7 @@ export default function Adding() {
             <View className="flex-row justify-between">
               <TextInput
                 className=" p-4 py-5 mb-1 rounded-xl   text-white   border-blue-300 border-[0.9px] shadow-sm shadow-slate-700 w-[55%]"
-                placeholder="Player's Name"
+                placeholder="Opponent's Name "
                 placeholderTextColor={"gray"}
                 value={player2}
                 onChangeText={setPlayer2}
@@ -163,7 +163,7 @@ export default function Adding() {
 
             <TextInput
               className="bg-gray-800 px-3 pb-10 pt-4 rounded-lg  border border-slate-400 text-white  shadow-sm shadow-slate-700 mt-2"
-              placeholder="Note..."
+              placeholder="Note: Strategies used, etc.."
               placeholderTextColor={"gray"}
               editable
               // multiline
