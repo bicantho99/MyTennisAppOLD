@@ -7,15 +7,21 @@ import {
   TextInput,
 } from "react-native";
 import { router } from "expo-router";
+import "react-native-get-random-values";
+import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { useWeeklyStore } from "../../../tennis-backend/useWeeklyStore";
+import { useWeeklyStore } from "../../../assets/constants/useWeeklyStore";
 
 export default function Adding() {
-  const { challenges } = useWeeklyStore();
-  const [name, setName] = useState("");
+  const { challenges, addChallenge, deleteChallenge } = useWeeklyStore();
+  const [text, setName] = useState("");
   const [descr, setDescr] = useState("");
-
+  const randomId = uuidv4();
+  const handleSubmit = () => {
+    const newChallenge = { text, descr, randomId };
+    addChallenge(newChallenge);
+  };
   return (
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
       <View className="mx-6 gap-5 pb-10 pt-3">
@@ -38,15 +44,21 @@ export default function Adding() {
           <TextInput
             className="text-white p-5 bg-slate-800 rounded-lg"
             placeholder="Serve and Volley"
+            value={text}
+            onChangeText={setName}
           />
           <View className="flex-row gap-4 items-center">
             <TextInput
-              className="text-white p-5 bg-slate-800 rounded-lg"
-              placeholder="a great way to surprise your opponent"
+              className="text-white p-5 bg-slate-800 rounded-lg flex-1"
+              placeholder="Note: Volley to open court"
+              value={descr}
+              onChangeText={setDescr}
             />
-            <Text className="text-slate-300 font-bold text-lg bg-slate-800 p-4 rounded-xl">
-              Add
-            </Text>
+            <TouchableOpacity onPress={() => handleSubmit()}>
+              <Text className="text-slate-300 font-bold text-lg bg-slate-800 p-4 rounded-xl">
+                Add
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View className="">
@@ -59,7 +71,9 @@ export default function Adding() {
                   <Text className="text-[16px] text-slate-200 font-semibold">
                     {item.text}
                   </Text>
-                  <Text className="text-slate-400">Delete</Text>
+                  <TouchableOpacity onPress={() => deleteChallenge(item.id)}>
+                    <Text className="text-slate-400">Delete</Text>
+                  </TouchableOpacity>
                 </View>
                 <Text className="font-semibold opacity-[0.5px] text-white">
                   {item.descr}

@@ -10,12 +10,12 @@ type WeekData = {
 };
 
 export const singleDataWeek1: any = {
-  "Serving Patterns": {
+  "The Underarm Serve": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",
         "Baseline cross court - 20 Ball in a row",
-        "Serve warm up each side x10",
+        "Under arm serve each side x10",
       ],
       notes: [
         "Warm up with good rhythm and consistency, adjust to court, ball conditions, etc.",
@@ -72,7 +72,7 @@ export const singleDataWeek1: any = {
       notes: ["Do an experiment. No negative body language for an entire set"],
     },
   },
-  "Baseline Patterns": {
+  "Nadal's Banana Forehand": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",
@@ -92,7 +92,7 @@ export const singleDataWeek1: any = {
       notes: ["The 2-1 is the favorite baseline strategy of the pro’s."],
     },
   },
-  "Returning Patterns": {
+  "The Hot-Dog": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",

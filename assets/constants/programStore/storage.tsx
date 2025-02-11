@@ -12,13 +12,13 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Serving Patterns",
-          description: "This training focus on serving patterns",
+          title: "The Underarm Serve",
+          description: "This training focus on hitting underarm serves",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Returning Patterns",
+          title: "The Hot-Dog",
           description: "This training focus on returning patterns",
         },
         {
@@ -30,7 +30,7 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Baseline Patterns",
+          title: "Nadal's Banana Forehand",
           description: "Discover the best baseline practices",
         },
       ],
@@ -71,7 +71,7 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Returning Patterns 2",
+          title: "The Underarm Serve",
           description: "This training focus on serving patterns",
         },
         {
@@ -84,7 +84,7 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Baseline Patterns 3",
+          title: "The Hot-Dog",
           description: "Discover the best baseline practices",
         },
       ],
@@ -94,19 +94,19 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Net Play Essentials",
+          title: "The Hot Dog",
           description: "This training focus on improving your volleys",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins ",
-          title: "Net Play Essentials 2",
+          title: "The SABR",
           description: "This training focus on improving your volleys",
         },
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Returning Strategies",
+          title: "The Fake Overhead",
           description: "This training focus on improving your return",
         },
         {
@@ -132,7 +132,7 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Returning Strategies",
+          title: "The Fake Overhead",
           description: "This training focus on improving your return",
         },
         {
@@ -164,7 +164,7 @@ export const useProgramStore = create<store>((set) => ({
         {
           state: false,
           time: "45 Mins to 60 Mins",
-          title: "Net Play Essentials",
+          title: "The Hot Dog",
           description: "This training focus on improving your volley",
         },
       ],

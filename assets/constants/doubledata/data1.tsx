@@ -10,7 +10,7 @@ type WeekData = {
 };
 
 export const doubleData: any = {
-  "Net Play Essentials": {
+  "The Hot Dog": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",
@@ -31,7 +31,7 @@ export const doubleData: any = {
       notes: ["Drill these until you have confidence and consistency"],
     },
   },
-  "Net Play Essentials 2": {
+  "The SABR": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",
@@ -54,7 +54,7 @@ export const doubleData: any = {
       ],
     },
   },
-  "Returning Strategies": {
+  "The Fake Overhead": {
     "Warm Up": {
       drills: [
         "Mini Tennis - 30 balls in a row",

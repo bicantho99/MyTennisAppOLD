@@ -52,8 +52,7 @@ export default function ProgramPage() {
   };
 
   const renderOut = [];
-  const fullText =
-    "This practice focuses on solid forehand and backhand along with endurance training to make sure techniques don't break down when it's tiring.";
+  const fullText = `"This practice focuses on solid SABR and underarm serves along with around-the-net shots to make sure you stay cool even when you're not winning"`;
   const truncatedText = "This practice focuses on solid...";
   const fullText1 = "";
   const truncatedText2 = "";

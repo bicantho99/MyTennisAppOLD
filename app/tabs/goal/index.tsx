@@ -18,7 +18,7 @@ import Checkbox from "expo-checkbox";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useWeeklyStore } from "../../../tennis-backend/useWeeklyStore";
+import { useWeeklyStore } from "../../../assets/constants/useWeeklyStore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -29,7 +29,7 @@ export default function Home() {
     text: string;
     completed: boolean;
   };
-  const { challenges } = useWeeklyStore();
+  const { challenges, loadChallenges } = useWeeklyStore();
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
   const scrollViewRef = React.useRef<FlatList>(null);
@@ -37,9 +37,8 @@ export default function Home() {
   const screenWidth = Dimensions.get("window").width;
   const cardWidth = screenWidth * 0.8;
   useEffect(() => {
-    // loadChallenges();
+    loadChallenges();
   }, []);
-
   const [editToggle, setEditToggle] = useState(false);
   return (
     <SafeAreaView style={{ flex: 1 }} className="bg-bgColor">
@@ -51,7 +50,7 @@ export default function Home() {
           </Text>
         </View>
 
-        <View className="box-view  bg-slate-800 pl-5  pr-4 pt-5  border-blue-800 rounded-xl gap-[5px]   border-[0.4px]   shadow-sm shadow-blue-400 pb-3">
+        <View className="box-view  bg-slate-800 pl-5  pr-4 pt-5  border-blue-800 rounded-xl gap-[5px]   border-[0.4px]   shadow-sm shadow-blue-400 pb-4">
           <View className="text-view gap-2">
             <View className="flex-row justify-between items-center">
               <Text className="text-blue-300 font-semi text-[21px]">
@@ -137,7 +136,7 @@ export default function Home() {
             <TouchableOpacity
               onPress={() => router.push("/tabs/goal/strategies")}
             >
-              <Text className="text-center text-white font-semibold text-md bg-slate-700 rounded-lg p-4">
+              <Text className="text-center text-white font-semibold text-md bg-slate-700 rounded-lg p-5">
                 SEE ALL
               </Text>
             </TouchableOpacity>
@@ -205,7 +204,7 @@ export default function Home() {
                   </Text>
                 </View>
                 <Text className="text-[15px]">
-                  Training focusing on solid single strategies
+                  Training focus on hitting tweener winner
                 </Text>
               </View>
             </View>
@@ -231,7 +230,7 @@ export default function Home() {
                 </View>
 
                 <Text className="text-[15px]">
-                  Training focusing on solid double strategies
+                  Training focus on hitting underarm serves
                 </Text>
               </View>
             </View>

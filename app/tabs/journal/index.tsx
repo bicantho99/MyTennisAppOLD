@@ -144,7 +144,7 @@ export default function Logs() {
                       </Text>
                     </View>
                     <Text className="text-slate-300 text-[14px]">
-                      My serve and forehand worked great today...
+                      I hit an insane no-look tweener-winner....
                     </Text>
                   </View>
                 </View>
