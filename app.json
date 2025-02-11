@@ -2,7 +2,7 @@
   "expo": {
     "name": "MyTennisApp",
     "slug": "mytennisapp",
-    "version": "1.0.1",
+    "version": "5",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -16,8 +16,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.MyTennisApp",
-      "buildNumber": "1.0.1"
+      "bundleIdentifier": "com.anonymous.MyTennisApp"
     },
     "android": {
       "adaptiveIcon": {
@@ -43,9 +42,6 @@
       }
     },
     "owner": "greenday_99",
-    "plugins": [
-      "expo-router",
-      "expo-secure-store"
-    ]
+    "plugins": ["expo-router", "expo-secure-store"]
   }
 }
