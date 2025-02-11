@@ -2,7 +2,7 @@
   "expo": {
     "name": "MyTennisApp",
     "slug": "mytennisapp",
-    "version": "2.0.0",
+    "version": "5",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -30,7 +30,6 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-
     "experiments": {
       "typedRoutes": true
     },
@@ -42,6 +41,7 @@
         "projectId": "12b8fbdc-9376-4fe0-a6af-366b56fc34da"
       }
     },
-    "owner": "greenday_99"
+    "owner": "greenday_99",
+    "plugins": ["expo-router", "expo-secure-store"]
   }
 }
