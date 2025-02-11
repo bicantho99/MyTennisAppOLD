@@ -71,18 +71,22 @@ export default function Logs() {
             <Text className="text-blue-300 text-[19px]  font-medium text-center">
               Khanh judges your practice/match
             </Text>
-            <View className="p-4  rounded-xl gap-5  flex-col w-full">
+
+            <View className="p-4  rounded-xl gap-5  flex-col w-full ">
+
+
+
               <TextInput
                 placeholder="How Many Tweener did you hit?"
                 className="bg-slate-800 p-5 rounded-xl text-white"
               />
               <TextInput
                 placeholder="How Many Underarm serve did you hit?"
-                className="bg-slate-800 p-5 rounded-xl text-white w-full"
+                className="bg-slate-800 p-5 rounded-xl text-white "
               />
               <TextInput
                 placeholder="Did you try to annoy your opponent?"
-                className="bg-slate-800 p-5 rounded-xl text-white w-full"
+                className="bg-slate-800 p-5 rounded-xl text-white "
               />
               <TouchableOpacity className="" onPress={() => randomJudges()}>
                 <Text className="bg-slate-800 text-center text-blue-300 p-3 rounded-xl text-xl">
