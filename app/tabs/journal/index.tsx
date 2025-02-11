@@ -71,7 +71,7 @@ export default function Logs() {
             <Text className="text-blue-300 text-[19px]  font-medium text-center">
               Khanh judges your practice/match
             </Text>
-            <View className="p-4  rounded-xl gap-5  flex-col  ">
+            <View className="p-4  rounded-xl gap-5  flex-col w-full ">
               <TextInput
                 placeholder="How Many Tweener did you hit?"
                 className="bg-slate-800 p-5 rounded-xl text-white"
