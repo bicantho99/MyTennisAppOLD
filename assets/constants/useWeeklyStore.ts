@@ -10,14 +10,19 @@ type Challenge = {
 export const useWeeklyStore = create<any>((set) => ({
   challenges: [
     {
-      id: 1,
-      text: "Slap Forehand Winner",
-      descr: "Aim for opponent's body",
+      id: 10,
+      text: "Ball Hogging",
+      descr: "Don't let your partner hit",
     },
     {
       id: 2,
       text: "Drop Shot Winner",
       descr: "Drop shot then lob over there head",
+    },
+    {
+      id: 1,
+      text: "Slap Forehand Winner",
+      descr: "Aim for opponent's body",
     },
     {
       id: 3,
@@ -48,6 +53,11 @@ export const useWeeklyStore = create<any>((set) => ({
       id: 8,
       text: "Higher Net Clearance",
       descr: "Get under the ball!!",
+    },
+    {
+      id: 9,
+      text: "Annoying my opponent",
+      descr: "Moonballs, slices,...",
     },
   ],
   addChallenge: async (newChallenge: any) => {

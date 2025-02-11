@@ -68,7 +68,7 @@ export default function program() {
         <View className="mx-6 my-2 ">
           <View className="flex-row items-center justify-between mb-6">
             <Text className="text-white  text-[25px]  font-semibold mt-3  mb-1">
-              Programs
+              Trainings
             </Text>
             <TouchableOpacity
               onPress={() => {

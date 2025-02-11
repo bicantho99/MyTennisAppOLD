@@ -4,7 +4,9 @@ import {
   SafeAreaView,
   TouchableOpacity,
   FlatList,
+  TextInput,
   ScrollView,
+  Button,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -15,7 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { usePlayerStore } from "@/assets/constants/playerdata/data";
 export default function Logs() {
-  const categories = ["Matches", "Rivals"];
+  const categories = ["Matches", "Khanh"];
   const { playerData, addPlayerInfo, loadPlayerInfos, deletePlayerInfo } =
     usePlayerStore();
   const [selected, setSelected] = useState(0);
@@ -31,64 +33,91 @@ export default function Logs() {
     loadMatchInfos();
     loadPlayerInfos();
   }, []);
+  const [selected2, setSelected2] = useState<string>("");
+  const [mode, setMode] = useState<number | null>(null);
+
+  const options = ["Mixed Dub", "Single", "Double"];
+  const [judgement, setJudgement] = useState("");
+  const [tactic, setTactic] = useState("");
+  const tactics = [
+    "Just Relax....Alex's favorite",
+    "just raw dog it",
+    "hog as many balls as you can",
+    "just keep the ball inside the court and over the net",
+    "Be like water my friend",
+    "Try to annoy your opponent",
+  ];
+  const judges = [
+    "Jk…I don’t judge",
+    "good practice, but you need more tweener next time",
+    "You need more underarm serve next time, like James",
+    "You definitely need to work on your attitude",
+  ];
+  function randomJudges() {
+    const randomJudgement = judges[Math.floor(Math.random() * judges.length)];
+    setJudgement(randomJudgement);
+  }
+  function randomTactic() {
+    const randomTactic = tactics[Math.floor(Math.random() * tactics.length)];
+    setTactic(randomTactic);
+  }
+
+  const [answer2, setAnswer2] = useState("");
   const switchComponent = () => {
     switch (selected) {
       case 1:
         return (
-          <View>
-            {playerData.map((item: any, index: any) => (
-              <View key={index}>
-                <View className="gap-1">
-                  <TouchableOpacity
-                    onPress={() =>
-                      router.push({
-                        pathname: "/tabs/journal/playerpage",
-                        params: {
-                          playerID: item.playerId,
-                        },
-                      })
-                    }
-                  >
-                    <View className="bg-slate-800 pl-5 pr-3 pt-2 pb-4 border-blue-800 border-dash rounded-xl gap-[12px] border-[0.4px] mb-4 shadow-sm shadow-slate-300">
-                      <View className="flex-row gap-2 justify-between items-center mt-2">
-                        <Text className="text-slate-200 text-[19px]">
-                          {item.name}
-                        </Text>
-                        <Text className="text-slate-400 text-[15px]">
-                          {item.rating}
-                        </Text>
-                      </View>
-
-                      <View className="flex-col gap-2">
-                        <View className="flex-row justify-between ">
-                          <Text className="text-[14px] text-blue-300">
-                            Notes:
-                          </Text>
-                          <Text className="text-[15px] text-sky-400">
-                            {item.group}
-                          </Text>
-                        </View>
-                        <Text className="text-[15px] text-slate-400">
-                          {item.notes}
-                        </Text>
-                      </View>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            ))}
-            <TouchableOpacity
-              onPress={() => {
-                router.push("/tabs/journal/addplayer");
-              }}
-            >
-              <View className="box-view border-dotted border border-teal-300  bg-teal-900/20  rounded-xl gap-[15px]  h-[85px] mb-4   items-center justify-center ">
-                <Text className="text-slate-200 text-[17px] font-medium">
-                  Create Your Rival Here
+          <View className="flex justify-center items-center">
+            <Text className="text-blue-300 text-[19px]  font-medium text-center">
+              Khanh judges your practice/match
+            </Text>
+            <View className="p-4  rounded-xl gap-5  flex-col  ">
+              <TextInput
+                placeholder="How Many Tweener did you hit?"
+                className="bg-slate-800 p-5 rounded-xl text-white"
+              />
+              <TextInput
+                placeholder="How Many Underarm serve did you hit?"
+                className="bg-slate-800 p-5 rounded-xl text-white"
+              />
+              <TextInput
+                placeholder="You annoy your own partner? or opponent?"
+                className="bg-slate-800 p-5 rounded-xl text-white"
+              />
+              <TouchableOpacity className="" onPress={() => randomJudges()}>
+                <Text className="bg-slate-800 text-center text-blue-300 p-3 rounded-xl text-xl">
+                  Ask Khanh
                 </Text>
-                <AntDesign name="addfile" size={22} color="white" />
+              </TouchableOpacity>
+            </View>
+            <Text className="text-white">{judgement}</Text>
+            <View className="flex-col items-center mt-[100px]">
+              <Text className="text-blue-300 text-[15px] font-medium mb-4">
+                Ask Khanh emergency tactic, you are playing:
+              </Text>
+              <View className="flex-row gap-2">
+                {options.map((option, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() => setSelected2(option)}
+                  >
+                    <Text
+                      className={`text-blue-300  p-3 rounded-xl ${
+                        selected2 === option ? "bg-blue-500" : "bg-slate-800"
+                      }`}
+                    >
+                      {option}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+                <TouchableOpacity onPress={() => randomTactic()}>
+                  <Text className="bg-blue-800 p-3 rounded-xl text-gray-300 font-bold">
+                    Ask
+                  </Text>
+                </TouchableOpacity>
               </View>
-            </TouchableOpacity>
+              <Text className="text-white mt-5">{tactic}</Text>
+            </View>
           </View>
         );
 
@@ -233,20 +262,18 @@ export default function Logs() {
             <Text className="text-white text-[25px] font-semibold mt-4">
               Journal
             </Text>
-            <TouchableOpacity
-              onPress={() =>
-                router.push(
-                  toggle ? "/tabs/journal/addmatch" : "/tabs/journal/addplayer"
-                )
-              }
-            >
-              <AntDesign
-                name="pluscircle"
-                size={22}
-                color="white"
-                className="mt-6"
-              />
-            </TouchableOpacity>
+            {!toggle ? null : (
+              <TouchableOpacity
+                onPress={() => router.push("/tabs/journal/addmatch")}
+              >
+                <AntDesign
+                  name="pluscircle"
+                  size={22}
+                  color="white"
+                  className="mt-6"
+                />
+              </TouchableOpacity>
+            )}
           </View>
 
           <View className="flex-row justify-evenly items-center mt-5  ">

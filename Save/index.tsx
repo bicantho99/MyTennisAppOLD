@@ -337,3 +337,60 @@
               animationConfig={{ bounciness: 0 }}
               animationType={"timing"}
             /> */}
+
+
+
+
+                  {/* {playerData.map((item: any, index: any) => (
+                          <View key={index}>
+                            <View className="gap-1">
+                              <TouchableOpacity
+                                onPress={() =>
+                                  router.push({
+                                    pathname: "/tabs/journal/playerpage",
+                                    params: {
+                                      playerID: item.playerId,
+                                    },
+                                  })
+                                }
+                              >
+                                <View className="bg-slate-800 pl-5 pr-3 pt-2 pb-4 border-blue-800 border-dash rounded-xl gap-[12px] border-[0.4px] mb-4 shadow-sm shadow-slate-300">
+                                  <View className="flex-row gap-2 justify-between items-center mt-2">
+                                    <Text className="text-slate-200 text-[19px]">
+                                      {item.name}
+                                    </Text>
+                                    <Text className="text-slate-400 text-[15px]">
+                                      {item.rating}
+                                    </Text>
+                                  </View>
+
+                                  <View className="flex-col gap-2">
+                                    <View className="flex-row justify-between ">
+                                      <Text className="text-[14px] text-blue-300">
+                                        Notes:
+                                      </Text>
+                                      <Text className="text-[15px] text-sky-400">
+                                        {item.group}
+                                      </Text>
+                                    </View>
+                                    <Text className="text-[15px] text-slate-400">
+                                      {item.notes}
+                                    </Text>
+                                  </View>
+                                </View>
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+                        ))}
+                        <TouchableOpacity
+                          onPress={() => {
+                            router.push("/tabs/journal/addplayer");
+                          }}
+                        >
+                          <View className="box-view border-dotted border border-teal-300  bg-teal-900/20  rounded-xl gap-[15px]  h-[85px] mb-4   items-center justify-center ">
+                            <Text className="text-slate-200 text-[17px] font-medium">
+                              Let Khanh judege your practice/match
+                            </Text>
+                            <AntDesign name="addfile" size={22} color="white" />
+                          </View>
+                        </TouchableOpacity> */}
