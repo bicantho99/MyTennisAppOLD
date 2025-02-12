@@ -134,7 +134,7 @@ export default function Home() {
               />
             </View>
             <TouchableOpacity
-              onPress={() => router.push("/tabs/goal/strategies")}
+              onPress={() => router.push("/tabs/homepage/strategies")}
             >
               <Text className="text-center text-white font-semibold text-md bg-slate-700 rounded-lg p-5">
                 SEE ALL
@@ -166,7 +166,7 @@ export default function Home() {
           </TouchableOpacity>
           <TouchableOpacity
             className="bg-teal-300 rounded-md h-[90px]  flex-col gap-4 pl-3 pt-[12px]  flex-1"
-            onPress={() => router.push("/tabs/program")}
+            onPress={() => router.push("/tabs/training")}
           >
             <Ionicons
               name="tennisball"
@@ -176,6 +176,24 @@ export default function Home() {
             />
             <Text className="text-slate-800 font-bold text-[16px]">Train</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            className="bg-pink-100 rounded-md h-[90px]  flex-col gap-4 pl-3  pt-[12px] flex-1 "
+            onPress={() => router.push( "/tabs/stats")}
+
+          >
+            {/* <Ionicons
+              name="journal"
+              size={30}
+              color="rgba(0, 0, 0, 1)"
+              style={{ opacity: 0.6 }}
+            /> */}
+            <Text className="text-slate-800 font-bold text-[16px]">
+              Stats
+            </Text>
+          </TouchableOpacity>
+
+
         </View>
 
         <View className="Header mt-5 flex-row justify-between mb-4 ">
