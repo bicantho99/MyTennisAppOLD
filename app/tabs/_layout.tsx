@@ -25,7 +25,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="goal"
+        name="homepage"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
@@ -35,7 +35,7 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="program"
+        name="training"
         options={{
           title: "Train",
           tabBarIcon: ({ color }) => (
@@ -72,3 +72,4 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+

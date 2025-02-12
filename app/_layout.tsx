@@ -12,7 +12,7 @@ export default function Layout() {
           headerShadowVisible: false,
         }}
       >
-        <Stack.Screen name="tabs" />
+        <Stack.Screen name="tabs"/>
       </Stack>
     </TrainingDataProvider>
   );
