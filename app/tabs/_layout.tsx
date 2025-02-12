@@ -52,6 +52,15 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="stats"
+        options={{
+          title: "Stats",
+          tabBarIcon: ({ color }) => (
+            <Foundation name="clipboard-notes" size={22} color={color} />
+          ),
+        }}
+      />
       {/* <Tabs.Screen
         // Name of the route to hide.
         name="goal"
