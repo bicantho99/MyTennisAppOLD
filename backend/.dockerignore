@@ -1,0 +1,30 @@
+# Node.js dependencies (prevents copying them into Docker)
+node_modules
+npm-debug.log
+package-lock.json
+yarn.lock
+
+# Ignore environment variables (security best practice)
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+
+# Ignore logs and cache files
+logs
+*.log
+debug.log
+nohup.out
+yarn-error.log
+
+# Ignore system and IDE files
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
