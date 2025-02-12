@@ -74,7 +74,7 @@ export default function GuestLayout() {
         <Text className="text-textColor">
           Managing your trainings and exploring drills
         </Text>
-        <TouchableOpacity onPress={() => router.push("/tabs/goal")}>
+        <TouchableOpacity onPress={() => router.push("/tabs/homepage")}>
           <View className="rounded-lg bg-sky-300 mt-2 ">
             <Text className="text-center text-blue-900 font-bold p-3  text-lg">
               Get Started
