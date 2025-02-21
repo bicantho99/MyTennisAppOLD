@@ -174,7 +174,9 @@ export default function Home() {
               color="rgba(0, 0, 0, 0.9)"
               style={{ opacity: 0.6 }}
             />
-            <Text className="text-slate-800 font-bold text-[16px]">Train</Text>
+            <Text className="text-slate-800 font-bold text-[16px]">
+              Train
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -182,12 +184,12 @@ export default function Home() {
             onPress={() => router.push( "/tabs/stats")}
 
           >
-            {/* <Ionicons
-              name="journal"
+            <AntDesign
+              name="barschart"
               size={30}
               color="rgba(0, 0, 0, 1)"
               style={{ opacity: 0.6 }}
-            /> */}
+            />
             <Text className="text-slate-800 font-bold text-[16px]">
               Stats
             </Text>
