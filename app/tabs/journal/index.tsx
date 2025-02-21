@@ -272,8 +272,8 @@ export default function Logs() {
               >
                 <AntDesign
                   name="pluscircle"
-                  size={22}
-                  color="white"
+                   size={22}
+                 color="white"
                   className="mt-6"
                 />
               </TouchableOpacity>

@@ -53,7 +53,7 @@ export default function program() {
 
   const handleClick = (id: number) => {
     router.push({
-      pathname: "/tabs/program/program-page",
+      pathname: "/tabs/training/program-page",
       params: { trainingId: id },
     });
   };
@@ -72,7 +72,7 @@ export default function program() {
             </Text>
             <TouchableOpacity
               onPress={() => {
-                router.navigate("/tabs/program/addprogram");
+                router.navigate("/tabs/training/addprogram");
               }}
             >
               <AntDesign
@@ -90,7 +90,7 @@ export default function program() {
                   key={item.id}
                   onPress={() => {
                     router.push({
-                      pathname: "/tabs/program/trainingPage",
+                      pathname: "/tabs/training/trainingPage",
                       params: { trainingIDX: item.id },
                     });
                   }}
@@ -118,7 +118,7 @@ export default function program() {
             <TouchableOpacity
               onPress={() => {
                 router.push({
-                  pathname: "/tabs/program/examplePage",
+                  pathname: "/tabs/training/examplePage",
                 });
               }}
             >
@@ -145,7 +145,7 @@ export default function program() {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                router.push("/tabs/program/addprogram");
+                router.push("/tabs/training/addprogram");
               }}
             >
               <View className="box-view border-dotted border border-teal-300  bg-teal-900/20  rounded-xl gap-[15px]  h-[85px] mb-4   items-center justify-center">

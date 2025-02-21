@@ -3,7 +3,6 @@ import {
   View,
   Text,
   ActivityIndicator,
-  StyleSheet,
   ScrollView,
   SafeAreaView,
 } from "react-native";
@@ -28,119 +27,62 @@ export default function PlayerStats() {
   }, []);
 
   if (loading) return <ActivityIndicator size="large" color="#2563eb" />;
-  if (!stats) return <Text style={styles.text}>⚠️ Failed to load player stats.</Text>;
+  if (!stats)
+    return (
+      <Text className="text-gray-400 text-lg text-center mt-10">
+        ⚠️ Failed to load player stats.
+      </Text>
+    );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView className="bg-bgColor flex-1">
       <StatusBar style="light" />
-      <ScrollView style={styles.content}>
-        {/* Header */}
-        <View style={styles.headerContainer}>
-          <Text style={styles.header}>🏆 Player Stats</Text>
-          <AntDesign name="barschart" size={24} color="white" />
-        </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View className="mx-6">
+          {/* Header */}
+          <View className="flex-row justify-between items-center">
+            <Text className="text-white text-[25px] font-semibold mt-4">
+              Player Stats
+            </Text>
+            <AntDesign name="barschart" size={24} color="white" />
+          </View>
 
-        {/* Stats Box */}
-        <View style={styles.statsBox}>
-          <Text style={styles.playerName}>🎾 Player: {stats.name}</Text>
-          <Text style={styles.wins}>✅ Wins: {stats.wins}</Text>
-          <Text style={styles.losses}>❌ Losses: {stats.losses}</Text>
-        </View>
+          {/* Stats Box */}
+          <View className="bg-slate-800 p-4 rounded-xl border-blue-400 border-[0.4px] shadow-sm shadow-blue-300 mt-5">
+            <Text className="text-blue-300 font-bold text-lg">
+              Player: {stats.name}
+            </Text>
+            <Text className="text-green-400 text-lg font-semibold">
+              Wins: {stats.wins}
+            </Text>
+            <Text className="text-red-400 text-lg font-semibold">
+              Losses: {stats.losses}
+            </Text>
+          </View>
 
-        {/* Training Logs */}
-        <Text style={styles.trainingHeader}>📅 Training Logs</Text>
-        {stats.trainingLogs.length > 0 ? (
-          stats.trainingLogs.map((log, index) => (
-            <View key={index} style={styles.logBox}>
-              <Text style={styles.logText}>{log.date} - {log.drill}</Text>
-              <Text style={styles.logDuration}>{log.duration}</Text>
-            </View>
-          ))
-        ) : (
-          <Text style={styles.noLogs}>No training logs available.</Text>
-        )}
+          {/* Training Logs */}
+          <Text className="text-blue-300 font-bold text-[19px] mt-6">
+            Training Logs
+          </Text>
+          {stats.trainingLogs.length > 0 ? (
+            stats.trainingLogs.map((log, index) => (
+              <View
+                key={index}
+                className="bg-slate-800 p-3 rounded-xl border-blue-300 border-[0.3px] shadow-sm shadow-blue-300 mt-3"
+              >
+                <Text className="text-white text-lg font-semibold">
+                  {log.date} - {log.drill}
+                </Text>
+                <Text className="text-gray-300 text-md">{log.duration}</Text>
+              </View>
+            ))
+          ) : (
+            <Text className="text-gray-400 text-lg mt-3">
+              No training logs available.
+            </Text>
+          )}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#02102B", // Dark theme background
-  },
-  content: {
-    marginHorizontal: 20,
-    marginTop: 15,
-  },
-  headerContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 15,
-  },
-  header: {
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "white",
-  },
-  statsBox: {
-    backgroundColor: "#1E293B",
-    padding: 15,
-    borderRadius: 10,
-    borderColor: "#3B82F6",
-    borderWidth: 0.5,
-    shadowColor: "#3B82F6",
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
-  },
-  playerName: {
-    color: "#60A5FA",
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  wins: {
-    color: "#22C55E",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  losses: {
-    color: "#EF4444",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  trainingHeader: {
-    color: "#60A5FA",
-    fontSize: 18,
-    fontWeight: "bold",
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  logBox: {
-    backgroundColor: "#374151",
-    padding: 12,
-    borderRadius: 8,
-    borderColor: "#3B82F6",
-    borderWidth: 0.5,
-    shadowColor: "#3B82F6",
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
-    marginBottom: 10,
-  },
-  logText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  logDuration: {
-    color: "#CBD5E1",
-    fontSize: 14,
-  },
-  noLogs: {
-    color: "#9CA3AF",
-    fontSize: 16,
-  },
-});
